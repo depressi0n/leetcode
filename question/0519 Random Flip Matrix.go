@@ -10,7 +10,7 @@ type Solution struct {
 	flipped []int
 }
 
-func Constructor(n_rows int, n_cols int) Solution {
+func Constructor0519(n_rows int, n_cols int) Solution {
 	res := Solution{
 		rows:    n_rows,
 		cols:    n_cols,
