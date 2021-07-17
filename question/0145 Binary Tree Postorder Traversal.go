@@ -48,11 +48,11 @@ func postorderTraversal1(root *TreeNode) (res []int) {
 		}
 		root = stk[len(stk)-1]
 		stk = stk[:len(stk)-1]
-		if root.Right == nil || root.Right == prev { //第二次看见才放入
+		if root.Right == nil || root.Right == prev { //右孩子为空或者右孩子是prev，访问之
 			res = append(res, root.Val)
 			prev = root
 			root = nil
-		} else { //第一次直接放入栈中
+		} else { //再一次直接放入栈中
 			stk = append(stk, root)
 			root = root.Right
 		}

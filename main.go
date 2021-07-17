@@ -2879,27 +2879,221 @@ func main() {
 	//fmt.Println(question.ReverseParentheses("a(bcdefghijkl(mno)p)q"))
 	//fmt.Println(question.ReverseParentheses("a((bcdefghijkl)(mno)p)q"))
 
-	solution := question.Constructor0710(2, []int{})
-	fmt.Println(solution.Pick())
-	fmt.Println(solution.Pick())
-	fmt.Println(solution.Pick())
+	//solution := question.Constructor0710(2, []int{})
+	//fmt.Println(solution.Pick())
+	//fmt.Println(solution.Pick())
+	//fmt.Println(solution.Pick())
+	//
+	//solution = question.Constructor0710(1, []int{})
+	//fmt.Println(solution.Pick())
+	//fmt.Println(solution.Pick())
+	//fmt.Println(solution.Pick())
+	//
+	//solution = question.Constructor0710(3, []int{1})
+	//fmt.Println(solution.Pick())
+	//fmt.Println(solution.Pick())
+	//fmt.Println(solution.Pick())
+	//
+	//solution = question.Constructor0710(4, []int{2})
+	//fmt.Println(solution.Pick())
+	//fmt.Println(solution.Pick())
+	//fmt.Println(solution.Pick())
+	//fmt.Println(solution.Pick())
+	//fmt.Println(solution.Pick())
 
-	solution = question.Constructor0710(1, []int{})
-	fmt.Println(solution.Pick())
-	fmt.Println(solution.Pick())
-	fmt.Println(solution.Pick())
+	//fmt.Println(question.TotalHammingDistance1([]int{4,14,2}))
+	//fmt.Println(question.TotalHammingDistance1([]int{4,14,4}))
+	//fmt.Println(question.TotalHammingDistance1([]int{4,14,4,5}))
 
-	solution = question.Constructor0710(3, []int{1})
-	fmt.Println(solution.Pick())
-	fmt.Println(solution.Pick())
-	fmt.Println(solution.Pick())
+	//fmt.Println(question.IsPowerOfTwo(1))
+	//fmt.Println(question.IsPowerOfTwo(2))
+	//fmt.Println(question.IsPowerOfTwo(3))
+	//fmt.Println(question.IsPowerOfTwo(4))
 
-	solution = question.Constructor0710(4, []int{2})
-	fmt.Println(solution.Pick())
-	fmt.Println(solution.Pick())
-	fmt.Println(solution.Pick())
-	fmt.Println(solution.Pick())
-	fmt.Println(solution.Pick())
+	//fmt.Println(question.DistributeCoins(&question.TreeNode{
+	//	Val:   0,
+	//	Left:  &question.TreeNode{
+	//		Val:   3,
+	//		Left:  nil,
+	//		Right: nil,
+	//	},
+	//	Right: &question.TreeNode{
+	//		Val:   0,
+	//		Left:  nil,
+	//		Right: nil,
+	//	},
+	//}))
+	//fmt.Println(question.DistributeCoins(&question.TreeNode{
+	//	Val:   1,
+	//	Left:  &question.TreeNode{
+	//		Val:   0,
+	//		Left:  nil,
+	//		Right: nil,
+	//	},
+	//	Right: &question.TreeNode{
+	//		Val:   2,
+	//		Left:  nil,
+	//		Right: nil,
+	//	},
+	//}))
+	//fmt.Println(question.DistributeCoins(&question.TreeNode{
+	//	Val:   1,
+	//	Left:  &question.TreeNode{
+	//		Val:   0,
+	//		Left:  nil,
+	//		Right: nil,
+	//	},
+	//	Right: &question.TreeNode{
+	//		Val:   0,
+	//		Left:  nil,
+	//		Right: &question.TreeNode{
+	//			Val:   3,
+	//			Left:  nil,
+	//			Right: nil,
+	//		},
+	//	},
+	//}))
+	//fmt.Println(question.DistributeCoins(&question.TreeNode{
+	//	Val:   0,
+	//	Left:  &question.TreeNode{
+	//		Val:   5,
+	//		Left:  &question.TreeNode{
+	//			Val:   0,
+	//			Left:  nil,
+	//			Right: nil,
+	//		},
+	//		Right: &question.TreeNode{
+	//			Val:   1,
+	//			Left:  nil,
+	//			Right: nil,
+	//		},
+	//	},
+	//	Right: &question.TreeNode{
+	//		Val:   2,
+	//		Left:  &question.TreeNode{
+	//			Val:   0,
+	//			Left:  &question.TreeNode{
+	//				Val:   0,
+	//				Left:  nil,
+	//				Right: nil,
+	//			},
+	//			Right: nil,
+	//		},
+	//		Right: &question.TreeNode{
+	//			Val:   0,
+	//			Left:  nil,
+	//			Right: nil,
+	//		},
+	//	},
+	//}))
+	//fmt.Println(question.IsPowerOfFour(-1)) // F
+	//fmt.Println(question.IsPowerOfFour(0)) // F
+	//fmt.Println(question.IsPowerOfFour(1)) // T
+	//fmt.Println(question.IsPowerOfFour(2)) // F
+	//fmt.Println(question.IsPowerOfFour(3)) // F
+	//fmt.Println(question.IsPowerOfFour(4)) // T
+	//fmt.Println(question.IsPowerOfFour(5)) // F
+	//fmt.Println(question.IsPowerOfFour(8)) // F
+	//fmt.Println(question.IsPowerOfFour(12)) // F
+	//fmt.Println(question.IsPowerOfFour(16)) // T
+
+	//fmt.Println(question.CanEat([]int{7,4,5,3,8},[][]int{{0,2,2},{4,2,4},{2,13,10000}}))
+	//fmt.Println(question.CanEat([]int{5,2,6,4,1},[][]int{{3,1,2},{4,10,3},{3,10,100},{4,100,30},{1,3,1}}))
+
+	//fmt.Println(question.CheckSubarraySum([]int{23,2,4,6,7},6))
+	//fmt.Println(question.CheckSubarraySum([]int{23,2,6,4,7},6))
+	//fmt.Println(question.CheckSubarraySum([]int{23,2,6,4,7},13))
+
+	//fmt.Println(question.FindMaxLength([]int{0,1}))
+	//fmt.Println(question.FindMaxLength([]int{0,1,0}))
+	//fmt.Println(question.FindMaxLength([]int{0,1,0,1}))
+	//fmt.Println(question.FindMaxLength([]int{0,1,0,1,1}))
+	//fmt.Println(question.FindMaxLength([]int{0,1,0,1,1,0}))
+	//fmt.Println(question.FindMaxLength([]int{0,1,0,0,0,1,0,1}))
+	//fmt.Println(question.FindMaxLength([]int{0,0,0,1,1,1,0}))
+
+	//fmt.Println(question.FindMaxForm([]string{"10","0001","111001","1","0"},5,3))
+	//fmt.Println(question.FindMaxForm([]string{"10","0","1"},1,1))
+
+	//fmt.Println(question.FindTargetSumWays([]int{1,1,1,1,1},3))
+	//fmt.Println(question.FindTargetSumWays([]int{1},1))
+	//fmt.Println(question.FindTargetSumWays([]int{0,0,0,0,0,0,0,0,1},1))
+
+	//fmt.Println(question.LastStoneWeightII([]int{2,7,4,1,8,1}))
+	//fmt.Println(question.LastStoneWeightII([]int{31,26,33,21,40}))
+	//fmt.Println(question.LastStoneWeightII([]int{1,2}))
+	//fmt.Println(question.LastStoneWeightII([]int{1,1,4,2,2}))
+
+	//fmt.Println(question.ProfitableSchemes(5, 3, []int{2, 2}, []int{2, 3}))
+	//fmt.Println(question.ProfitableSchemes(10, 5, []int{2, 3, 5}, []int{6, 7, 8}))
+
+	//fmt.Println(question.LargestNumber1449([]int{4, 3, 2, 5, 6, 7, 2, 5, 5}, 9))
+	//fmt.Println(question.LargestNumber1449([]int{7, 6, 5, 5, 5, 6, 8, 7, 8}, 12))
+	//fmt.Println(question.LargestNumber1449([]int{2, 4, 6, 2, 4, 6, 4, 4, 4}, 5))
+	//fmt.Println(question.LargestNumber1449([]int{6, 10, 15, 40, 40, 40, 40, 40, 40}, 47))
+	//fmt.Println(question.LargestNumber1449([]int{1000,30,105,70,42,1000,1000,1000,1000},503))
+
+	//fmt.Println(question.Answer1833([]int{1,3,2,4,1},7))
+	//fmt.Println(question.Answer1833([]int{10,6,8,7,7,8},5))
+	//fmt.Println(question.Answer1833([]int{1,6,3,1,2,5},20))
+
+	//fmt.Println(question.Answer0645([]int{1,2,2,4}))
+	//fmt.Println(question.Answer0645([]int{1,1}))
+
+	//fmt.Println(question.Answer0646([][]int{
+	//	{1,2},{2,3},{3,4},
+	//}))
+	//fmt.Println(question.Answer0646([][]int{
+	//	{1,2},{7,8},{4,5},
+	//}))
+
+	//fmt.Println(question.Answer0726("H2O"))
+	//fmt.Println(question.Answer0726("H2O2"))
+	//fmt.Println(question.Answer0726("Be32"))
+
+	//fmt.Println(question.Answer1418(
+	//	[][]string{
+	//	{"David","3","Ceviche"},
+	//	{"Corina","10","Beef Burrito"},
+	//	{"David","3","Fried Chicken"},
+	//	{"Carla","5","Water"},
+	//	{"Carla","5","Ceviche"},
+	//	{"Rous","3","Ceviche"},
+	//	}))
+	//fmt.Println(question.Answer1418(
+	//	[][]string{
+	//	{"James","12","Fried Chicken"},
+	//	{"Ratesh","12","Fried Chicken"},
+	//	{"Amadeus","12","Fried Chicken"},
+	//	{"Adam","1","Canadian Waffles"},
+	//	{"Brianna","1","Canadian Waffles"},
+	//	}))
+
+	//fmt.Println(question.Answer0930([]int{1,0,1,0,1},2))
+	//fmt.Println(question.Answer0930([]int{0,0,0,0,0},0))
+	//fmt.Println(question.Answer0930([]int{0,0,1,0,0},1))
+
+	//fmt.Println(question.Answer0238([]int{1,2,3,4}))
+	//fmt.Println(question.Answer0238([]int{-1,1,0,-3,3}))
+
+	//fmt.Println(question.Answer0274([]int{3,0,6,1,5}))
+	//fmt.Println(question.Answer0274([]int{1,3,1}))
+
+	//fmt.Println(question.Answer1818([]int{1,7,5},[]int{2,3,5}))
+	//fmt.Println(question.Answer1818([]int{2,4,6,8,10},[]int{2,4,6,8,10}))
+	//fmt.Println(question.Answer1818([]int{1,10,4,4,2,7},[]int{9,3,5,1,7,4}))
+
+	//fmt.Println(question.Answer1846([]int{100,1,1000}))
+	//fmt.Println(question.Answer1846([]int{2,2,1,2,1}))
+	//fmt.Println(question.Answer1846([]int{1,2,3,4,5}))
+
+	fmt.Println(question.Answer0736("(let x 2 (mult x (let x 3 y 4 (add x y))))"))
+	fmt.Println(question.Answer0736("(let x 3 x 2 x)"))
+	fmt.Println(question.Answer0736("(let x 1 y 2 x (add x y) (add x y))"))
+	fmt.Println(question.Answer0736("(let x 2 (add (let x 3 (let x 4 x)) x))"))
+	fmt.Println(question.Answer0736("(let a1 3 b2 (add a1 1) b2)"))
+	fmt.Println(question.Answer0736("(let x -2 y x y)"))
+	fmt.Println(question.Answer0736("(let x (add 12 -7) (mult x x))"))
 }
 
 // Input: arr 表示输入的数组，每个仓内存储的数量
