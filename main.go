@@ -3087,14 +3087,42 @@ func main() {
 	//fmt.Println(question.Answer1846([]int{2,2,1,2,1}))
 	//fmt.Println(question.Answer1846([]int{1,2,3,4,5}))
 
-	fmt.Println(question.Answer0736("(let x 2 (mult x (let x 3 y 4 (add x y))))"))
-	fmt.Println(question.Answer0736("(let x 3 x 2 x)"))
-	fmt.Println(question.Answer0736("(let x 1 y 2 x (add x y) (add x y))"))
-	fmt.Println(question.Answer0736("(let x 2 (add (let x 3 (let x 4 x)) x))"))
-	fmt.Println(question.Answer0736("(let a1 3 b2 (add a1 1) b2)"))
-	fmt.Println(question.Answer0736("(let x -2 y x y)"))
-	fmt.Println(question.Answer0736("(let x (add 12 -7) (mult x x))"))
+	//fmt.Println(question.Answer0736("(let x 2 (mult x (let x 3 y 4 (add x y))))"))
+	//fmt.Println(question.Answer0736("(let x 3 x 2 x)"))
+	//fmt.Println(question.Answer0736("(let x 1 y 2 x (add x y) (add x y))"))
+	//fmt.Println(question.Answer0736("(let x 2 (add (let x 3 (let x 4 x)) x))"))
+	//fmt.Println(question.Answer0736("(let a1 3 b2 (add a1 1) b2)"))
+	//fmt.Println(question.Answer0736("(let x -2 y x y)"))
+	//fmt.Println(question.Answer0736("(let x (add 12 -7) (mult x x))"))
+
+	//fmt.Println(question.AnswerMST1002([]string{"eat", "tea", "tan", "ate", "nat", "bat"}))
+	//fmt.Println(question.AnswerMST1002([]string{"hos","boo","nay","deb","wow","bop","bob","brr","hey","rye","eve","elf","pup","bum","iva","lyx","yap","ugh","hem","rod","aha","nam","gap","yea","doc","pen","job","dis","max","oho","jed","lye","ram","pup","qua","ugh","mir","nap","deb","hog","let","gym","bye","lon","aft","eel","sol","jab"}))
+
+	//fmt.Println(question.Answer1838([]int{1,2,4},5))
+	//fmt.Println(question.Answer1838([]int{1,4,8,13},5))
+	//fmt.Println(question.Answer1838([]int{3,9,6},2))
+
+	//fmt.Println(question.Answer1540("input","ouput",9))
+	//fmt.Println(question.Answer1540("abc","bcd",10))
+	//fmt.Println(question.Answer1540("aab","bbb",27))
+	//fmt.Println(question.Answer1540("iqssxdlb","dyuqrwyr",40))
+
+	//fmt.Println(question.Answer1736("2?:?0"))
+	//fmt.Println(question.Answer1736("0?:3?"))
+	//fmt.Println(question.Answer1736("1?:22"))
+
+	//fmt.Println(question.Answer1743([][]int{{2,1},{3,4},{3,2}}))
+	//fmt.Println(question.Answer1743([][]int{{4,-2},{1,4},{-3,1}}))
+	//fmt.Println(question.Answer1743([][]int{{100000,-100000}}))
+	//fmt.Println(question.Answer1743([][]int{{-3,-9},{-5,3},{2,-9},{6,-3},{6,1},{5,3},{8,5},{-5,1},{7,2}}))
+
+	//fmt.Println(question.Answer1104(14))
+	//fmt.Println(question.Answer1104(26))
+	fmt.Println(question.Answer1104(16))
+	fmt.Println(question.Answer1104(15))
 }
+
+//[["eel"],["aft"],["lon"],["bye"],["gym"],["let"],["hog"],["mir"],["iva"],["brr"],["eve"],["nay"],["sol"],["pup","pup"],["max"],["bum"],["lye"],["gap"],["hey"],["boo"],["aha"],["elf"],["bob"],["hem"],["doc"],["oho"],["wow"],["deb","deb"],["hos"],["rye"],["bop"],["yap"],["ugh","ugh"],["ram"],["rod"],["nam"],["yea"],["nap"],["pen"],["job"],["lyx"],["dis"],["jed"],["jab"],["qua"]]
 
 // Input: arr 表示输入的数组，每个仓内存储的数量
 func solve(arr []int) int {
