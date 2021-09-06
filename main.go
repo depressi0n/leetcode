@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"github.com/depressi0n/leetcode/question"
+	"sync"
 )
 
 // 对边界条件的技巧：
@@ -3118,8 +3119,24 @@ func main() {
 
 	//fmt.Println(question.Answer1104(14))
 	//fmt.Println(question.Answer1104(26))
-	fmt.Println(question.Answer1104(16))
-	fmt.Println(question.Answer1104(15))
+	//fmt.Println(question.Answer1104(16))
+	//fmt.Println(question.Answer1104(15))
+
+	//fmt.Println(question.Answer0802([][]int{{1,2},{2,3},{5},{0},{5},{},{}}))
+	//fmt.Println(question.Answer0802([][]int{{1,2,3,4},{1,2},{3,4},{0,4},{}}))
+	//fmt.Println(question.Answer0802([][]int{{},{0,2,3,4},{3},{4},{}}))
+
+	//fmt.Println(question.Answer1137(4))
+	//fmt.Println(question.Answer1137(25))
+
+	//fmt.Println(question.Answer0413([]int{1,2,3,4}))
+	//fmt.Println(question.Answer0413([]int{1,2,3,4,5}))
+	//fmt.Println(question.Answer0413([]int{1,2,3,4,6}))
+	//fmt.Println(question.Answer0413([]int{1,3,5,7,9}))
+
+	//fmt.Println(question.Answer0446([]int{2,4,6,8,10}))
+	fmt.Println(question.Answer0446([]int{2,4,6,8,10,11,12,13,14}))
+	sync.Mutex{}
 }
 
 //[["eel"],["aft"],["lon"],["bye"],["gym"],["let"],["hog"],["mir"],["iva"],["brr"],["eve"],["nay"],["sol"],["pup","pup"],["max"],["bum"],["lye"],["gap"],["hey"],["boo"],["aha"],["elf"],["bob"],["hem"],["doc"],["oho"],["wow"],["deb","deb"],["hos"],["rye"],["bop"],["yap"],["ugh","ugh"],["ram"],["rod"],["nam"],["yea"],["nap"],["pen"],["job"],["lyx"],["dis"],["jed"],["jab"],["qua"]]
