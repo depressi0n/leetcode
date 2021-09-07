@@ -61,13 +61,12 @@ func postorderTraversal1(root *TreeNode) (res []int) {
 }
 
 //Morris遍历，TODO：弄懂
-func reverse(a []int) {
-	for i, n := 0, len(a); i < n/2; i++ {
-		a[i], a[n-1-i] = a[n-1-i], a[i]
-	}
-}
-
 func postorderTraversal(root *TreeNode) (res []int) {
+	reverse:=func (a []int) {
+		for i, n := 0, len(a); i < n/2; i++ {
+			a[i], a[n-1-i] = a[n-1-i], a[i]
+		}
+	}
 	addPath := func(node *TreeNode) {
 		resSize := len(res)
 		for ; node != nil; node = node.Right {
@@ -94,4 +93,32 @@ func postorderTraversal(root *TreeNode) (res []int) {
 	}
 	addPath(root)
 	return
+}
+
+
+
+func postorder(root *TreeNode)[]int{
+	res:=make([]int,0,100)
+	s:=make([]*TreeNode,0,100)
+	var pre *TreeNode
+	for len(s)!=0 || root !=nil{
+		for root!=nil{
+			s=append(s,root)
+			res=append(res,root.Val)
+			root=root.Left
+			continue
+		}
+		root=s[len(s)-1]
+		s=s[:len(s)-1]
+		if root.Right == nil || root.Right==pre{
+			res=append(res,root.Val)
+			pre=root
+			root=nil
+		} else{
+			s=append(s,root)
+			root=root.Right
+		}
+
+	}
+	return res
 }
