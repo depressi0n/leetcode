@@ -1,5 +1,9 @@
 package question
 
+import (
+	"log"
+)
+
 type TreeNode struct {
 	Val   int
 	Left  *TreeNode
@@ -53,4 +57,39 @@ func nextPermutationUnique(nums []int) []int {
 		nums[n], nums[len(nums)+j-n] = nums[len(nums)+j-n], nums[n]
 	}
 	return nums
+}
+
+func checkListEqual(l1 *ListNode,l2 *ListNode)bool{
+	if l1==nil && l2==nil{
+		return true
+	}
+	if l1==nil || l2==nil{
+		return false
+	}
+	p,q:=l1,l2
+	for p!=nil && q!=nil{
+		if p.Val != q.Val{
+			log.Printf("p=%d,", p.Val)
+			log.Printf("q=%d", q.Val)
+			log.Printf("\n")
+			return false
+		}
+		p=p.Next
+		q=q.Next
+	}
+	if p!=nil ||q!=nil{
+		return false
+	}
+	return true
+}
+
+func makeList(arr []int) *ListNode{
+	if len(arr) == 0 {
+		return nil
+	}
+	head := &ListNode{
+		Val:  arr[0],
+		Next: makeList(arr[1:]),
+	}
+	return head
 }
