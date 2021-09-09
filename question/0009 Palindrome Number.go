@@ -41,5 +41,3 @@ func isPalindromeCore2(x int) bool {
 	}
 	return false
 }
-
-

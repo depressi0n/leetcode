@@ -2,8 +2,6 @@ package main
 
 import (
 	"fmt"
-	"github.com/depressi0n/leetcode/question"
-	"sync"
 )
 
 // 对边界条件的技巧：
@@ -1900,1243 +1898,1323 @@ import (
 //	return res
 //}
 func main() {
-	//var b map[byte]interface{}
-	//fmt.Print(findMedianSortedArrays([]int{1,2, 3}, []int{5}))
-	//fmt.Printf("%s\n", longestPalindrome("bbbcccc"))
-	//fmt.Printf("%s", convert("PAYPALISHIRING", 4))
-	//fmt.Printf("%d",reverse(120))
-	//fmt.Printf("%d\n", myAtoi(  "-2147483647"))
-	//fmt.Printf("%v\n", isPalindrome(121))
-	//fmt.Printf("%v\n", isMatch("aa","a"))
-	//fmt.Printf("%v\n", maxArea([]int{1,1}))
-	//fmt.Printf("%s\n", intToRoman(1994))
-	//fmt.Printf("%d\n", romanToInt("LVIII"))
-	//fmt.Printf("%s\n", longestCommonPrefix([]string{"dog","racecar","car"}))
-	//fmt.Printf("%#v\n", threeSum1([]int{0,0,0,0}))
-	//fmt.Printf("%#v\n", threeSumClosest([]int{-1,2,1,-4},1))
-	//fmt.Printf("%#v\n", letterCombinations(""))
-	//fmt.Printf("%#v\n", fourSum([]int{0, 0, 0, 0, 0, 0}, 0))
-	//fmt.Printf("%#v\n", isValid("[[[]"))
-	//res := mergeTwoLists(&ListNode{
-	//	Val: 1,
-	//	Next: &ListNode{
-	//		Val: 2,
-	//		Next: &ListNode{
-	//			Val:  4,
-	//			Next: nil,
-	//		},
-	//	},
-	//}, &ListNode{
-	//	Val: 2,
-	//	Next: &ListNode{
-	//		Val: 3,
-	//		Next: &ListNode{
-	//			Val:  4,
-	//			Next: nil,
-	//		},
-	//	},
-	//})
-	//for res != nil {
-	//	fmt.Printf("%d->", res.Val)
-	//	res = res.Next
-	//}
-	//fmt.Printf("%v\n", generateParenthesis(3))
-	//res:=mergeKLists([]*ListNode{&ListNode{
-	//	Val:  1,
-	//	Next: &ListNode{
-	//		Val:  2,
-	//		Next: &ListNode{
-	//			Val:  2,
-	//			Next: nil,
-	//		},
-	//	},
-	//},&ListNode{
-	//	Val:  1,
-	//	Next: &ListNode{
-	//		Val:  3,
-	//		Next: &ListNode{
-	//			Val:  7,
-	//			Next: nil,
-	//		},
-	//	},
-	//},&ListNode{
-	//	Val:  3,
-	//	Next: &ListNode{
-	//		Val:  5,
-	//		Next: nil,
-	//	},
-	//},&ListNode{
-	//	Val:  4,
-	//	Next: &ListNode{
-	//		Val:  9,
-	//		Next: nil,
-	//	},
-	//},&ListNode{
-	//	Val:  9,
-	//	Next: nil,
-	//}})
-	//for res != nil {
-	//	fmt.Printf("%d->", res.Val)
-	//	res = res.Next
-	//}
-	//res := swapPairs(nil)
-	//for res != nil {
-	//	fmt.Printf("%d->", res.Val)
-	//	res=res.Next
-	//}
-	//res := reverseKGroup(&ListNode{
-	//	Val: 1,
-	//	Next: &ListNode{
-	//		Val: 3,
-	//		Next: nil,
-	//	}},2)
-	//for res != nil {
-	//	fmt.Printf("%d->", res.Val)
-	//	res = res.Next
-	//}
-	//fmt.Printf("%d\n",removeDuplicates([]int{1}))
-	//fmt.Printf("%d\n",removeElement([]int{1,2,3,7,4,5,5,5,8},5))
-	//fmt.Printf("%d\n",strStr("hello","heo"))
-	//fmt.Printf("%d\n", divide(2147483648, -1))
-	//fmt.Printf("%v\n", findSubstring1("ababaab",[]string{"ab","ba","ba"}))
-	//n:=[]int{3,2,1}
-	//nextPermutation(n)
-	//for i:=0;i<len(n);i++{
-	//	fmt.Printf("%d",n[i])
-	//}
-	//fmt.Printf("%v\n", longestValidParentheses("((()))((())()"))
-	//fmt.Printf("%v\n", isMatch("aa",".*"))
-	//fmt.Printf("%v\n", search([]int{4,5,1,2,3},3))
-	//fmt.Printf("%v\n", searchRange([]int{2,2,2,2}, 2))
-	//fmt.Printf("%v\n", searchInsert([]int{2, 3, 5}, 6))
-	//fmt.Printf("%v\n", isValidSudoku([][]byte{
-	//	{5, 3, 0, 0, 7, 0, 0, 0, 0},
-	//	{6, 0, 0, 1, 9, 5, 0, 0, 0},
-	//	{0, 9, 8, 0, 0, 0, 0, 6, 0},
-	//	{8, 0, 0, 0, 6, 0, 0, 0, 3},
-	//	{4, 0, 0, 8, 0, 3, 0, 0, 1},
-	//	{7, 0, 0, 0, 2, 0, 0, 0, 6},
-	//	{0, 6, 0, 0, 0, 0, 2, 8, 0},
-	//	{0, 0, 0, 4, 1, 9, 0, 0, 5},
-	//	{0, 0, 0, 0, 8, 0, 0, 7, 9},
-	//}))
-	//TODO: finish this function
-	//t:=[][]byte{
-	//	{5, 3, 0, 0, 7, 0, 0, 0, 0},
-	//	{6, 0, 0, 1, 9, 5, 0, 0, 0},
-	//	{0, 9, 8, 0, 0, 0, 0, 6, 0},
-	//	{8, 0, 0, 0, 6, 0, 0, 0, 3},
-	//	{4, 0, 0, 8, 0, 3, 0, 0, 1},
-	//	{7, 0, 0, 0, 2, 0, 0, 0, 6},
-	//	{0, 6, 0, 0, 0, 0, 2, 8, 0},
-	//	{0, 0, 0, 4, 1, 9, 0, 0, 5},
-	//	{0, 0, 0, 0, 8, 0, 0, 7, 9},
-	//}
-	//solveSudoku(t)
-	//for i:=0;i<9;i++{
-	//	for j:=0;j<9;j++{
-	//		fmt.Printf("%d\t",t[i][j])
-	//	}
-	//	fmt.Println()
-	//}
-	//fmt.Printf("%s\n",countAndSay(5))
-	//res := combinationSum2([]int{2, 3, 4, 14, 16}, 18)
-	//for i := 0; i < len(res); i++ {
-	//	for j := 0; j < len(res[i]); j++ {
-	//		fmt.Printf("%d,", res[i][j])
-	//	}
-	//	fmt.Println()
-	//}
-	//fmt.Printf("%d",firstMissingPositive([]int{2,2,6,1}))
-	//fmt.Printf("%d", trap([]int{4,3,4}))
-	//fmt.Printf("%v", multiply("98","9"))
-	//fmt.Printf("%v\n", isMatch("aa", "*"))
-	//fmt.Printf("%v\n", jump([]int{5,1,1,1,1,1}))
-	//fmt.Printf("%v\n", permute([]int{0,1,2}))
-	//fmt.Printf("%v\n", permuteUnique([]int{1,2,2,3,3}))
-	//in := [][]int{
-	//	{5, 1, 9, 11},
-	//	{2, 4, 8, 10},
-	//	{13, 3, 6, 7},
-	//	{15, 14, 12, 16},
-	//}
-	//rotate(in)
-	//for i := 0; i < len(in); i++ {
-	//	for j := 0; j < len(in[i]); j++ {
-	//		fmt.Printf("%d\t", in[i][j])
-	//	}
-	//	fmt.Println()
-	//}
-	//fmt.Printf("%v\n", groupAnagras([]string{"acc","ac","c"}))
-	//fmt.Printf("%v",pow(2,-3))
-	//res:=solveNQueens(3)
-	//for i:=0;i<len(res);i++{
-	//	for j:=0;j<len(res[i]);j++{
-	//		fmt.Println(res[i][j])
-	//	}
-	//	fmt.Println()
-	//}
-	//fmt.Printf("%d",maxSubArray([]int{-2,1,-3,4,-1,2,1,-5,4}))
-	//res:=spiralOrder([][]int{{1,11},{2,12},{3,13},{4,14},{5,15},{6,16},{7,17},{8,18},{9,19},{10,20}})
-	//fmt.Printf("%v",res)
-	//fmt.Printf("%v",canJump([]int{1,0,1,0,4}))
-	//fmt.Printf("%v",merge([][]int{{4,5},{1,4},{2,6},{7,9},{11,22}}))
-	//fmt.Printf("%v",insert([][]int{{23,25},{30,34},{41,43},{45,49}},[]int{29,32}))
-	//fmt.Printf("%v",lengthOfLastWord("    ffff   "))
-	//fmt.Printf("%v",generateMatrix(4))
-	//fmt.Printf("%v",getPermutation(3,5))
-	//res:=&ListNode{
-	//	Val:  1,
-	//	Next: &ListNode{
-	//		Val:  2,
-	//		Next: &ListNode{
-	//			Val:  3,
-	//			Next: &ListNode{
-	//				Val:  4,
-	//				Next: &ListNode{
-	//					Val:  5,
-	//					Next: nil,
-	//				},
-	//			},
-	//		},
-	//	},
-	//}
-	//res=rotateRight(res,5)
-	//for res!=nil{
-	//	fmt.Printf("%d->",res.Val)
-	//	res=res.Next
-	//}
-	//fmt.Printf("%v",uniquePaths(7,3))
-	//fmt.Printf("%v",uniquePathsWithObstacles([][]int{{0,1}}))
-	//fmt.Printf("%v",minPathSum([][]int{{1,3,1},{1,5,1},{4,2,1}}))
-	//fmt.Printf("%v",isNumber("   2e-10 "))
-	//fmt.Printf("%v",plusOne([]int{8}))
-	//fmt.Printf("%v",addBinary("1010","1011"))
-	//fmt.Printf("%v", fullJustify([]string{
-	//	"ask","not","what","your","country","can","do","for","you","ask","what","you","can","do","for","your","country",
-	//},16))
-	//fmt.Printf("%v\n", computeValue(
-	//	[]int{500,200,100,50,20,10,5,2,1},
-	//	[]int{10,10,10,10,10,10,10,10,10},
-	//	670, 10))
-	//fmt.Printf("%v\n",mySqrt(17))
-	//fmt.Printf("%v\n",climbStairs(4))
-	//fmt.Printf("%v\n",simplifyPath("/a/a/b/c/./../"))
-	//fmt.Printf("%v\n",minDistance("intention","execution"))
-	//m:=[][]int{{1,2,3,4},{5,0,7,8},{0,10,11,12},{13,14,15,0}}
-	//setZeroes(m)
-	//fmt.Printf("%v\n",m)
-	//fmt.Printf("%v\n",searchMatrix([][]int{{2}},1))
-	//nums := []int{1,2,0,0,1,0,1,0,2,2,0,2,1,0,1,2,0,1,2,1,0,1,2,1,0}
-	//sortColors(nums)
-	//fmt.Printf("%s",minWindow("ADOBECODEBANCDEAB","ADD"))
-	//fmt.Printf("%s",minWindow1("ADOBECODEBANC","ABC"))
-	//fmt.Printf("%v",combine1(5,3))
-	//fmt.Printf("%v",subsets([]int{1,2,3,4,5}))
-	//fmt.Printf("%v", exist([][]byte{
-	//	{'A','B','C','E'},
-	//	{'S','F','C','S'},
-	//	{'A','D','E','E'},
-	//}, "ABCCED"))
-	//fmt.Printf("%v",removeDuplicatesII([]int{0,0,0,0,1,1,1,1,2,2,2,3,3}))
-	//fmt.Printf("%v",searchII([]int{1,3,1,1,1},1))
-	//leetcode:=&ListNode{
-	//	Val:  1,
-	//	Next: &ListNode{
-	//		Val:  2,
-	//		Next: &ListNode{
-	//			Val:  2,
-	//			Next: &ListNode{
-	//				Val:  3,
-	//				Next: &ListNode{
-	//					Val: 4,
-	//					Next: &ListNode{
-	//						Val:  4,
-	//						Next: &ListNode{
-	//							Val:  5,
-	//							Next: nil,
-	//						},
-	//					},
-	//				},
-	//			},
-	//		},
-	//	},
-	//}
-	//res:=deleteDuplicates(leetcode)
-	//p:=res
-	//for p!=nil{
-	//	fmt.Printf("%d->",p.Val)
-	//	p=p.Next
-	//}
-	//fmt.Printf("%d",largestRectangleArea([]int{2,1,5,6,2,3}))
-	//fmt.Printf("%d", maximalRectangle([][]byte{
-	//	//{'1', '0', '1', '0', '0'},
-	//	//{'1', '0', '1', '1', '1'},
-	//	//{'1', '1', '1', '1', '1'},
-	//	//{'1', '0', '0', '1', '0'},
-	//	{'0','1'},
-	//	{'0','1'},
-	//}))
-	//_=&ListNode{
-	//	Val:  1,
-	//	Next: &ListNode{
-	//		Val:  4,
-	//		Next: &ListNode{
-	//			Val:  3,
-	//			Next: &ListNode{
-	//				Val:  2,
-	//				Next: &ListNode{
-	//					Val:  5,
-	//					Next: &ListNode{
-	//						Val:  2,
-	//						Next: nil,
-	//					},
-	//				},
-	//			},
-	//		},
-	//	},
-	//}
-	//res:=partition(&ListNode{
-	//	Val:  1,
-	//	Next: &ListNode{
-	//		Val:  1,
-	//		Next: nil,
-	//	},
-	//},0)
-	//p:=res
-	//for p!=nil{
-	//	fmt.Printf("%d->",p.Val)
-	//	p=p.Next
-	//}
-
-	//head:=&ListNode{
-	//	Val:  0,
-	//	Next: &ListNode{
-	//		Val:  1,
-	//		Next: &ListNode{
-	//			Val:  2,
-	//			Next: &ListNode{
-	//				Val:  3,
-	//				Next: &ListNode{
-	//					Val:  4,
-	//					Next: &ListNode{
-	//						Val:  5,
-	//						Next: nil,
-	//					},
-	//				},
-	//			},
-	//		},
-	//	},
-	//}
-	//rear:=head
-	//for rear.Next!=nil{
-	//	rear=rear.Next
-	//}
-	////rear.Next=head.Next.Next
-	//fmt.Printf("%t",hasCycle(head))
-
-	//fmt.Printf("%t",canPartition([]int{100,100,100,100,100,100,100,100}))
-
-	//fmt.Printf("%t",isScramble("abcde","caebd"))
-
-	//nums1:=[]int{1,2,3,0,0,0}
-	//nums2:=[]int{4,5,6}
-	//mergeIn88(nums1,len(nums1)-len(nums2),nums2,len(nums2))
-
-	//grayCode(1)
-
-	//subsetsWithDup([]int{1,2,2})
-
-	//fmt.Println(numDecodings("0"))
-
-	//head:=&ListNode{
-	//	Val:  1,
-	//	Next: &ListNode{
-	//		Val:  2,
-	//		Next: &ListNode{
-	//			Val:  3,
-	//			Next: &ListNode{
-	//				Val:  4,
-	//				Next: &ListNode{
-	//					Val:  5,
-	//					Next: nil,
-	//				},
-	//			},
-	//		},
-	//	},
-	//}
-	//res:=reverseBetween(head,1,5)
-	//p:=res
-	//for p!=nil{
-	//	fmt.Printf("%d->",p.Val)
-	//	p=p.Next
-	//}
-
-	//fmt.Printf("%v",restoreIpAddresses("101023"))
-
-	//generateTrees(3)
-	//fmt.Printf("%t",isInterleave("ab","aa","abaa"))
-
-	//fmt.Printf("%v",generate(5))
-	//fmt.Printf("%v",getRow(5))
-	//fmt.Printf("%v",maxProfit([]int{1,2,4,5,3,7}))
-	//fmt.Printf("%v",isPalindrome1("0P"))
-	//fmt.Printf("%v",findLadders("hit", "cog", []string{"hot","dot","dog","lot","log","cog"}))
-	//fmt.Println(longestConsecutive([]int{}))
-	//fmt.Println(sumNumbers(&TreeNode{
-	//	Val:   0,
-	//	Left:  &TreeNode{
-	//		Val:   1,
-	//		Left:  nil,
-	//		Right: nil,
-	//	},
-	//	Right: nil,
-	//}))
-	//solve([][]byte{{'X', 'O', 'X', 'X'}, {'X', 'O', 'O', 'X'}, {'X', 'X', 'O', 'X'}, {'X', 'O', 'X', 'X'}})
-	//partition("baaab")
-	//minCut("ababab")
-	//fmt.Println(candy([]int{1,4,2,5,7,1,7,8,3,2}))
-	//fmt.Println(wordBreak("leetcode",[]string{"leet","code"}))
-	//fmt.Println(maxPoints([][]int{{1,1},{2,2},{3,3}}))
-	//fmt.Println(evalRPN([]string{"10", "6", "9", "3", "+", "-11", "*", "/", "*", "17", "+", "5", "+"}))
-	//fmt.Println(reverseWords("   Alice does not even like bob"))
-	//fmt.Println(maxProduct1([]int{0,-2}))
-	//fmt.Println(findMin([]int{1,2,3,4,1,1,1,1}))
-	//fmt.Println(findPeakElement([]int{2,1}))
-	//fmt.Println(maximumGap([]int{3,6,2,9,1}))
-	//fmt.Println(compareVersion("0.0.0","0"))
-	//fmt.Println(fractionToDecimal(-60,-5))
-	//fmt.Println(convertToTitle(44))
-	//fmt.Println(majorityElement([]int{3,2,2,3}))
-	//fmt.Println(titleToNumber("AA"))
-	//fmt.Println(trailingZeroes1(25))
-	//a:=[]int{0,2,11,14,17,21,25}
-	//start,end:=0,a[len(a)-1]+1
-	//for start+1<end{
-	//	i:=0
-	//	del:=0
-	//	mid:=(start+end)/2
-	//	for i<=len(a)-2{
-	//		j:=i+1
-	//		for j<len(a) && a[j]-a[i]<mid{
-	//			j++
-	//		}
-	//		del+=j-i-1
-	//		i=j
-	//	}
-	//	if del<=2{
-	//		start=mid
-	//	}else{
-	//		end=mid
-	//	}
-	//	fmt.Println(start)
-	//}
-	//fmt.Println(start)
-	//fmt.Println(calculateMinimumHP([][]int{
-	//	{-2,-3,3},
-	//	{-5,-10,1},
-	//	{10,30,-5},
-	//}))
-	//fmt.Printf(largestNumber([]int{3,30,34,5,9}))
-	//rotate([]int{1,2,3,4},2)
-	//fmt.Println(reverseBits(1))
-	//fmt.Println(hammingWeight(15))
-	//fmt.Println(rangeBitwiseAnd(5,7))
-	//fmt.Println(isHappy(2))
-	//fmt.Println(countPrimes(10))
-	//fmt.Println(isIsomorphic("title","paper"))
-	//fmt.Println(canFinish(2,[][]int{{0,1}}))
-	//t:=TrieConstructor()
-	//t.Insert("apple")
-	//fmt.Println(t.Search("app"))
-	//fmt.Println(t.Search("apple"))
-	//fmt.Println(t.StartsWith("apple"))
-	//fmt.Println(t.StartsWith("app"))
-	//t.Insert("app")
-	//fmt.Println(t.Search("app"))
-	//fmt.Println(t.StartsWith("app"))
-	//fmt.Println(minSubArrayLen(16, []int{2, 3, 1, 2, 2, 3}))
-	//fmt.Println(findOrder(4,[][]int{{1,0},{2,0},{3,1},{3,2}}))
-	//fmt.Println(findWords(
-	//	[][]byte{
-	//		{'o', 'a', 'a', 'n'},
-	//		{'e', 't', 'a', 'e'},
-	//		{'i', 'h', 'k', 'r'},
-	//		{'i', 'f', 'l', 'v'},
-	//	},
-	//	[]string{"oath", "pea", "eat", "rain"}))
-	//fmt.Println(rob([]int{2, 5, 1, 3, 4, 3, 2, 6, 1, 8, 9}))
-	//fmt.Println(question.ShortestBridge([][]int{
-	//	{1,1,1,1,1},{1,0,0,0,1},{1,0,1,0,1},{1,0,0,0,1},{1,1,1,1,1},
-	//}))
-	//inputs := [][][]int{
-	//	[][]int{
-	//		{1,2,7},
-	//		{3,6,7},
-	//	},
-	//	[][]int{
-	//		{7,12},
-	//		{4,5,15},
-	//		{6},
-	//		{15,19},
-	//		{9,12,13},
-	//	},
-	//	[][]int{
-	//		{24},
-	//		{3, 6, 11, 14, 22},
-	//		{1, 23, 24},
-	//		{0, 6, 14},
-	//		{1, 3, 8, 11, 20},
-	//	},
-	//	[][]int{
-	//		{1, 9, 12, 20, 23, 24, 35, 38},
-	//		{10, 21, 24, 31, 32, 34, 37, 38, 43},
-	//		{10, 19, 28, 37},
-	//		{8},
-	//		{14, 19},
-	//		{11, 17, 23, 31, 41, 43, 44},
-	//		{21, 26, 29, 33},
-	//		{5, 11, 33, 41},
-	//		{4, 5, 8, 9, 24, 44},
-	//	},
-	//	[][]int{
-	//		{3, 16, 33, 45, 59, 79, 103, 135},
-	//		{3, 35, 39, 54, 56, 78, 96, 101, 120, 132, 146, 148},
-	//		{13, 72, 98},
-	//		{37, 70, 107},
-	//		{0, 12, 31, 37, 41, 68, 78, 94, 100, 101, 113, 123},
-	//		{11, 32, 52, 85, 135},
-	//		{43, 50, 128},
-	//		{0, 13, 49, 51, 53, 55, 60, 65, 66, 80, 82, 87, 92, 99, 112, 118, 120, 125, 128, 131, 137},
-	//		{15, 19, 34, 37, 45, 52, 56, 97, 108, 123, 142},
-	//		{7, 9, 20, 28, 29, 33, 34, 38, 43, 46, 47, 48, 53, 59, 65, 72, 74, 80, 88, 92, 110, 111, 113, 119, 135, 140},
-	//		{15, 41, 64, 83},
-	//		{7, 13, 26, 31, 57, 85, 101, 108, 110, 115, 119, 124, 149},
-	//		{47, 61, 67, 70, 74, 75, 77, 84, 92, 101, 124, 132, 133, 142, 147},
-	//		{0, 2, 5, 6, 12, 18, 34, 37, 47, 58, 77, 98, 99, 109, 112, 131, 135, 149},
-	//		{6, 7, 8, 9, 14, 17, 21, 25, 33, 40, 45, 50, 56, 57, 58, 60, 68, 92, 93, 100, 108, 114, 130, 149},
-	//		{7},
-	//		{5, 16, 22, 48, 77, 82, 108, 114, 124},
-	//		{34, 71},
-	//		{8, 16, 32, 48, 104, 108, 116, 134, 145},
-	//		{3, 10, 16, 19, 35, 45, 64, 74, 89, 101, 116, 149},
-	//		{1, 5, 7, 10, 11, 18, 40, 45, 50, 51, 52, 54, 55, 69, 71, 81, 82, 83, 85, 89, 96, 100, 114, 115, 124, 134, 138, 148},
-	//		{0, 2, 3, 5, 6, 9, 15, 52, 64, 103, 108, 114, 146},
-	//		{5, 33, 39, 40, 44, 45, 66, 67, 68, 69, 84, 102, 106, 115, 120, 128, 133},
-	//		{17, 26, 49, 50, 55, 58, 60, 65, 88, 90, 102, 121, 126, 130, 137, 139, 144},
-	//		{6, 12, 13, 37, 41, 42, 48, 50, 51, 55, 64, 65, 68, 70, 73, 102, 106, 108, 120, 123, 126, 127, 129, 135, 136, 149},
-	//		{6, 7, 12, 33, 37, 41, 47, 53, 54, 80, 107, 121, 126},
-	//		{15, 75, 91, 103, 107, 110, 125, 139, 142, 149},
-	//		{18, 24, 30, 52, 61, 64, 75, 79, 85, 95, 100, 103, 105, 111, 128, 129, 142},
-	//		{3, 14, 18, 32, 45, 52, 57, 63, 68, 78, 85, 91, 100, 104, 111, 114, 142},
-	//		{4, 7, 11, 20, 21, 31, 32, 33, 48, 61, 62, 65, 66, 73, 80, 92, 93, 97, 99, 108, 112, 116, 136, 139},
-	//	},
-	//	[][]int{
-	//	{148,167,216},
-	//	{6,23,25,40,43,58,63,69,77,86,94,96,106,117,119,127,139,151,153,155,157,186,191,196,200,204,210,216,219},
-	//	{2,6,7,16,27,30,42,47,49,68,69,77,93,94,96,102,104,111,114,126,131,137,150,161,167,171,174,193,198,199,200,223},
-	//	{46,131,211},
-	//	{25,36,51,52,65,78,90,102,103,105,108,114,123,151,152,153,162,174,175},
-	//	{217},
-	//	{9,10,15,27,37,38,41,43,46,51,67,74,81,82,83,94,95,107,113,120,122,123,124,132,149,160,162,169,170,171,174,177,185,192,193,195,196,198,213,217,220,221},
-	//	{74,78,85,95,130,136,145,152,173,175,180,181,184,193,199,202},
-	//	{13,18,28,38,41,42,47,75,87,91,106,151,158,166,181,182,199,216},
-	//	{44,63,71,74,144,162,169,220},
-	//	{2,23,115,185,208},
-	//	{0,8,13,14,35,46,67,89,91,122,124,126,130,156,177,193,212,214},
-	//	{2,4,24,37,40,43,55,68,81,92,106,107,109,127,132,138,145,159,163,165,170,172,183,184,209,213,215,220},
-	//	{5,16,17,34,38,48,55,59,60,65,69,84,86,94,100,103,109,110,112,127,130,131,134,145,148,149,154,161,166,169,182,183,201,203,208,214,223},
-	//	{0,2,5,6,8,19,49,50,53,79,92,94,97,109,110,112,121,129,132,135,138,139,144,160,166,170,194,197,198,201,212},
-	//	{27,52,61,112,118,133,142,159,175,186,216},
-	//	{2,20,34,64,65,77,87,91,95,96,97,125,126,131,144,146,149,152,154,164,165,170,179,205,207},
-	//	{24,85,123,132,172,173,194,222},
-	//	{2,4,5,15,23,36,44,47,63,64,78,80,84,97,99,102,104,114,120,130,132,143,161,162,163,167,171,172,176,179,180,194,196,199,202,204,209,214,216,221},
-	//	{8,22,26,31,38,39,41,59,78,90,102,108,110,138,141,146,176,185,190,198,200,219,220},
-	//	{5,24,30,46,55,64,67,74,78,136,194,216},
-	//	{133,142,202},
-	//	{13,40,49,57,63,75,76,85,91,107,116,121,128,135,137,141,154,193,198,200,204,223},
-	//	{4,13,14,26,28,33,39,49,58,65,67,74,77,81,90,96,122,124,144,156,158,166,169,170,179,203,204,208,215,223},
-	//	{6,20,28,36,46,90,107,115,124,131,135,144,147,148,149,161,162,174,176,214,221},
-	//	{10,20,21,29,35,36,62,65,67,70,72,87,89,92,100,103,107,109,113,126,129,139,140,145,146,147,174,176,180,184,189,190,193,196,198,199,200,209,217},
-	//	{19,22,27,54,59,63,77,102,122,126,140,143,154,164,165,175,212,216,217,218},
-	//	{11,13,16,18,27,31,46,49,69,77,88,109,111,119,121,146,161,169,193,194,198,200,204},
-	//	{1,7,28,58,73,91,98,138,150,173,182,186,213},
-	//	{3,25,28,33,46,68,70,74,78,97,141,146,149,169,172,178,185,188,202,212,223},
-	//	{3,4,19,22,24,37,38,43,54,55,56,57,58,62,66,72,75,77,88,106,114,119,127,132,133,137,144,146,150,156,161,164,165,179,181,195,200,213,214,215,222},
-	//	{9,11,14,15,38,46,55,61,66,68,69,75,76,79,82,91,100,101,102,113,135,141,142,171,175,180,198,208,210,215,218,221},
-	//	{2,30,33,62,93,104,124,127,128,147,158,160,161,173,181,189,192,199,201,215,223},
-	//	{4,26,29,38,47,58,61,69,78,93,94,112,114,131,136,144,182,193,198,203,206,209},
-	//	{5,13,14,16,17,22,30,32,45,47,49,55,63,64,68,77,82,84,86,92,98,100,104,107,117,119,122,127,134,153,164,179,185,197,201,209,212,213,220,223},
-	//	{2,4,5,6,42,55,75,81,84,93,102,111,112,113,118,129,142,149,159,169,191,193,200,214,223},
-	//	{10,12,15,19,20,24,33,34,40,47,54,64,93,104,115,121,123,124,155,172,189,190,193,196,202,212,219,222},
-	//	{104,108,143},
-	//	{14,15,20,21,31,47,48,59,67,70,74,82,94,102,109,121,125,128,148,162,165,171,180,196,199,202,205,212,214},
-	//	{2,6,17,18,41,50,60,70,118,151,155,158,166,167,172,180,182,186,188,195},
-	//	{1,23,25,30,39,41,42,48,58,65,67,94,100,121,126,135,145,152,163,164,171,174,206,210,220,224},
-	//	{18,25,96,123,172},
-	//	{5,7,9,12,13,19,22,25,34,51,62,64,74,79,81,85,88,101,102,119,123,140,143,149,155,165,166,167,178,182,189,204,213,222,223},
-	//	{1,5,18,21,23,50,54,59,62,67,68,72,87,94,95,96,110,116,118,122,133,135,151,155,156,158,171,178,183,184,192,198,208,212,222,224},
-	//	{18,20,24,34,47,52,56,68,77,82,89,91,97,101,105,106,107,109,118,123,139,141,143,152,153,162,174,180,184,187,188,192,198,202,206,216,224},
-	//	},
-	//}
-	//sources:=[]int{6,15,20,37,85,180}
-	//targets:=[]int{2,12,8,28,112,143}
-	//for i, input := range inputs {
-	//	fmt.Println(question.NumBusesToDestination815_2(
-	//		input,
-	//		sources[i],
-	//		targets[i],
-	//	))
-	//	fmt.Println(question.NumBusesToDestination815_1(
-	//		input,
-	//		sources[i],
-	//		targets[i],
-	//	))
-	//}
-	//input:=[]string{
-	//	"",
-	//	"x+5-3+x=6+x-2",
-	//	"x=x",
-	//	"2x=x",
-	//	"2x+3x-6x=x+2",
-	//	"x=x+2",
-	//	"-12+21x-3-5x=2x-9",
-	//}
-	//for _, s := range input {
-	//	fmt.Println(question.SolveEquation(s))
-	//}
-	//fmt.Println(question.IsPossible([]int{1, 1, 1, 2}))
-	//newmodule.Ouput()
-	//remain := 7
-	//flipped := []int{5, 5}
-	//loc := 6
-	//for i := len(flipped) - 1; i >= 0; i-- {
-	//	loc = loc%remain + flipped[i] + 1
-	//	remain++
-	//}
-	//loc = loc % remain
-	//fmt.Println(loc)
-	//fmt.Println(classify([]string{"cat","act","ns","sn","and","tac","ttac","dna"}))
-	//fmt.Println(question.BrokenCalc(1,1000))
-	//fmt.Println(question.AllCellsDistOrder(100,100,51,42))
-	//fmt.Println(question.MaxSumTwoNoOverlap([]int{2,1,5,6,0,9,5,0,3,8},3,4))
-	//fmt.Println(question.MaxRepOpt1("aaaaa"))
-	//fmt.Println(question.KthLargestValue([][]int{{5,2},{1,6}},1))
-	//fmt.Println(question.KthLargestValue([][]int{{5,2},{1,6}},2))
-	//fmt.Println(question.KthLargestValue([][]int{{5,2},{1,6}},3))
-	//fmt.Println(question.KthLargestValue([][]int{{5,2},{1,6}},4))
-	//fmt.Println(question.KthLargestValue2([][]int{{5,2},{1,6}},1))
-	//fmt.Println(question.KthLargestValue2([][]int{{5,2},{1,6}},2))
-	//fmt.Println(question.KthLargestValue2([][]int{{5,2},{1,6}},3))
-	//fmt.Println(question.KthLargestValue2([][]int{{5,2},{1,6}},4))
-	//fmt.Println(question.LetterCasePermutation("a"))
-	//fmt.Println(2^0)
-	//fmt.Println(question.IsBipartite3([][]int{{1},{0,3},{3},{1,2}}))
-	//fmt.Println(question.IsBipartite3([][]int{{1,2,3},{0,2},{0,1,3},{0,2}}))
-	//fmt.Println(question.IsBipartite3([][]int{{1,3},{0,2},{1,3},{0,2}}))
-	//fmt.Println(question.MinSumOfLengths([]int{3,2,2,4,3},3))
-	//fmt.Println(question.MinSumOfLengths([]int{7,3,4,7},7))
-	//fmt.Println(question.MinSumOfLengths([]int{4,3,2,6,2,3,4},6))
-	//fmt.Println(question.MinSumOfLengths([]int{5,5,4,4,5},3))
-	//fmt.Println(question.MinSumOfLengths([]int{3,1,1,1,5,1,2,1},3))
-	//fmt.Println(question.MinSumOfLengths([]int{1,1,1,2,2,2,4,4},6))
-	//fmt.Println(question.MinSwaps([][]int{{0,0,1},{1,1,0},{1,0,0}}))
-	//fmt.Println(question.MinSwaps([][]int{{0,1,1,0},{0,1,1,0},{0,1,1,0},{0,1,1,0}}))
-	//fmt.Println(question.MinSwaps([][]int{{1,0,0},{1,1,0},{1,1,1}}))
-	//fmt.Println(question.MinSwaps([][]int{{0}})) //0
-	//fmt.Println(question.MinSwaps([][]int{{1,0,0,0,0,0},{0,1,0,1,0,0},{1,0,0,0,0,0},{1,1,1,0,0,0},{1,1,0,1,0,0},{1,0,0,0,0,0}}))
-	//fmt.Println(question.MinSwaps([][]int{{1,0,0,0,0,0},{0,0,0,1,0,0},{0,0,0,1,0,0},{0,1,0,0,0,0},{0,0,1,0,0,0},{0,0,0,0,0,1}}))
-	//fmt.Println(question.IsSelfCrossing([]int{2,1,1,2}))
-	//fmt.Println(question.IsSelfCrossing([]int{1,2,3,4}))
-	//fmt.Println(question.IsSelfCrossing([]int{1,1,1,1}))
-	//fmt.Println(question.IsSelfCrossing([]int{5,5,10,10}))
-	//fmt.Println(question.IsSelfCrossing([]int{5,5,10,10,4}))
-	//fmt.Println(question.IsSelfCrossing([]int{5,5,10,10,4,9}))
-	//fmt.Println(question.IsSelfCrossing([]int{5,5,10,10,4,9,3}))
-	//fmt.Println(question.IsSelfCrossing([]int{5,5,10,10,4,9,3,8}))
-	//fmt.Println(question.IsSelfCrossing([]int{5,5,10,10,4,9,3,8,3}))
-	//fmt.Println(question.IsSelfCrossing([]int{1,1,2,1,1}))
-	//fmt.Println(question.IsSelfCrossing([]int{2,1,4,4,3,2,2,1,1}))
-	//fmt.Println(question.RepeatedStringMatch("abcd","cdabcdab"))
-	//fmt.Println(question.RepeatedStringMatch("a","aa"))
-	//fmt.Println(question.RepeatedStringMatch("a","a"))
-	//fmt.Println(question.RepeatedStringMatch("abc","wxyz"))
-	//fmt.Println(question.RepeatedStringMatch("abc","abd"))
-	//fmt.Println(question.RepeatedStringMatch("abc","cab"))
-	//fmt.Println(question.RepeatedStringMatch("abc","ab"))
-	//fmt.Println(question.RepeatedStringMatch("abc","abca"))
-	//fmt.Println(question.RepeatedStringMatch("abc","bcabc"))
-	//fmt.Println(question.RepeatedStringMatch("abaabaa","abaababaab"))
-	//fmt.Println(question.RepeatedStringMatch("aabaa","aaab"))
-	//fmt.Println()
-	//fmt.Println(question.RepeatedStringMatch2("abcd","cdabcdab"))
-	//fmt.Println(question.RepeatedStringMatch2("a","aa"))
-	//fmt.Println(question.RepeatedStringMatch2("a","a"))
-	//fmt.Println(question.RepeatedStringMatch2("abc","wxyz"))
-	//fmt.Println(question.RepeatedStringMatch2("abc","abd"))
-	//fmt.Println(question.RepeatedStringMatch2("abc","cab"))
-	//fmt.Println(question.RepeatedStringMatch2("abc","ab"))
-	//fmt.Println(question.RepeatedStringMatch2("abc","abca"))
-	//fmt.Println(question.RepeatedStringMatch2("abc","bcabc"))
-	//fmt.Println(question.RepeatedStringMatch2("abaabaa","abaababaab"))
-	//fmt.Println(question.RepeatedStringMatch2("aabaa","aaab"))
-	//fmt.Println(solve([]int{9,9,15,7,10,8,12}))
-	//fmt.Println(solve([]int{10,10,9,8,13}))
-	//fmt.Prntln(question.FlipAndInvertImage([][]int{{1, 1, 0}, {1, 0, 1}, {0, 0, 0}}))
-	//fmt.Println(question.FindMinDifference([]string{"11:59","00:00"}))
-	//fmt.Println(question.FindMinDifference([]string{"12:01","00:00"}))
-	//fmt.Println(question.FindMinDifference([]string{"02:00","00:00","22:01"}))
-	//fmt.Println(question.ShortestPathBinaryMatrix([][]int{
-	//	{0,1},
-	//	{1,0},
-	//}))
-	//fmt.Println(question.ShortestPathBinaryMatrix([][]int{
-	//	{0,0,0},
-	//	{1,1,0},
-	//	{1,1,0},
-	//}))
-	//fmt.Println(question.ShortestPathBinaryMatrix([][]int{
-	//	{1,0,0},
-	//	{1,1,0},
-	//	{1,1,0},
-	//}))
-	//fmt.Println(question.ShortestPathBinaryMatrix([][]int{
-	//	{0,1,0,0,0},
-	//	{0,1,0,1,0},
-	//	{0,1,0,1,0},
-	//	{0,1,0,1,0},
-	//	{0,0,0,1,0},
-	//}))
-	//fmt.Println(question.FallingSquares([][]int{
-	//	{1,2},
-	//	{2,3},
-	//	{6,1},
-	//}))
-	//fmt.Println(question.FallingSquares([][]int{
-	//	{100,100},
-	//	{200,100},
-	//}))
-	//fmt.Println(question.MaxChunksToSorted([]int{0,1,2,3,4}))// 5「0,1,2,3,4」
-	//fmt.Println(question.MaxChunksToSorted([]int{4,3,2,1,0}))// 1「4,4,4,4,4」
-	//fmt.Println(question.MaxChunksToSorted([]int{1,0,2,3,4}))// 4「1,1,2,3,4」
-	//fmt.Println(question.MaxChunksToSorted([]int{0,3,2,1,4}))// 3「0,3,3,3,4」
-	//fmt.Println(question.MaxChunksToSorted([]int{0})) // 1「0」
-	//fmt.Println(question.MaxChunksToSorted([]int{1,2,0,3})) // 2「2,2,2,3」
-	//fmt.Println(question.MaxChunksToSorted([]int{2,0,1})) // 1「1,1,2」
-	//fmt.Println(question.CheckPalindromeFormation("x","y"))
-	//fmt.Println(question.CheckPalindromeFormation("adbef","fecab"))
-	//fmt.Println(question.CheckPalindromeFormation("ulacfd","jizalu"))
-	//fmt.Println(question.CheckPalindromeFormation("xbdef","xecab"))
-	//fmt.Println(question.IsPossibleDivide([]int{1, 2, 3, 3, 4, 4, 5, 6}, 4))
-	//fmt.Println(question.IsPossibleDivide([]int{3, 2, 1, 2, 3, 4, 3, 4, 5, 9, 10, 11}, 3))
-	//fmt.Println(question.IsPossibleDivide([]int{3, 3, 2, 2, 1, 1}, 3))
-	//fmt.Println(question.IsPossibleDivide([]int{1, 2, 3, 4}, 3))
-	//fmt.Println(question.IsPossibleDivide([]int{1, 2, 3, 4, 3, 6}, 3))
-	//fmt.Println(question.IsPossibleDivide([]int{1, 2}, 3))
-	//fmt.Println(question.IsPossibleDivide([]int{1, 1, 2, 2, 3, 3}, 2))
-
-	//fmt.Println(question.NumberToWords(0))
-	//fmt.Println(question.NumberToWords(1))
-	//fmt.Println(question.NumberToWords(10))
-	//fmt.Println(question.NumberToWords(19))
-	//fmt.Println(question.NumberToWords(20))
-	//fmt.Println(question.NumberToWords(21))
-	//fmt.Println(question.NumberToWords(99))
-	//fmt.Println(question.NumberToWords(100))
-	//fmt.Println(question.NumberToWords(101))
-	//fmt.Println(question.NumberToWords(109))
-	//fmt.Println(question.NumberToWords(110))
-	//fmt.Println(question.NumberToWords(111))
-	//fmt.Println(question.NumberToWords(119))
-	//fmt.Println(question.NumberToWords(120))
-	//fmt.Println(question.NumberToWords(121))
-	//fmt.Println(question.NumberToWords(998))
-	//fmt.Println(question.NumberToWords(999))
-	//fmt.Println(question.NumberToWords(1000))
-	//fmt.Println(question.NumberToWords(1001))
-	//fmt.Println(question.NumberToWords(1099))
-	//fmt.Println(question.NumberToWords(1100))
-	//fmt.Println(question.NumberToWords(1101))
-	//fmt.Println(question.NumberToWords(1109))
-	//fmt.Println(question.NumberToWords(1110))
-	//fmt.Println(question.NumberToWords(1111))
-	//fmt.Println(question.NumberToWords(9990))
-	//fmt.Println(question.NumberToWords(9991))
-	//fmt.Println(question.NumberToWords(9999))
-	//fmt.Println(question.NumberToWords(10000))
-	//fmt.Println(question.NumberToWords(10001))
-	//fmt.Println(question.NumberToWords(1000000))
-	//fmt.Println(question.NumberToWords(100000))
-	//fmt.Println(question.NumberToWords(1000000000000))
-	//fmt.Println(question.NumberToWords(10000000000000))
-	//fmt.Println(question.NumberToWords(100000000000000))
-	//fmt.Println(question.NumberToWords(100000000000001))
-	//fmt.Println(question.NumberToWords(100000000100001))
-	//fmt.Println(question.NumberToWords(100001))
-	//fmt.Println()
-	//fmt.Println(question.NumberToWords(123))
-	//fmt.Println(question.NumberToWords(12345))
-	//fmt.Println(question.NumberToWords(1234567))
-	//fmt.Println(question.NumberToWords(1234567891))
-
-	//fmt.Println(question.MinMoves2([]int{1})) //0
-	//fmt.Println(question.MinMoves2([]int{1,2,3})) //2
-	//fmt.Println(question.MinMoves2([]int{1,10,2,9})) // 16
-	//fmt.Println(question.MinMoves2([]int{1,100,2,9})) //106
-
-	//fmt.Println(question.DiffWaysToCompute("2-1-1"))
-	//fmt.Println(question.DiffWaysToCompute("2*3-4*5"))
-	//fmt.Println(question.DiffWaysToCompute("12*32+4-42*5"))
-
-	//	fmt.Println(question.CountOrders(1))
-	//	fmt.Println(question.CountOrders(2))
-	//	fmt.Println(question.CountOrders(3))
-	//	fmt.Println(question.CountOrders(4))
-	//	fmt.Println(question.CountOrders(5))
-
-	//fmt.Println(question.MaximumElementAfterDecrementingAndRearranging([]int{2,2,1,2,1}))
-	//fmt.Println(question.MaximumElementAfterDecrementingAndRearranging([]int{100,1,1000}))
-	//fmt.Println(question.MaximumElementAfterDecrementingAndRearranging([]int{1,2,3,4,5}))
-	//fmt.Println(question.MaximumElementAfterDecrementingAndRearranging([]int{1,2,3,4,7}))
-	//fmt.Println(question.MaximumElementAfterDecrementingAndRearranging([]int{5,5,5,5,5,5,5,5,5}))
-	//fmt.Println(question.MaximumElementAfterDecrementingAndRearranging([]int{209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,10000,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,1,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209}))
-
-	//room:=question.Constructor0855(1000000)
-	//fmt.Println(room.Seat())
-	//room.Leave(0)
-	//fmt.Println(room.Seat())
-	//room.Leave(0)
-	//fmt.Println(room.Seat())
-	//room.Leave(0)
-	//fmt.Println(room.Seat())
-	//room.Leave(0)
-	//fmt.Println(room.Seat())
-	//room.Leave(0)
-	//
-	//fmt.Println()
-	//room=question.Constructor0855(10)
-	//fmt.Println(room.Seat())
-	//fmt.Println(room.Seat())
-	//fmt.Println(room.Seat())
-	//fmt.Println(room.Seat())
-	//room.Leave(4)
-	//fmt.Println(room.Seat())
-	//
-	//fmt.Println()
-	//room=question.Constructor0855(10)
-	//fmt.Println(room.Seat())
-	//fmt.Println(room.Seat())
-	//fmt.Println(room.Seat())
-	//room.Leave(0)
-	//room.Leave(4)
-	//fmt.Println(room.Seat())
-	//fmt.Println(room.Seat())
-	//fmt.Println(room.Seat())
-	//fmt.Println(room.Seat())
-	//fmt.Println(room.Seat())
-	//fmt.Println(room.Seat())
-	//fmt.Println(room.Seat())
-	//fmt.Println(room.Seat())
-	//fmt.Println(room.Seat())
-	//room.Leave(0)
-
-	//fmt.Println(question.NumWays(3,2))
-	//fmt.Println(question.NumWays(2,4))
-	//fmt.Println(question.NumWays(4,2))
-	//fmt.Println(question.NumWays(7,8))
-	//fmt.Println(question.NumWays(27,7))
-
-	//fmt.Println(question.IntToRoman(3))
-	//fmt.Println(question.IntToRoman(4))
-	//fmt.Println(question.IntToRoman(9))
-	//fmt.Println(question.IntToRoman(11))
-	//fmt.Println(question.IntToRoman(58))
-	//fmt.Println(question.IntToRoman(79))
-	//fmt.Println(question.IntToRoman(92))
-	//fmt.Println(question.IntToRoman(193))
-	//fmt.Println(question.IntToRoman(493))
-	//fmt.Println(question.IntToRoman(593))
-	//fmt.Println(question.IntToRoman(893))
-	//fmt.Println(question.IntToRoman(993))
-	//fmt.Println(question.IntToRoman(1093))
-	//fmt.Println(question.IntToRoman(1493))
-	//fmt.Println(question.IntToRoman(1593))
-	//fmt.Println(question.IntToRoman(1693))
-	//fmt.Println(question.IntToRoman(1893))
-	//fmt.Println(question.IntToRoman(1993))
-	//fmt.Println(question.IntToRoman(3994))
-
-	//fmt.Println(question.StoneGame([]int{5,3,4,5}))
-	//fmt.Println(question.StoneGame([]int{4,1,7,3,8,4,7,4,5,10}))
-	//fmt.Println(question.StoneGame([]int{3,7,2,3}))
-
-	//fmt.Println(question.StoneGameII([]int{1,1,1}))
-	//fmt.Println(question.StoneGameII([]int{2,7,9,4,4}))
-	//fmt.Println(question.StoneGameII([]int{1,2,3,4,5,100}))
-
-	//fmt.Println(question.StoneGameIII([]int{1,2,3,6}))
-	//fmt.Println(question.StoneGameIII([]int{1,2,3,-1,-2,-3,7}))
-	//
-	//fmt.Println(question.StoneGameIII([]int{1,2,3,7}))
-	//fmt.Println(question.StoneGameIII([]int{1,2,3,-9}))
-
-	//fmt.Println(question.IsCousins(&question.TreeNode{
-	//	Val:   1,
-	//	Left:  &question.TreeNode{
-	//		Val:   2,
-	//		Left:  &question.TreeNode{
-	//			Val:   4,
-	//			Left:  nil,
-	//			Right: nil,
-	//		},
-	//		Right: nil,
-	//	},
-	//	Right: &question.TreeNode{
-	//		Val:   3,
-	//		Left:  nil,
-	//		Right: nil,
-	//	},
-	//},4,3))
-	//
-	//fmt.Println(question.IsCousins(&question.TreeNode{
-	//	Val:   1,
-	//	Left:  &question.TreeNode{
-	//		Val:   2,
-	//		Left:  nil,
-	//		Right: &question.TreeNode{
-	//			Val:   4,
-	//			Left:  nil,
-	//			Right: nil,
-	//		},
-	//	},
-	//	Right: &question.TreeNode{
-	//		Val:   3,
-	//		Left:  nil,
-	//		Right: nil,
-	//	},
-	//},4,3))
-
-	//fmt.Println(question.WinnerSquareGame(1))
-	//fmt.Println(question.WinnerSquareGame(2))
-	//fmt.Println(question.WinnerSquareGame(3))
-	//fmt.Println(question.WinnerSquareGame(4))
-	//fmt.Println(question.WinnerSquareGame(5))
-	//fmt.Println(question.WinnerSquareGame(6))
-	//fmt.Println(question.WinnerSquareGame(7))
-	//fmt.Println(question.WinnerSquareGame(8))
-
-	//fmt.Println(question.StoneGameV([]int{6,2}))
-	//fmt.Println(question.StoneGameV([]int{6,2,3}))
-	//fmt.Println(question.StoneGameV([]int{6,2,4}))
-	//fmt.Println(question.StoneGameV([]int{6,2,3,4}))
-	//fmt.Println(question.StoneGameV([]int{6,2,3,4,5}))
-	//fmt.Println(question.StoneGameV([]int{6,2,3,4,5,5}))
-	//fmt.Println(question.StoneGameV([]int{7,7,7,7,7,7}))
-	//fmt.Println(question.StoneGameV([]int{4}))
-
-	//fmt.Println(question.CountTriplets([]int{2,3,1,6,7}))
-	//fmt.Println(question.CountTriplets([]int{1,1,1,1,1}))
-	//fmt.Println(question.CountTriplets([]int{2,3}))
-	//fmt.Println(question.CountTriplets([]int{1,3,5,7,9}))
-	//fmt.Println(question.CountTriplets([]int{7,11,12,9,5,2,7,17,22}))
-
-	//	fmt.Println(question.StoneGameVI([]int{1,3},[]int{2,1}))
-	//	fmt.Println(question.StoneGameVI([]int{1,2},[]int{3,1}))
-	//	fmt.Println(question.StoneGameVI([]int{2,4,3},[]int{1,6,7}))
-
-	//fmt.Println(question.StoneGameVII([]int{5,3,1,4,2}))
-	//fmt.Println(question.StoneGameVII([]int{7,90,5,1,100,10,10,2}))
-
-	//fmt.Println(question.TopKFrequent([]string{"i", "love", "leetcode", "i", "love", "coding"},2))
-	//fmt.Println(question.TopKFrequent([]string{"the", "day", "is", "sunny", "the", "the", "the", "sunny", "is", "is"},2))
-	//fmt.Println(question.TopKFrequent([]string{"the", "day", "is", "sunny", "the", "the", "the", "sunny", "is", "is"},4))
-
-	//fmt.Println(question.MaxUncrossedLines([]int{1,4,2},[]int{1,2,4})) //2
-	//fmt.Println(question.MaxUncrossedLines([]int{2,5,1,2,5},[]int{10,5,2,1,5,2})) //3
-	//fmt.Println(question.MaxUncrossedLines([]int{1,3,7,1,7,5},[]int{1,9,2,5,1})) //2
-	//fmt.Println(question.MaxUncrossedLines([]int{1,4,1,2,4},[]int{1,2,4})) //3
-	//fmt.Println(question.MaxUncrossedLines([]int{1,5,2,4,4,1,2,4},[]int{1,2,4,2,4,5,4}))//5
-	//fmt.Println(question.MaxUncrossedLines([]int{1},[]int{1,3})) //1
-
-	//fmt.Println(question.MaximizeXor([]int{0,1,2,3,4},[][]int{{3,1},{1,3},{5,6}}))
-	//fmt.Println(question.MaximizeXor([]int{5,2,4,6,6,3},[][]int{{12,4},{8,1},{6,3}}))
-	//fmt.Println(question.MaximizeXor([]int{536870912,0,534710168,330218644,142254206},[][]int{{558240772,1000000000},{307628050,1000000000},{3319300,1000000000},{2751604,683297522},{214004,404207941}}))
-
-	//fmt.Println(question.StrangePrinter("aaabbb"))
-	//fmt.Println(question.StrangePrinter("aba"))
-	//fmt.Println(question.StrangePrinter("abc"))
-	//fmt.Println(question.StrangePrinter("abcacca"))
-	//fmt.Println(question.StrangePrinter("aaabbdwohdaihoiwqgsagfogwofhiahofwb"))
-
-	//fmt.Println(question.MinChanges([]int{1,2,0,3,0},1)) //3
-	//fmt.Println(question.MinChanges([]int{3,4,5,2,1,7,3,4,7},3)) //3
-	//fmt.Println(question.MinChanges([]int{1,2,4,1,2,5,1,2,6},3)) // 3
-	//fmt.Println(question.MinChanges([]int{1,2,4,1,2,5,1,2,6},4))
-	//fmt.Println(question.MinChanges([]int{1,2,4,1,2,5,1,2,6},5))
-
-	//fmt.Println(question.ReverseParentheses("(abcd)"))
-	//fmt.Println(question.ReverseParentheses("(u(love)i)"))
-	//fmt.Println(question.ReverseParentheses("(ed(et(oc))el)"))
-	//fmt.Println(question.ReverseParentheses("a(bcdefghijkl(mno)p)q"))
-	//fmt.Println(question.ReverseParentheses("a((bcdefghijkl)(mno)p)q"))
-
-	//solution := question.Constructor0710(2, []int{})
-	//fmt.Println(solution.Pick())
-	//fmt.Println(solution.Pick())
-	//fmt.Println(solution.Pick())
-	//
-	//solution = question.Constructor0710(1, []int{})
-	//fmt.Println(solution.Pick())
-	//fmt.Println(solution.Pick())
-	//fmt.Println(solution.Pick())
-	//
-	//solution = question.Constructor0710(3, []int{1})
-	//fmt.Println(solution.Pick())
-	//fmt.Println(solution.Pick())
-	//fmt.Println(solution.Pick())
-	//
-	//solution = question.Constructor0710(4, []int{2})
-	//fmt.Println(solution.Pick())
-	//fmt.Println(solution.Pick())
-	//fmt.Println(solution.Pick())
-	//fmt.Println(solution.Pick())
-	//fmt.Println(solution.Pick())
-
-	//fmt.Println(question.TotalHammingDistance1([]int{4,14,2}))
-	//fmt.Println(question.TotalHammingDistance1([]int{4,14,4}))
-	//fmt.Println(question.TotalHammingDistance1([]int{4,14,4,5}))
-
-	//fmt.Println(question.IsPowerOfTwo(1))
-	//fmt.Println(question.IsPowerOfTwo(2))
-	//fmt.Println(question.IsPowerOfTwo(3))
-	//fmt.Println(question.IsPowerOfTwo(4))
-
-	//fmt.Println(question.DistributeCoins(&question.TreeNode{
-	//	Val:   0,
-	//	Left:  &question.TreeNode{
-	//		Val:   3,
-	//		Left:  nil,
-	//		Right: nil,
-	//	},
-	//	Right: &question.TreeNode{
-	//		Val:   0,
-	//		Left:  nil,
-	//		Right: nil,
-	//	},
-	//}))
-	//fmt.Println(question.DistributeCoins(&question.TreeNode{
-	//	Val:   1,
-	//	Left:  &question.TreeNode{
-	//		Val:   0,
-	//		Left:  nil,
-	//		Right: nil,
-	//	},
-	//	Right: &question.TreeNode{
-	//		Val:   2,
-	//		Left:  nil,
-	//		Right: nil,
-	//	},
-	//}))
-	//fmt.Println(question.DistributeCoins(&question.TreeNode{
-	//	Val:   1,
-	//	Left:  &question.TreeNode{
-	//		Val:   0,
-	//		Left:  nil,
-	//		Right: nil,
-	//	},
-	//	Right: &question.TreeNode{
-	//		Val:   0,
-	//		Left:  nil,
-	//		Right: &question.TreeNode{
-	//			Val:   3,
-	//			Left:  nil,
-	//			Right: nil,
-	//		},
-	//	},
-	//}))
-	//fmt.Println(question.DistributeCoins(&question.TreeNode{
-	//	Val:   0,
-	//	Left:  &question.TreeNode{
-	//		Val:   5,
-	//		Left:  &question.TreeNode{
-	//			Val:   0,
-	//			Left:  nil,
-	//			Right: nil,
-	//		},
-	//		Right: &question.TreeNode{
-	//			Val:   1,
-	//			Left:  nil,
-	//			Right: nil,
-	//		},
-	//	},
-	//	Right: &question.TreeNode{
-	//		Val:   2,
-	//		Left:  &question.TreeNode{
-	//			Val:   0,
-	//			Left:  &question.TreeNode{
-	//				Val:   0,
-	//				Left:  nil,
-	//				Right: nil,
-	//			},
-	//			Right: nil,
-	//		},
-	//		Right: &question.TreeNode{
-	//			Val:   0,
-	//			Left:  nil,
-	//			Right: nil,
-	//		},
-	//	},
-	//}))
-	//fmt.Println(question.IsPowerOfFour(-1)) // F
-	//fmt.Println(question.IsPowerOfFour(0)) // F
-	//fmt.Println(question.IsPowerOfFour(1)) // T
-	//fmt.Println(question.IsPowerOfFour(2)) // F
-	//fmt.Println(question.IsPowerOfFour(3)) // F
-	//fmt.Println(question.IsPowerOfFour(4)) // T
-	//fmt.Println(question.IsPowerOfFour(5)) // F
-	//fmt.Println(question.IsPowerOfFour(8)) // F
-	//fmt.Println(question.IsPowerOfFour(12)) // F
-	//fmt.Println(question.IsPowerOfFour(16)) // T
-
-	//fmt.Println(question.CanEat([]int{7,4,5,3,8},[][]int{{0,2,2},{4,2,4},{2,13,10000}}))
-	//fmt.Println(question.CanEat([]int{5,2,6,4,1},[][]int{{3,1,2},{4,10,3},{3,10,100},{4,100,30},{1,3,1}}))
-
-	//fmt.Println(question.CheckSubarraySum([]int{23,2,4,6,7},6))
-	//fmt.Println(question.CheckSubarraySum([]int{23,2,6,4,7},6))
-	//fmt.Println(question.CheckSubarraySum([]int{23,2,6,4,7},13))
-
-	//fmt.Println(question.FindMaxLength([]int{0,1}))
-	//fmt.Println(question.FindMaxLength([]int{0,1,0}))
-	//fmt.Println(question.FindMaxLength([]int{0,1,0,1}))
-	//fmt.Println(question.FindMaxLength([]int{0,1,0,1,1}))
-	//fmt.Println(question.FindMaxLength([]int{0,1,0,1,1,0}))
-	//fmt.Println(question.FindMaxLength([]int{0,1,0,0,0,1,0,1}))
-	//fmt.Println(question.FindMaxLength([]int{0,0,0,1,1,1,0}))
-
-	//fmt.Println(question.FindMaxForm([]string{"10","0001","111001","1","0"},5,3))
-	//fmt.Println(question.FindMaxForm([]string{"10","0","1"},1,1))
-
-	//fmt.Println(question.FindTargetSumWays([]int{1,1,1,1,1},3))
-	//fmt.Println(question.FindTargetSumWays([]int{1},1))
-	//fmt.Println(question.FindTargetSumWays([]int{0,0,0,0,0,0,0,0,1},1))
-
-	//fmt.Println(question.LastStoneWeightII([]int{2,7,4,1,8,1}))
-	//fmt.Println(question.LastStoneWeightII([]int{31,26,33,21,40}))
-	//fmt.Println(question.LastStoneWeightII([]int{1,2}))
-	//fmt.Println(question.LastStoneWeightII([]int{1,1,4,2,2}))
-
-	//fmt.Println(question.ProfitableSchemes(5, 3, []int{2, 2}, []int{2, 3}))
-	//fmt.Println(question.ProfitableSchemes(10, 5, []int{2, 3, 5}, []int{6, 7, 8}))
-
-	//fmt.Println(question.LargestNumber1449([]int{4, 3, 2, 5, 6, 7, 2, 5, 5}, 9))
-	//fmt.Println(question.LargestNumber1449([]int{7, 6, 5, 5, 5, 6, 8, 7, 8}, 12))
-	//fmt.Println(question.LargestNumber1449([]int{2, 4, 6, 2, 4, 6, 4, 4, 4}, 5))
-	//fmt.Println(question.LargestNumber1449([]int{6, 10, 15, 40, 40, 40, 40, 40, 40}, 47))
-	//fmt.Println(question.LargestNumber1449([]int{1000,30,105,70,42,1000,1000,1000,1000},503))
-
-	//fmt.Println(question.Answer1833([]int{1,3,2,4,1},7))
-	//fmt.Println(question.Answer1833([]int{10,6,8,7,7,8},5))
-	//fmt.Println(question.Answer1833([]int{1,6,3,1,2,5},20))
-
-	//fmt.Println(question.Answer0645([]int{1,2,2,4}))
-	//fmt.Println(question.Answer0645([]int{1,1}))
-
-	//fmt.Println(question.Answer0646([][]int{
-	//	{1,2},{2,3},{3,4},
-	//}))
-	//fmt.Println(question.Answer0646([][]int{
-	//	{1,2},{7,8},{4,5},
-	//}))
-
-	//fmt.Println(question.Answer0726("H2O"))
-	//fmt.Println(question.Answer0726("H2O2"))
-	//fmt.Println(question.Answer0726("Be32"))
-
-	//fmt.Println(question.Answer1418(
-	//	[][]string{
-	//	{"David","3","Ceviche"},
-	//	{"Corina","10","Beef Burrito"},
-	//	{"David","3","Fried Chicken"},
-	//	{"Carla","5","Water"},
-	//	{"Carla","5","Ceviche"},
-	//	{"Rous","3","Ceviche"},
-	//	}))
-	//fmt.Println(question.Answer1418(
-	//	[][]string{
-	//	{"James","12","Fried Chicken"},
-	//	{"Ratesh","12","Fried Chicken"},
-	//	{"Amadeus","12","Fried Chicken"},
-	//	{"Adam","1","Canadian Waffles"},
-	//	{"Brianna","1","Canadian Waffles"},
-	//	}))
-
-	//fmt.Println(question.Answer0930([]int{1,0,1,0,1},2))
-	//fmt.Println(question.Answer0930([]int{0,0,0,0,0},0))
-	//fmt.Println(question.Answer0930([]int{0,0,1,0,0},1))
-
-	//fmt.Println(question.Answer0238([]int{1,2,3,4}))
-	//fmt.Println(question.Answer0238([]int{-1,1,0,-3,3}))
-
-	//fmt.Println(question.Answer0274([]int{3,0,6,1,5}))
-	//fmt.Println(question.Answer0274([]int{1,3,1}))
-
-	//fmt.Println(question.Answer1818([]int{1,7,5},[]int{2,3,5}))
-	//fmt.Println(question.Answer1818([]int{2,4,6,8,10},[]int{2,4,6,8,10}))
-	//fmt.Println(question.Answer1818([]int{1,10,4,4,2,7},[]int{9,3,5,1,7,4}))
-
-	//fmt.Println(question.Answer1846([]int{100,1,1000}))
-	//fmt.Println(question.Answer1846([]int{2,2,1,2,1}))
-	//fmt.Println(question.Answer1846([]int{1,2,3,4,5}))
-
-	//fmt.Println(question.Answer0736("(let x 2 (mult x (let x 3 y 4 (add x y))))"))
-	//fmt.Println(question.Answer0736("(let x 3 x 2 x)"))
-	//fmt.Println(question.Answer0736("(let x 1 y 2 x (add x y) (add x y))"))
-	//fmt.Println(question.Answer0736("(let x 2 (add (let x 3 (let x 4 x)) x))"))
-	//fmt.Println(question.Answer0736("(let a1 3 b2 (add a1 1) b2)"))
-	//fmt.Println(question.Answer0736("(let x -2 y x y)"))
-	//fmt.Println(question.Answer0736("(let x (add 12 -7) (mult x x))"))
-
-	//fmt.Println(question.AnswerMST1002([]string{"eat", "tea", "tan", "ate", "nat", "bat"}))
-	//fmt.Println(question.AnswerMST1002([]string{"hos","boo","nay","deb","wow","bop","bob","brr","hey","rye","eve","elf","pup","bum","iva","lyx","yap","ugh","hem","rod","aha","nam","gap","yea","doc","pen","job","dis","max","oho","jed","lye","ram","pup","qua","ugh","mir","nap","deb","hog","let","gym","bye","lon","aft","eel","sol","jab"}))
-
-	//fmt.Println(question.Answer1838([]int{1,2,4},5))
-	//fmt.Println(question.Answer1838([]int{1,4,8,13},5))
-	//fmt.Println(question.Answer1838([]int{3,9,6},2))
-
-	//fmt.Println(question.Answer1540("input","ouput",9))
-	//fmt.Println(question.Answer1540("abc","bcd",10))
-	//fmt.Println(question.Answer1540("aab","bbb",27))
-	//fmt.Println(question.Answer1540("iqssxdlb","dyuqrwyr",40))
-
-	//fmt.Println(question.Answer1736("2?:?0"))
-	//fmt.Println(question.Answer1736("0?:3?"))
-	//fmt.Println(question.Answer1736("1?:22"))
-
-	//fmt.Println(question.Answer1743([][]int{{2,1},{3,4},{3,2}}))
-	//fmt.Println(question.Answer1743([][]int{{4,-2},{1,4},{-3,1}}))
-	//fmt.Println(question.Answer1743([][]int{{100000,-100000}}))
-	//fmt.Println(question.Answer1743([][]int{{-3,-9},{-5,3},{2,-9},{6,-3},{6,1},{5,3},{8,5},{-5,1},{7,2}}))
-
-	//fmt.Println(question.Answer1104(14))
-	//fmt.Println(question.Answer1104(26))
-	//fmt.Println(question.Answer1104(16))
-	//fmt.Println(question.Answer1104(15))
-
-	//fmt.Println(question.Answer0802([][]int{{1,2},{2,3},{5},{0},{5},{},{}}))
-	//fmt.Println(question.Answer0802([][]int{{1,2,3,4},{1,2},{3,4},{0,4},{}}))
-	//fmt.Println(question.Answer0802([][]int{{},{0,2,3,4},{3},{4},{}}))
-
-	//fmt.Println(question.Answer1137(4))
-	//fmt.Println(question.Answer1137(25))
-
-	//fmt.Println(question.Answer0413([]int{1,2,3,4}))
-	//fmt.Println(question.Answer0413([]int{1,2,3,4,5}))
-	//fmt.Println(question.Answer0413([]int{1,2,3,4,6}))
-	//fmt.Println(question.Answer0413([]int{1,3,5,7,9}))
-
-	//fmt.Println(question.Answer0446([]int{2,4,6,8,10}))
-	fmt.Println(question.Answer0446([]int{2,4,6,8,10,11,12,13,14}))
-	sync.Mutex{}
+	{
+		//var b map[byte]interface{}
+		//fmt.Print(findMedianSortedArrays([]int{1,2, 3}, []int{5}))
+		//fmt.Printf("%s\n", longestPalindrome("bbbcccc"))
+		//fmt.Printf("%s", convert("PAYPALISHIRING", 4))
+		//fmt.Printf("%d",reverse(120))
+		//fmt.Printf("%d\n", myAtoi(  "-2147483647"))
+		//fmt.Printf("%v\n", isPalindrome(121))
+		//fmt.Printf("%v\n", isMatch("aa","a"))
+		//fmt.Printf("%v\n", maxArea([]int{1,1}))
+		//fmt.Printf("%s\n", intToRoman(1994))
+		//fmt.Printf("%d\n", romanToInt("LVIII"))
+		//fmt.Printf("%s\n", longestCommonPrefix([]string{"dog","racecar","car"}))
+		//fmt.Printf("%#v\n", threeSum1([]int{0,0,0,0}))
+		//fmt.Printf("%#v\n", threeSumClosest([]int{-1,2,1,-4},1))
+		//fmt.Printf("%#v\n", letterCombinations(""))
+		//fmt.Printf("%#v\n", fourSum([]int{0, 0, 0, 0, 0, 0}, 0))
+		//fmt.Printf("%#v\n", isValid("[[[]"))
+		//res := mergeTwoLists(&ListNode{
+		//	Val: 1,
+		//	Next: &ListNode{
+		//		Val: 2,
+		//		Next: &ListNode{
+		//			Val:  4,
+		//			Next: nil,
+		//		},
+		//	},
+		//}, &ListNode{
+		//	Val: 2,
+		//	Next: &ListNode{
+		//		Val: 3,
+		//		Next: &ListNode{
+		//			Val:  4,
+		//			Next: nil,
+		//		},
+		//	},
+		//})
+		//for res != nil {
+		//	fmt.Printf("%d->", res.Val)
+		//	res = res.Next
+		//}
+		//fmt.Printf("%v\n", generateParenthesis(3))
+		//res:=mergeKLists([]*ListNode{&ListNode{
+		//	Val:  1,
+		//	Next: &ListNode{
+		//		Val:  2,
+		//		Next: &ListNode{
+		//			Val:  2,
+		//			Next: nil,
+		//		},
+		//	},
+		//},&ListNode{
+		//	Val:  1,
+		//	Next: &ListNode{
+		//		Val:  3,
+		//		Next: &ListNode{
+		//			Val:  7,
+		//			Next: nil,
+		//		},
+		//	},
+		//},&ListNode{
+		//	Val:  3,
+		//	Next: &ListNode{
+		//		Val:  5,
+		//		Next: nil,
+		//	},
+		//},&ListNode{
+		//	Val:  4,
+		//	Next: &ListNode{
+		//		Val:  9,
+		//		Next: nil,
+		//	},
+		//},&ListNode{
+		//	Val:  9,
+		//	Next: nil,
+		//}})
+		//for res != nil {
+		//	fmt.Printf("%d->", res.Val)
+		//	res = res.Next
+		//}
+		//res := swapPairs(nil)
+		//for res != nil {
+		//	fmt.Printf("%d->", res.Val)
+		//	res=res.Next
+		//}
+		//res := reverseKGroup(&ListNode{
+		//	Val: 1,
+		//	Next: &ListNode{
+		//		Val: 3,
+		//		Next: nil,
+		//	}},2)
+		//for res != nil {
+		//	fmt.Printf("%d->", res.Val)
+		//	res = res.Next
+		//}
+		//fmt.Printf("%d\n",removeDuplicates([]int{1}))
+		//fmt.Printf("%d\n",removeElement([]int{1,2,3,7,4,5,5,5,8},5))
+		//fmt.Printf("%d\n",strStr("hello","heo"))
+		//fmt.Printf("%d\n", divide(2147483648, -1))
+		//fmt.Printf("%v\n", findSubstring1("ababaab",[]string{"ab","ba","ba"}))
+		//n:=[]int{3,2,1}
+		//nextPermutation(n)
+		//for i:=0;i<len(n);i++{
+		//	fmt.Printf("%d",n[i])
+		//}
+		//fmt.Printf("%v\n", longestValidParentheses("((()))((())()"))
+		//fmt.Printf("%v\n", isMatch("aa",".*"))
+		//fmt.Printf("%v\n", search([]int{4,5,1,2,3},3))
+		//fmt.Printf("%v\n", searchRange([]int{2,2,2,2}, 2))
+		//fmt.Printf("%v\n", searchInsert([]int{2, 3, 5}, 6))
+		//fmt.Printf("%v\n", isValidSudoku([][]byte{
+		//	{5, 3, 0, 0, 7, 0, 0, 0, 0},
+		//	{6, 0, 0, 1, 9, 5, 0, 0, 0},
+		//	{0, 9, 8, 0, 0, 0, 0, 6, 0},
+		//	{8, 0, 0, 0, 6, 0, 0, 0, 3},
+		//	{4, 0, 0, 8, 0, 3, 0, 0, 1},
+		//	{7, 0, 0, 0, 2, 0, 0, 0, 6},
+		//	{0, 6, 0, 0, 0, 0, 2, 8, 0},
+		//	{0, 0, 0, 4, 1, 9, 0, 0, 5},
+		//	{0, 0, 0, 0, 8, 0, 0, 7, 9},
+		//}))
+		//TODO: finish this function
+		//t:=[][]byte{
+		//	{5, 3, 0, 0, 7, 0, 0, 0, 0},
+		//	{6, 0, 0, 1, 9, 5, 0, 0, 0},
+		//	{0, 9, 8, 0, 0, 0, 0, 6, 0},
+		//	{8, 0, 0, 0, 6, 0, 0, 0, 3},
+		//	{4, 0, 0, 8, 0, 3, 0, 0, 1},
+		//	{7, 0, 0, 0, 2, 0, 0, 0, 6},
+		//	{0, 6, 0, 0, 0, 0, 2, 8, 0},
+		//	{0, 0, 0, 4, 1, 9, 0, 0, 5},
+		//	{0, 0, 0, 0, 8, 0, 0, 7, 9},
+		//}
+		//solveSudoku(t)
+		//for i:=0;i<9;i++{
+		//	for j:=0;j<9;j++{
+		//		fmt.Printf("%d\t",t[i][j])
+		//	}
+		//	fmt.Println()
+		//}
+		//fmt.Printf("%s\n",countAndSay(5))
+		//res := combinationSum2([]int{2, 3, 4, 14, 16}, 18)
+		//for i := 0; i < len(res); i++ {
+		//	for j := 0; j < len(res[i]); j++ {
+		//		fmt.Printf("%d,", res[i][j])
+		//	}
+		//	fmt.Println()
+		//}
+		//fmt.Printf("%d",firstMissingPositive([]int{2,2,6,1}))
+		//fmt.Printf("%d", trap([]int{4,3,4}))
+		//fmt.Printf("%v", multiply("98","9"))
+		//fmt.Printf("%v\n", isMatch("aa", "*"))
+		//fmt.Printf("%v\n", jump([]int{5,1,1,1,1,1}))
+		//fmt.Printf("%v\n", permute([]int{0,1,2}))
+		//fmt.Printf("%v\n", permuteUnique([]int{1,2,2,3,3}))
+		//in := [][]int{
+		//	{5, 1, 9, 11},
+		//	{2, 4, 8, 10},
+		//	{13, 3, 6, 7},
+		//	{15, 14, 12, 16},
+		//}
+		//rotate(in)
+		//for i := 0; i < len(in); i++ {
+		//	for j := 0; j < len(in[i]); j++ {
+		//		fmt.Printf("%d\t", in[i][j])
+		//	}
+		//	fmt.Println()
+		//}
+		//fmt.Printf("%v\n", groupAnagras([]string{"acc","ac","c"}))
+		//fmt.Printf("%v",pow(2,-3))
+		//res:=solveNQueens(3)
+		//for i:=0;i<len(res);i++{
+		//	for j:=0;j<len(res[i]);j++{
+		//		fmt.Println(res[i][j])
+		//	}
+		//	fmt.Println()
+		//}
+		//fmt.Printf("%d",maxSubArray([]int{-2,1,-3,4,-1,2,1,-5,4}))
+		//res:=spiralOrder([][]int{{1,11},{2,12},{3,13},{4,14},{5,15},{6,16},{7,17},{8,18},{9,19},{10,20}})
+		//fmt.Printf("%v",res)
+		//fmt.Printf("%v",canJump([]int{1,0,1,0,4}))
+		//fmt.Printf("%v",merge([][]int{{4,5},{1,4},{2,6},{7,9},{11,22}}))
+		//fmt.Printf("%v",insert([][]int{{23,25},{30,34},{41,43},{45,49}},[]int{29,32}))
+		//fmt.Printf("%v",lengthOfLastWord("    ffff   "))
+		//fmt.Printf("%v",generateMatrix(4))
+		//fmt.Printf("%v",getPermutation(3,5))
+		//res:=&ListNode{
+		//	Val:  1,
+		//	Next: &ListNode{
+		//		Val:  2,
+		//		Next: &ListNode{
+		//			Val:  3,
+		//			Next: &ListNode{
+		//				Val:  4,
+		//				Next: &ListNode{
+		//					Val:  5,
+		//					Next: nil,
+		//				},
+		//			},
+		//		},
+		//	},
+		//}
+		//res=rotateRight(res,5)
+		//for res!=nil{
+		//	fmt.Printf("%d->",res.Val)
+		//	res=res.Next
+		//}
+		//fmt.Printf("%v",uniquePaths(7,3))
+		//fmt.Printf("%v",uniquePathsWithObstacles([][]int{{0,1}}))
+		//fmt.Printf("%v",minPathSum([][]int{{1,3,1},{1,5,1},{4,2,1}}))
+		//fmt.Printf("%v",isNumber("   2e-10 "))
+		//fmt.Printf("%v",plusOne([]int{8}))
+		//fmt.Printf("%v",addBinary("1010","1011"))
+		//fmt.Printf("%v", fullJustify([]string{
+		//	"ask","not","what","your","country","can","do","for","you","ask","what","you","can","do","for","your","country",
+		//},16))
+		//fmt.Printf("%v\n", computeValue(
+		//	[]int{500,200,100,50,20,10,5,2,1},
+		//	[]int{10,10,10,10,10,10,10,10,10},
+		//	670, 10))
+		//fmt.Printf("%v\n",mySqrt(17))
+		//fmt.Printf("%v\n",climbStairs(4))
+		//fmt.Printf("%v\n",simplifyPath("/a/a/b/c/./../"))
+		//fmt.Printf("%v\n",minDistance("intention","execution"))
+		//m:=[][]int{{1,2,3,4},{5,0,7,8},{0,10,11,12},{13,14,15,0}}
+		//setZeroes(m)
+		//fmt.Printf("%v\n",m)
+		//fmt.Printf("%v\n",searchMatrix([][]int{{2}},1))
+		//nums := []int{1,2,0,0,1,0,1,0,2,2,0,2,1,0,1,2,0,1,2,1,0,1,2,1,0}
+		//sortColors(nums)
+		//fmt.Printf("%s",minWindow("ADOBECODEBANCDEAB","ADD"))
+		//fmt.Printf("%s",minWindow1("ADOBECODEBANC","ABC"))
+		//fmt.Printf("%v",combine1(5,3))
+		//fmt.Printf("%v",subsets([]int{1,2,3,4,5}))
+		//fmt.Printf("%v", exist([][]byte{
+		//	{'A','B','C','E'},
+		//	{'S','F','C','S'},
+		//	{'A','D','E','E'},
+		//}, "ABCCED"))
+		//fmt.Printf("%v",removeDuplicatesII([]int{0,0,0,0,1,1,1,1,2,2,2,3,3}))
+		//fmt.Printf("%v",searchII([]int{1,3,1,1,1},1))
+		//leetcode:=&ListNode{
+		//	Val:  1,
+		//	Next: &ListNode{
+		//		Val:  2,
+		//		Next: &ListNode{
+		//			Val:  2,
+		//			Next: &ListNode{
+		//				Val:  3,
+		//				Next: &ListNode{
+		//					Val: 4,
+		//					Next: &ListNode{
+		//						Val:  4,
+		//						Next: &ListNode{
+		//							Val:  5,
+		//							Next: nil,
+		//						},
+		//					},
+		//				},
+		//			},
+		//		},
+		//	},
+		//}
+		//res:=deleteDuplicates(leetcode)
+		//p:=res
+		//for p!=nil{
+		//	fmt.Printf("%d->",p.Val)
+		//	p=p.Next
+		//}
+		//fmt.Printf("%d",largestRectangleArea([]int{2,1,5,6,2,3}))
+		//fmt.Printf("%d", maximalRectangle([][]byte{
+		//	//{'1', '0', '1', '0', '0'},
+		//	//{'1', '0', '1', '1', '1'},
+		//	//{'1', '1', '1', '1', '1'},
+		//	//{'1', '0', '0', '1', '0'},
+		//	{'0','1'},
+		//	{'0','1'},
+		//}))
+		//_=&ListNode{
+		//	Val:  1,
+		//	Next: &ListNode{
+		//		Val:  4,
+		//		Next: &ListNode{
+		//			Val:  3,
+		//			Next: &ListNode{
+		//				Val:  2,
+		//				Next: &ListNode{
+		//					Val:  5,
+		//					Next: &ListNode{
+		//						Val:  2,
+		//						Next: nil,
+		//					},
+		//				},
+		//			},
+		//		},
+		//	},
+		//}
+		//res:=partition(&ListNode{
+		//	Val:  1,
+		//	Next: &ListNode{
+		//		Val:  1,
+		//		Next: nil,
+		//	},
+		//},0)
+		//p:=res
+		//for p!=nil{
+		//	fmt.Printf("%d->",p.Val)
+		//	p=p.Next
+		//}
+
+		//head:=&ListNode{
+		//	Val:  0,
+		//	Next: &ListNode{
+		//		Val:  1,
+		//		Next: &ListNode{
+		//			Val:  2,
+		//			Next: &ListNode{
+		//				Val:  3,
+		//				Next: &ListNode{
+		//					Val:  4,
+		//					Next: &ListNode{
+		//						Val:  5,
+		//						Next: nil,
+		//					},
+		//				},
+		//			},
+		//		},
+		//	},
+		//}
+		//rear:=head
+		//for rear.Next!=nil{
+		//	rear=rear.Next
+		//}
+		////rear.Next=head.Next.Next
+		//fmt.Printf("%t",hasCycle(head))
+
+		//fmt.Printf("%t",canPartition([]int{100,100,100,100,100,100,100,100}))
+
+		//fmt.Printf("%t",isScramble("abcde","caebd"))
+
+		//nums1:=[]int{1,2,3,0,0,0}
+		//nums2:=[]int{4,5,6}
+		//mergeIn88(nums1,len(nums1)-len(nums2),nums2,len(nums2))
+
+		//grayCode(1)
+
+		//subsetsWithDup([]int{1,2,2})
+
+		//fmt.Println(numDecodings("0"))
+
+		//head:=&ListNode{
+		//	Val:  1,
+		//	Next: &ListNode{
+		//		Val:  2,
+		//		Next: &ListNode{
+		//			Val:  3,
+		//			Next: &ListNode{
+		//				Val:  4,
+		//				Next: &ListNode{
+		//					Val:  5,
+		//					Next: nil,
+		//				},
+		//			},
+		//		},
+		//	},
+		//}
+		//res:=reverseBetween(head,1,5)
+		//p:=res
+		//for p!=nil{
+		//	fmt.Printf("%d->",p.Val)
+		//	p=p.Next
+		//}
+
+		//fmt.Printf("%v",restoreIpAddresses("101023"))
+
+		//generateTrees(3)
+		//fmt.Printf("%t",isInterleave("ab","aa","abaa"))
+
+		//fmt.Printf("%v",generate(5))
+		//fmt.Printf("%v",getRow(5))
+		//fmt.Printf("%v",maxProfit([]int{1,2,4,5,3,7}))
+		//fmt.Printf("%v",isPalindrome1("0P"))
+		//fmt.Printf("%v",findLadders("hit", "cog", []string{"hot","dot","dog","lot","log","cog"}))
+		//fmt.Println(longestConsecutive([]int{}))
+		//fmt.Println(sumNumbers(&TreeNode{
+		//	Val:   0,
+		//	Left:  &TreeNode{
+		//		Val:   1,
+		//		Left:  nil,
+		//		Right: nil,
+		//	},
+		//	Right: nil,
+		//}))
+		//solve([][]byte{{'X', 'O', 'X', 'X'}, {'X', 'O', 'O', 'X'}, {'X', 'X', 'O', 'X'}, {'X', 'O', 'X', 'X'}})
+		//partition("baaab")
+		//minCut("ababab")
+		//fmt.Println(candy([]int{1,4,2,5,7,1,7,8,3,2}))
+		//fmt.Println(wordBreak("leetcode",[]string{"leet","code"}))
+		//fmt.Println(maxPoints([][]int{{1,1},{2,2},{3,3}}))
+		//fmt.Println(evalRPN([]string{"10", "6", "9", "3", "+", "-11", "*", "/", "*", "17", "+", "5", "+"}))
+		//fmt.Println(reverseWords("   Alice does not even like bob"))
+		//fmt.Println(maxProduct1([]int{0,-2}))
+		//fmt.Println(findMin([]int{1,2,3,4,1,1,1,1}))
+		//fmt.Println(findPeakElement([]int{2,1}))
+		//fmt.Println(maximumGap([]int{3,6,2,9,1}))
+		//fmt.Println(compareVersion("0.0.0","0"))
+		//fmt.Println(fractionToDecimal(-60,-5))
+		//fmt.Println(convertToTitle(44))
+		//fmt.Println(majorityElement([]int{3,2,2,3}))
+		//fmt.Println(titleToNumber("AA"))
+		//fmt.Println(trailingZeroes1(25))
+		//a:=[]int{0,2,11,14,17,21,25}
+		//start,end:=0,a[len(a)-1]+1
+		//for start+1<end{
+		//	i:=0
+		//	del:=0
+		//	mid:=(start+end)/2
+		//	for i<=len(a)-2{
+		//		j:=i+1
+		//		for j<len(a) && a[j]-a[i]<mid{
+		//			j++
+		//		}
+		//		del+=j-i-1
+		//		i=j
+		//	}
+		//	if del<=2{
+		//		start=mid
+		//	}else{
+		//		end=mid
+		//	}
+		//	fmt.Println(start)
+		//}
+		//fmt.Println(start)
+		//fmt.Println(calculateMinimumHP([][]int{
+		//	{-2,-3,3},
+		//	{-5,-10,1},
+		//	{10,30,-5},
+		//}))
+		//fmt.Printf(largestNumber([]int{3,30,34,5,9}))
+		//rotate([]int{1,2,3,4},2)
+		//fmt.Println(reverseBits(1))
+		//fmt.Println(hammingWeight(15))
+		//fmt.Println(rangeBitwiseAnd(5,7))
+		//fmt.Println(isHappy(2))
+		//fmt.Println(countPrimes(10))
+		//fmt.Println(isIsomorphic("title","paper"))
+		//fmt.Println(canFinish(2,[][]int{{0,1}}))
+		//t:=TrieConstructor()
+		//t.Insert("apple")
+		//fmt.Println(t.Search("app"))
+		//fmt.Println(t.Search("apple"))
+		//fmt.Println(t.StartsWith("apple"))
+		//fmt.Println(t.StartsWith("app"))
+		//t.Insert("app")
+		//fmt.Println(t.Search("app"))
+		//fmt.Println(t.StartsWith("app"))
+		//fmt.Println(minSubArrayLen(16, []int{2, 3, 1, 2, 2, 3}))
+		//fmt.Println(findOrder(4,[][]int{{1,0},{2,0},{3,1},{3,2}}))
+		//fmt.Println(findWords(
+		//	[][]byte{
+		//		{'o', 'a', 'a', 'n'},
+		//		{'e', 't', 'a', 'e'},
+		//		{'i', 'h', 'k', 'r'},
+		//		{'i', 'f', 'l', 'v'},
+		//	},
+		//	[]string{"oath", "pea", "eat", "rain"}))
+		//fmt.Println(rob([]int{2, 5, 1, 3, 4, 3, 2, 6, 1, 8, 9}))
+		//fmt.Println(question.ShortestBridge([][]int{
+		//	{1,1,1,1,1},{1,0,0,0,1},{1,0,1,0,1},{1,0,0,0,1},{1,1,1,1,1},
+		//}))
+		//inputs := [][][]int{
+		//	[][]int{
+		//		{1,2,7},
+		//		{3,6,7},
+		//	},
+		//	[][]int{
+		//		{7,12},
+		//		{4,5,15},
+		//		{6},
+		//		{15,19},
+		//		{9,12,13},
+		//	},
+		//	[][]int{
+		//		{24},
+		//		{3, 6, 11, 14, 22},
+		//		{1, 23, 24},
+		//		{0, 6, 14},
+		//		{1, 3, 8, 11, 20},
+		//	},
+		//	[][]int{
+		//		{1, 9, 12, 20, 23, 24, 35, 38},
+		//		{10, 21, 24, 31, 32, 34, 37, 38, 43},
+		//		{10, 19, 28, 37},
+		//		{8},
+		//		{14, 19},
+		//		{11, 17, 23, 31, 41, 43, 44},
+		//		{21, 26, 29, 33},
+		//		{5, 11, 33, 41},
+		//		{4, 5, 8, 9, 24, 44},
+		//	},
+		//	[][]int{
+		//		{3, 16, 33, 45, 59, 79, 103, 135},
+		//		{3, 35, 39, 54, 56, 78, 96, 101, 120, 132, 146, 148},
+		//		{13, 72, 98},
+		//		{37, 70, 107},
+		//		{0, 12, 31, 37, 41, 68, 78, 94, 100, 101, 113, 123},
+		//		{11, 32, 52, 85, 135},
+		//		{43, 50, 128},
+		//		{0, 13, 49, 51, 53, 55, 60, 65, 66, 80, 82, 87, 92, 99, 112, 118, 120, 125, 128, 131, 137},
+		//		{15, 19, 34, 37, 45, 52, 56, 97, 108, 123, 142},
+		//		{7, 9, 20, 28, 29, 33, 34, 38, 43, 46, 47, 48, 53, 59, 65, 72, 74, 80, 88, 92, 110, 111, 113, 119, 135, 140},
+		//		{15, 41, 64, 83},
+		//		{7, 13, 26, 31, 57, 85, 101, 108, 110, 115, 119, 124, 149},
+		//		{47, 61, 67, 70, 74, 75, 77, 84, 92, 101, 124, 132, 133, 142, 147},
+		//		{0, 2, 5, 6, 12, 18, 34, 37, 47, 58, 77, 98, 99, 109, 112, 131, 135, 149},
+		//		{6, 7, 8, 9, 14, 17, 21, 25, 33, 40, 45, 50, 56, 57, 58, 60, 68, 92, 93, 100, 108, 114, 130, 149},
+		//		{7},
+		//		{5, 16, 22, 48, 77, 82, 108, 114, 124},
+		//		{34, 71},
+		//		{8, 16, 32, 48, 104, 108, 116, 134, 145},
+		//		{3, 10, 16, 19, 35, 45, 64, 74, 89, 101, 116, 149},
+		//		{1, 5, 7, 10, 11, 18, 40, 45, 50, 51, 52, 54, 55, 69, 71, 81, 82, 83, 85, 89, 96, 100, 114, 115, 124, 134, 138, 148},
+		//		{0, 2, 3, 5, 6, 9, 15, 52, 64, 103, 108, 114, 146},
+		//		{5, 33, 39, 40, 44, 45, 66, 67, 68, 69, 84, 102, 106, 115, 120, 128, 133},
+		//		{17, 26, 49, 50, 55, 58, 60, 65, 88, 90, 102, 121, 126, 130, 137, 139, 144},
+		//		{6, 12, 13, 37, 41, 42, 48, 50, 51, 55, 64, 65, 68, 70, 73, 102, 106, 108, 120, 123, 126, 127, 129, 135, 136, 149},
+		//		{6, 7, 12, 33, 37, 41, 47, 53, 54, 80, 107, 121, 126},
+		//		{15, 75, 91, 103, 107, 110, 125, 139, 142, 149},
+		//		{18, 24, 30, 52, 61, 64, 75, 79, 85, 95, 100, 103, 105, 111, 128, 129, 142},
+		//		{3, 14, 18, 32, 45, 52, 57, 63, 68, 78, 85, 91, 100, 104, 111, 114, 142},
+		//		{4, 7, 11, 20, 21, 31, 32, 33, 48, 61, 62, 65, 66, 73, 80, 92, 93, 97, 99, 108, 112, 116, 136, 139},
+		//	},
+		//	[][]int{
+		//	{148,167,216},
+		//	{6,23,25,40,43,58,63,69,77,86,94,96,106,117,119,127,139,151,153,155,157,186,191,196,200,204,210,216,219},
+		//	{2,6,7,16,27,30,42,47,49,68,69,77,93,94,96,102,104,111,114,126,131,137,150,161,167,171,174,193,198,199,200,223},
+		//	{46,131,211},
+		//	{25,36,51,52,65,78,90,102,103,105,108,114,123,151,152,153,162,174,175},
+		//	{217},
+		//	{9,10,15,27,37,38,41,43,46,51,67,74,81,82,83,94,95,107,113,120,122,123,124,132,149,160,162,169,170,171,174,177,185,192,193,195,196,198,213,217,220,221},
+		//	{74,78,85,95,130,136,145,152,173,175,180,181,184,193,199,202},
+		//	{13,18,28,38,41,42,47,75,87,91,106,151,158,166,181,182,199,216},
+		//	{44,63,71,74,144,162,169,220},
+		//	{2,23,115,185,208},
+		//	{0,8,13,14,35,46,67,89,91,122,124,126,130,156,177,193,212,214},
+		//	{2,4,24,37,40,43,55,68,81,92,106,107,109,127,132,138,145,159,163,165,170,172,183,184,209,213,215,220},
+		//	{5,16,17,34,38,48,55,59,60,65,69,84,86,94,100,103,109,110,112,127,130,131,134,145,148,149,154,161,166,169,182,183,201,203,208,214,223},
+		//	{0,2,5,6,8,19,49,50,53,79,92,94,97,109,110,112,121,129,132,135,138,139,144,160,166,170,194,197,198,201,212},
+		//	{27,52,61,112,118,133,142,159,175,186,216},
+		//	{2,20,34,64,65,77,87,91,95,96,97,125,126,131,144,146,149,152,154,164,165,170,179,205,207},
+		//	{24,85,123,132,172,173,194,222},
+		//	{2,4,5,15,23,36,44,47,63,64,78,80,84,97,99,102,104,114,120,130,132,143,161,162,163,167,171,172,176,179,180,194,196,199,202,204,209,214,216,221},
+		//	{8,22,26,31,38,39,41,59,78,90,102,108,110,138,141,146,176,185,190,198,200,219,220},
+		//	{5,24,30,46,55,64,67,74,78,136,194,216},
+		//	{133,142,202},
+		//	{13,40,49,57,63,75,76,85,91,107,116,121,128,135,137,141,154,193,198,200,204,223},
+		//	{4,13,14,26,28,33,39,49,58,65,67,74,77,81,90,96,122,124,144,156,158,166,169,170,179,203,204,208,215,223},
+		//	{6,20,28,36,46,90,107,115,124,131,135,144,147,148,149,161,162,174,176,214,221},
+		//	{10,20,21,29,35,36,62,65,67,70,72,87,89,92,100,103,107,109,113,126,129,139,140,145,146,147,174,176,180,184,189,190,193,196,198,199,200,209,217},
+		//	{19,22,27,54,59,63,77,102,122,126,140,143,154,164,165,175,212,216,217,218},
+		//	{11,13,16,18,27,31,46,49,69,77,88,109,111,119,121,146,161,169,193,194,198,200,204},
+		//	{1,7,28,58,73,91,98,138,150,173,182,186,213},
+		//	{3,25,28,33,46,68,70,74,78,97,141,146,149,169,172,178,185,188,202,212,223},
+		//	{3,4,19,22,24,37,38,43,54,55,56,57,58,62,66,72,75,77,88,106,114,119,127,132,133,137,144,146,150,156,161,164,165,179,181,195,200,213,214,215,222},
+		//	{9,11,14,15,38,46,55,61,66,68,69,75,76,79,82,91,100,101,102,113,135,141,142,171,175,180,198,208,210,215,218,221},
+		//	{2,30,33,62,93,104,124,127,128,147,158,160,161,173,181,189,192,199,201,215,223},
+		//	{4,26,29,38,47,58,61,69,78,93,94,112,114,131,136,144,182,193,198,203,206,209},
+		//	{5,13,14,16,17,22,30,32,45,47,49,55,63,64,68,77,82,84,86,92,98,100,104,107,117,119,122,127,134,153,164,179,185,197,201,209,212,213,220,223},
+		//	{2,4,5,6,42,55,75,81,84,93,102,111,112,113,118,129,142,149,159,169,191,193,200,214,223},
+		//	{10,12,15,19,20,24,33,34,40,47,54,64,93,104,115,121,123,124,155,172,189,190,193,196,202,212,219,222},
+		//	{104,108,143},
+		//	{14,15,20,21,31,47,48,59,67,70,74,82,94,102,109,121,125,128,148,162,165,171,180,196,199,202,205,212,214},
+		//	{2,6,17,18,41,50,60,70,118,151,155,158,166,167,172,180,182,186,188,195},
+		//	{1,23,25,30,39,41,42,48,58,65,67,94,100,121,126,135,145,152,163,164,171,174,206,210,220,224},
+		//	{18,25,96,123,172},
+		//	{5,7,9,12,13,19,22,25,34,51,62,64,74,79,81,85,88,101,102,119,123,140,143,149,155,165,166,167,178,182,189,204,213,222,223},
+		//	{1,5,18,21,23,50,54,59,62,67,68,72,87,94,95,96,110,116,118,122,133,135,151,155,156,158,171,178,183,184,192,198,208,212,222,224},
+		//	{18,20,24,34,47,52,56,68,77,82,89,91,97,101,105,106,107,109,118,123,139,141,143,152,153,162,174,180,184,187,188,192,198,202,206,216,224},
+		//	},
+		//}
+		//sources:=[]int{6,15,20,37,85,180}
+		//targets:=[]int{2,12,8,28,112,143}
+		//for i, input := range inputs {
+		//	fmt.Println(question.NumBusesToDestination815_2(
+		//		input,
+		//		sources[i],
+		//		targets[i],
+		//	))
+		//	fmt.Println(question.NumBusesToDestination815_1(
+		//		input,
+		//		sources[i],
+		//		targets[i],
+		//	))
+		//}
+		//input:=[]string{
+		//	"",
+		//	"x+5-3+x=6+x-2",
+		//	"x=x",
+		//	"2x=x",
+		//	"2x+3x-6x=x+2",
+		//	"x=x+2",
+		//	"-12+21x-3-5x=2x-9",
+		//}
+		//for _, s := range input {
+		//	fmt.Println(question.SolveEquation(s))
+		//}
+		//fmt.Println(question.IsPossible([]int{1, 1, 1, 2}))
+		//newmodule.Ouput()
+		//remain := 7
+		//flipped := []int{5, 5}
+		//loc := 6
+		//for i := len(flipped) - 1; i >= 0; i-- {
+		//	loc = loc%remain + flipped[i] + 1
+		//	remain++
+		//}
+		//loc = loc % remain
+		//fmt.Println(loc)
+		//fmt.Println(classify([]string{"cat","act","ns","sn","and","tac","ttac","dna"}))
+		//fmt.Println(question.BrokenCalc(1,1000))
+		//fmt.Println(question.AllCellsDistOrder(100,100,51,42))
+		//fmt.Println(question.MaxSumTwoNoOverlap([]int{2,1,5,6,0,9,5,0,3,8},3,4))
+		//fmt.Println(question.MaxRepOpt1("aaaaa"))
+		//fmt.Println(question.KthLargestValue([][]int{{5,2},{1,6}},1))
+		//fmt.Println(question.KthLargestValue([][]int{{5,2},{1,6}},2))
+		//fmt.Println(question.KthLargestValue([][]int{{5,2},{1,6}},3))
+		//fmt.Println(question.KthLargestValue([][]int{{5,2},{1,6}},4))
+		//fmt.Println(question.KthLargestValue2([][]int{{5,2},{1,6}},1))
+		//fmt.Println(question.KthLargestValue2([][]int{{5,2},{1,6}},2))
+		//fmt.Println(question.KthLargestValue2([][]int{{5,2},{1,6}},3))
+		//fmt.Println(question.KthLargestValue2([][]int{{5,2},{1,6}},4))
+		//fmt.Println(question.LetterCasePermutation("a"))
+		//fmt.Println(2^0)
+		//fmt.Println(question.IsBipartite3([][]int{{1},{0,3},{3},{1,2}}))
+		//fmt.Println(question.IsBipartite3([][]int{{1,2,3},{0,2},{0,1,3},{0,2}}))
+		//fmt.Println(question.IsBipartite3([][]int{{1,3},{0,2},{1,3},{0,2}}))
+		//fmt.Println(question.MinSumOfLengths([]int{3,2,2,4,3},3))
+		//fmt.Println(question.MinSumOfLengths([]int{7,3,4,7},7))
+		//fmt.Println(question.MinSumOfLengths([]int{4,3,2,6,2,3,4},6))
+		//fmt.Println(question.MinSumOfLengths([]int{5,5,4,4,5},3))
+		//fmt.Println(question.MinSumOfLengths([]int{3,1,1,1,5,1,2,1},3))
+		//fmt.Println(question.MinSumOfLengths([]int{1,1,1,2,2,2,4,4},6))
+		//fmt.Println(question.MinSwaps([][]int{{0,0,1},{1,1,0},{1,0,0}}))
+		//fmt.Println(question.MinSwaps([][]int{{0,1,1,0},{0,1,1,0},{0,1,1,0},{0,1,1,0}}))
+		//fmt.Println(question.MinSwaps([][]int{{1,0,0},{1,1,0},{1,1,1}}))
+		//fmt.Println(question.MinSwaps([][]int{{0}})) //0
+		//fmt.Println(question.MinSwaps([][]int{{1,0,0,0,0,0},{0,1,0,1,0,0},{1,0,0,0,0,0},{1,1,1,0,0,0},{1,1,0,1,0,0},{1,0,0,0,0,0}}))
+		//fmt.Println(question.MinSwaps([][]int{{1,0,0,0,0,0},{0,0,0,1,0,0},{0,0,0,1,0,0},{0,1,0,0,0,0},{0,0,1,0,0,0},{0,0,0,0,0,1}}))
+		//fmt.Println(question.IsSelfCrossing([]int{2,1,1,2}))
+		//fmt.Println(question.IsSelfCrossing([]int{1,2,3,4}))
+		//fmt.Println(question.IsSelfCrossing([]int{1,1,1,1}))
+		//fmt.Println(question.IsSelfCrossing([]int{5,5,10,10}))
+		//fmt.Println(question.IsSelfCrossing([]int{5,5,10,10,4}))
+		//fmt.Println(question.IsSelfCrossing([]int{5,5,10,10,4,9}))
+		//fmt.Println(question.IsSelfCrossing([]int{5,5,10,10,4,9,3}))
+		//fmt.Println(question.IsSelfCrossing([]int{5,5,10,10,4,9,3,8}))
+		//fmt.Println(question.IsSelfCrossing([]int{5,5,10,10,4,9,3,8,3}))
+		//fmt.Println(question.IsSelfCrossing([]int{1,1,2,1,1}))
+		//fmt.Println(question.IsSelfCrossing([]int{2,1,4,4,3,2,2,1,1}))
+		//fmt.Println(question.RepeatedStringMatch("abcd","cdabcdab"))
+		//fmt.Println(question.RepeatedStringMatch("a","aa"))
+		//fmt.Println(question.RepeatedStringMatch("a","a"))
+		//fmt.Println(question.RepeatedStringMatch("abc","wxyz"))
+		//fmt.Println(question.RepeatedStringMatch("abc","abd"))
+		//fmt.Println(question.RepeatedStringMatch("abc","cab"))
+		//fmt.Println(question.RepeatedStringMatch("abc","ab"))
+		//fmt.Println(question.RepeatedStringMatch("abc","abca"))
+		//fmt.Println(question.RepeatedStringMatch("abc","bcabc"))
+		//fmt.Println(question.RepeatedStringMatch("abaabaa","abaababaab"))
+		//fmt.Println(question.RepeatedStringMatch("aabaa","aaab"))
+		//fmt.Println()
+		//fmt.Println(question.RepeatedStringMatch2("abcd","cdabcdab"))
+		//fmt.Println(question.RepeatedStringMatch2("a","aa"))
+		//fmt.Println(question.RepeatedStringMatch2("a","a"))
+		//fmt.Println(question.RepeatedStringMatch2("abc","wxyz"))
+		//fmt.Println(question.RepeatedStringMatch2("abc","abd"))
+		//fmt.Println(question.RepeatedStringMatch2("abc","cab"))
+		//fmt.Println(question.RepeatedStringMatch2("abc","ab"))
+		//fmt.Println(question.RepeatedStringMatch2("abc","abca"))
+		//fmt.Println(question.RepeatedStringMatch2("abc","bcabc"))
+		//fmt.Println(question.RepeatedStringMatch2("abaabaa","abaababaab"))
+		//fmt.Println(question.RepeatedStringMatch2("aabaa","aaab"))
+		//fmt.Println(solve([]int{9,9,15,7,10,8,12}))
+		//fmt.Println(solve([]int{10,10,9,8,13}))
+		//fmt.Prntln(question.FlipAndInvertImage([][]int{{1, 1, 0}, {1, 0, 1}, {0, 0, 0}}))
+		//fmt.Println(question.FindMinDifference([]string{"11:59","00:00"}))
+		//fmt.Println(question.FindMinDifference([]string{"12:01","00:00"}))
+		//fmt.Println(question.FindMinDifference([]string{"02:00","00:00","22:01"}))
+		//fmt.Println(question.ShortestPathBinaryMatrix([][]int{
+		//	{0,1},
+		//	{1,0},
+		//}))
+		//fmt.Println(question.ShortestPathBinaryMatrix([][]int{
+		//	{0,0,0},
+		//	{1,1,0},
+		//	{1,1,0},
+		//}))
+		//fmt.Println(question.ShortestPathBinaryMatrix([][]int{
+		//	{1,0,0},
+		//	{1,1,0},
+		//	{1,1,0},
+		//}))
+		//fmt.Println(question.ShortestPathBinaryMatrix([][]int{
+		//	{0,1,0,0,0},
+		//	{0,1,0,1,0},
+		//	{0,1,0,1,0},
+		//	{0,1,0,1,0},
+		//	{0,0,0,1,0},
+		//}))
+		//fmt.Println(question.FallingSquares([][]int{
+		//	{1,2},
+		//	{2,3},
+		//	{6,1},
+		//}))
+		//fmt.Println(question.FallingSquares([][]int{
+		//	{100,100},
+		//	{200,100},
+		//}))
+		//fmt.Println(question.MaxChunksToSorted([]int{0,1,2,3,4}))// 5「0,1,2,3,4」
+		//fmt.Println(question.MaxChunksToSorted([]int{4,3,2,1,0}))// 1「4,4,4,4,4」
+		//fmt.Println(question.MaxChunksToSorted([]int{1,0,2,3,4}))// 4「1,1,2,3,4」
+		//fmt.Println(question.MaxChunksToSorted([]int{0,3,2,1,4}))// 3「0,3,3,3,4」
+		//fmt.Println(question.MaxChunksToSorted([]int{0})) // 1「0」
+		//fmt.Println(question.MaxChunksToSorted([]int{1,2,0,3})) // 2「2,2,2,3」
+		//fmt.Println(question.MaxChunksToSorted([]int{2,0,1})) // 1「1,1,2」
+		//fmt.Println(question.CheckPalindromeFormation("x","y"))
+		//fmt.Println(question.CheckPalindromeFormation("adbef","fecab"))
+		//fmt.Println(question.CheckPalindromeFormation("ulacfd","jizalu"))
+		//fmt.Println(question.CheckPalindromeFormation("xbdef","xecab"))
+		//fmt.Println(question.IsPossibleDivide([]int{1, 2, 3, 3, 4, 4, 5, 6}, 4))
+		//fmt.Println(question.IsPossibleDivide([]int{3, 2, 1, 2, 3, 4, 3, 4, 5, 9, 10, 11}, 3))
+		//fmt.Println(question.IsPossibleDivide([]int{3, 3, 2, 2, 1, 1}, 3))
+		//fmt.Println(question.IsPossibleDivide([]int{1, 2, 3, 4}, 3))
+		//fmt.Println(question.IsPossibleDivide([]int{1, 2, 3, 4, 3, 6}, 3))
+		//fmt.Println(question.IsPossibleDivide([]int{1, 2}, 3))
+		//fmt.Println(question.IsPossibleDivide([]int{1, 1, 2, 2, 3, 3}, 2))
+
+		//fmt.Println(question.NumberToWords(0))
+		//fmt.Println(question.NumberToWords(1))
+		//fmt.Println(question.NumberToWords(10))
+		//fmt.Println(question.NumberToWords(19))
+		//fmt.Println(question.NumberToWords(20))
+		//fmt.Println(question.NumberToWords(21))
+		//fmt.Println(question.NumberToWords(99))
+		//fmt.Println(question.NumberToWords(100))
+		//fmt.Println(question.NumberToWords(101))
+		//fmt.Println(question.NumberToWords(109))
+		//fmt.Println(question.NumberToWords(110))
+		//fmt.Println(question.NumberToWords(111))
+		//fmt.Println(question.NumberToWords(119))
+		//fmt.Println(question.NumberToWords(120))
+		//fmt.Println(question.NumberToWords(121))
+		//fmt.Println(question.NumberToWords(998))
+		//fmt.Println(question.NumberToWords(999))
+		//fmt.Println(question.NumberToWords(1000))
+		//fmt.Println(question.NumberToWords(1001))
+		//fmt.Println(question.NumberToWords(1099))
+		//fmt.Println(question.NumberToWords(1100))
+		//fmt.Println(question.NumberToWords(1101))
+		//fmt.Println(question.NumberToWords(1109))
+		//fmt.Println(question.NumberToWords(1110))
+		//fmt.Println(question.NumberToWords(1111))
+		//fmt.Println(question.NumberToWords(9990))
+		//fmt.Println(question.NumberToWords(9991))
+		//fmt.Println(question.NumberToWords(9999))
+		//fmt.Println(question.NumberToWords(10000))
+		//fmt.Println(question.NumberToWords(10001))
+		//fmt.Println(question.NumberToWords(1000000))
+		//fmt.Println(question.NumberToWords(100000))
+		//fmt.Println(question.NumberToWords(1000000000000))
+		//fmt.Println(question.NumberToWords(10000000000000))
+		//fmt.Println(question.NumberToWords(100000000000000))
+		//fmt.Println(question.NumberToWords(100000000000001))
+		//fmt.Println(question.NumberToWords(100000000100001))
+		//fmt.Println(question.NumberToWords(100001))
+		//fmt.Println()
+		//fmt.Println(question.NumberToWords(123))
+		//fmt.Println(question.NumberToWords(12345))
+		//fmt.Println(question.NumberToWords(1234567))
+		//fmt.Println(question.NumberToWords(1234567891))
+
+		//fmt.Println(question.MinMoves2([]int{1})) //0
+		//fmt.Println(question.MinMoves2([]int{1,2,3})) //2
+		//fmt.Println(question.MinMoves2([]int{1,10,2,9})) // 16
+		//fmt.Println(question.MinMoves2([]int{1,100,2,9})) //106
+
+		//fmt.Println(question.DiffWaysToCompute("2-1-1"))
+		//fmt.Println(question.DiffWaysToCompute("2*3-4*5"))
+		//fmt.Println(question.DiffWaysToCompute("12*32+4-42*5"))
+
+		//	fmt.Println(question.CountOrders(1))
+		//	fmt.Println(question.CountOrders(2))
+		//	fmt.Println(question.CountOrders(3))
+		//	fmt.Println(question.CountOrders(4))
+		//	fmt.Println(question.CountOrders(5))
+
+		//fmt.Println(question.MaximumElementAfterDecrementingAndRearranging([]int{2,2,1,2,1}))
+		//fmt.Println(question.MaximumElementAfterDecrementingAndRearranging([]int{100,1,1000}))
+		//fmt.Println(question.MaximumElementAfterDecrementingAndRearranging([]int{1,2,3,4,5}))
+		//fmt.Println(question.MaximumElementAfterDecrementingAndRearranging([]int{1,2,3,4,7}))
+		//fmt.Println(question.MaximumElementAfterDecrementingAndRearranging([]int{5,5,5,5,5,5,5,5,5}))
+		//fmt.Println(question.MaximumElementAfterDecrementingAndRearranging([]int{209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,10000,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,1,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209}))
+
+		//room:=question.Constructor0855(1000000)
+		//fmt.Println(room.Seat())
+		//room.Leave(0)
+		//fmt.Println(room.Seat())
+		//room.Leave(0)
+		//fmt.Println(room.Seat())
+		//room.Leave(0)
+		//fmt.Println(room.Seat())
+		//room.Leave(0)
+		//fmt.Println(room.Seat())
+		//room.Leave(0)
+		//
+		//fmt.Println()
+		//room=question.Constructor0855(10)
+		//fmt.Println(room.Seat())
+		//fmt.Println(room.Seat())
+		//fmt.Println(room.Seat())
+		//fmt.Println(room.Seat())
+		//room.Leave(4)
+		//fmt.Println(room.Seat())
+		//
+		//fmt.Println()
+		//room=question.Constructor0855(10)
+		//fmt.Println(room.Seat())
+		//fmt.Println(room.Seat())
+		//fmt.Println(room.Seat())
+		//room.Leave(0)
+		//room.Leave(4)
+		//fmt.Println(room.Seat())
+		//fmt.Println(room.Seat())
+		//fmt.Println(room.Seat())
+		//fmt.Println(room.Seat())
+		//fmt.Println(room.Seat())
+		//fmt.Println(room.Seat())
+		//fmt.Println(room.Seat())
+		//fmt.Println(room.Seat())
+		//fmt.Println(room.Seat())
+		//room.Leave(0)
+
+		//fmt.Println(question.NumWays(3,2))
+		//fmt.Println(question.NumWays(2,4))
+		//fmt.Println(question.NumWays(4,2))
+		//fmt.Println(question.NumWays(7,8))
+		//fmt.Println(question.NumWays(27,7))
+
+		//fmt.Println(question.IntToRoman(3))
+		//fmt.Println(question.IntToRoman(4))
+		//fmt.Println(question.IntToRoman(9))
+		//fmt.Println(question.IntToRoman(11))
+		//fmt.Println(question.IntToRoman(58))
+		//fmt.Println(question.IntToRoman(79))
+		//fmt.Println(question.IntToRoman(92))
+		//fmt.Println(question.IntToRoman(193))
+		//fmt.Println(question.IntToRoman(493))
+		//fmt.Println(question.IntToRoman(593))
+		//fmt.Println(question.IntToRoman(893))
+		//fmt.Println(question.IntToRoman(993))
+		//fmt.Println(question.IntToRoman(1093))
+		//fmt.Println(question.IntToRoman(1493))
+		//fmt.Println(question.IntToRoman(1593))
+		//fmt.Println(question.IntToRoman(1693))
+		//fmt.Println(question.IntToRoman(1893))
+		//fmt.Println(question.IntToRoman(1993))
+		//fmt.Println(question.IntToRoman(3994))
+
+		//fmt.Println(question.StoneGame([]int{5,3,4,5}))
+		//fmt.Println(question.StoneGame([]int{4,1,7,3,8,4,7,4,5,10}))
+		//fmt.Println(question.StoneGame([]int{3,7,2,3}))
+
+		//fmt.Println(question.StoneGameII([]int{1,1,1}))
+		//fmt.Println(question.StoneGameII([]int{2,7,9,4,4}))
+		//fmt.Println(question.StoneGameII([]int{1,2,3,4,5,100}))
+
+		//fmt.Println(question.StoneGameIII([]int{1,2,3,6}))
+		//fmt.Println(question.StoneGameIII([]int{1,2,3,-1,-2,-3,7}))
+		//
+		//fmt.Println(question.StoneGameIII([]int{1,2,3,7}))
+		//fmt.Println(question.StoneGameIII([]int{1,2,3,-9}))
+
+		//fmt.Println(question.IsCousins(&question.TreeNode{
+		//	Val:   1,
+		//	Left:  &question.TreeNode{
+		//		Val:   2,
+		//		Left:  &question.TreeNode{
+		//			Val:   4,
+		//			Left:  nil,
+		//			Right: nil,
+		//		},
+		//		Right: nil,
+		//	},
+		//	Right: &question.TreeNode{
+		//		Val:   3,
+		//		Left:  nil,
+		//		Right: nil,
+		//	},
+		//},4,3))
+		//
+		//fmt.Println(question.IsCousins(&question.TreeNode{
+		//	Val:   1,
+		//	Left:  &question.TreeNode{
+		//		Val:   2,
+		//		Left:  nil,
+		//		Right: &question.TreeNode{
+		//			Val:   4,
+		//			Left:  nil,
+		//			Right: nil,
+		//		},
+		//	},
+		//	Right: &question.TreeNode{
+		//		Val:   3,
+		//		Left:  nil,
+		//		Right: nil,
+		//	},
+		//},4,3))
+
+		//fmt.Println(question.WinnerSquareGame(1))
+		//fmt.Println(question.WinnerSquareGame(2))
+		//fmt.Println(question.WinnerSquareGame(3))
+		//fmt.Println(question.WinnerSquareGame(4))
+		//fmt.Println(question.WinnerSquareGame(5))
+		//fmt.Println(question.WinnerSquareGame(6))
+		//fmt.Println(question.WinnerSquareGame(7))
+		//fmt.Println(question.WinnerSquareGame(8))
+
+		//fmt.Println(question.StoneGameV([]int{6,2}))
+		//fmt.Println(question.StoneGameV([]int{6,2,3}))
+		//fmt.Println(question.StoneGameV([]int{6,2,4}))
+		//fmt.Println(question.StoneGameV([]int{6,2,3,4}))
+		//fmt.Println(question.StoneGameV([]int{6,2,3,4,5}))
+		//fmt.Println(question.StoneGameV([]int{6,2,3,4,5,5}))
+		//fmt.Println(question.StoneGameV([]int{7,7,7,7,7,7}))
+		//fmt.Println(question.StoneGameV([]int{4}))
+
+		//fmt.Println(question.CountTriplets([]int{2,3,1,6,7}))
+		//fmt.Println(question.CountTriplets([]int{1,1,1,1,1}))
+		//fmt.Println(question.CountTriplets([]int{2,3}))
+		//fmt.Println(question.CountTriplets([]int{1,3,5,7,9}))
+		//fmt.Println(question.CountTriplets([]int{7,11,12,9,5,2,7,17,22}))
+
+		//	fmt.Println(question.StoneGameVI([]int{1,3},[]int{2,1}))
+		//	fmt.Println(question.StoneGameVI([]int{1,2},[]int{3,1}))
+		//	fmt.Println(question.StoneGameVI([]int{2,4,3},[]int{1,6,7}))
+
+		//fmt.Println(question.StoneGameVII([]int{5,3,1,4,2}))
+		//fmt.Println(question.StoneGameVII([]int{7,90,5,1,100,10,10,2}))
+
+		//fmt.Println(question.TopKFrequent([]string{"i", "love", "leetcode", "i", "love", "coding"},2))
+		//fmt.Println(question.TopKFrequent([]string{"the", "day", "is", "sunny", "the", "the", "the", "sunny", "is", "is"},2))
+		//fmt.Println(question.TopKFrequent([]string{"the", "day", "is", "sunny", "the", "the", "the", "sunny", "is", "is"},4))
+
+		//fmt.Println(question.MaxUncrossedLines([]int{1,4,2},[]int{1,2,4})) //2
+		//fmt.Println(question.MaxUncrossedLines([]int{2,5,1,2,5},[]int{10,5,2,1,5,2})) //3
+		//fmt.Println(question.MaxUncrossedLines([]int{1,3,7,1,7,5},[]int{1,9,2,5,1})) //2
+		//fmt.Println(question.MaxUncrossedLines([]int{1,4,1,2,4},[]int{1,2,4})) //3
+		//fmt.Println(question.MaxUncrossedLines([]int{1,5,2,4,4,1,2,4},[]int{1,2,4,2,4,5,4}))//5
+		//fmt.Println(question.MaxUncrossedLines([]int{1},[]int{1,3})) //1
+
+		//fmt.Println(question.MaximizeXor([]int{0,1,2,3,4},[][]int{{3,1},{1,3},{5,6}}))
+		//fmt.Println(question.MaximizeXor([]int{5,2,4,6,6,3},[][]int{{12,4},{8,1},{6,3}}))
+		//fmt.Println(question.MaximizeXor([]int{536870912,0,534710168,330218644,142254206},[][]int{{558240772,1000000000},{307628050,1000000000},{3319300,1000000000},{2751604,683297522},{214004,404207941}}))
+
+		//fmt.Println(question.StrangePrinter("aaabbb"))
+		//fmt.Println(question.StrangePrinter("aba"))
+		//fmt.Println(question.StrangePrinter("abc"))
+		//fmt.Println(question.StrangePrinter("abcacca"))
+		//fmt.Println(question.StrangePrinter("aaabbdwohdaihoiwqgsagfogwofhiahofwb"))
+
+		//fmt.Println(question.MinChanges([]int{1,2,0,3,0},1)) //3
+		//fmt.Println(question.MinChanges([]int{3,4,5,2,1,7,3,4,7},3)) //3
+		//fmt.Println(question.MinChanges([]int{1,2,4,1,2,5,1,2,6},3)) // 3
+		//fmt.Println(question.MinChanges([]int{1,2,4,1,2,5,1,2,6},4))
+		//fmt.Println(question.MinChanges([]int{1,2,4,1,2,5,1,2,6},5))
+
+		//fmt.Println(question.ReverseParentheses("(abcd)"))
+		//fmt.Println(question.ReverseParentheses("(u(love)i)"))
+		//fmt.Println(question.ReverseParentheses("(ed(et(oc))el)"))
+		//fmt.Println(question.ReverseParentheses("a(bcdefghijkl(mno)p)q"))
+		//fmt.Println(question.ReverseParentheses("a((bcdefghijkl)(mno)p)q"))
+
+		//solution := question.Constructor0710(2, []int{})
+		//fmt.Println(solution.Pick())
+		//fmt.Println(solution.Pick())
+		//fmt.Println(solution.Pick())
+		//
+		//solution = question.Constructor0710(1, []int{})
+		//fmt.Println(solution.Pick())
+		//fmt.Println(solution.Pick())
+		//fmt.Println(solution.Pick())
+		//
+		//solution = question.Constructor0710(3, []int{1})
+		//fmt.Println(solution.Pick())
+		//fmt.Println(solution.Pick())
+		//fmt.Println(solution.Pick())
+		//
+		//solution = question.Constructor0710(4, []int{2})
+		//fmt.Println(solution.Pick())
+		//fmt.Println(solution.Pick())
+		//fmt.Println(solution.Pick())
+		//fmt.Println(solution.Pick())
+		//fmt.Println(solution.Pick())
+
+		//fmt.Println(question.TotalHammingDistance1([]int{4,14,2}))
+		//fmt.Println(question.TotalHammingDistance1([]int{4,14,4}))
+		//fmt.Println(question.TotalHammingDistance1([]int{4,14,4,5}))
+
+		//fmt.Println(question.IsPowerOfTwo(1))
+		//fmt.Println(question.IsPowerOfTwo(2))
+		//fmt.Println(question.IsPowerOfTwo(3))
+		//fmt.Println(question.IsPowerOfTwo(4))
+
+		//fmt.Println(question.DistributeCoins(&question.TreeNode{
+		//	Val:   0,
+		//	Left:  &question.TreeNode{
+		//		Val:   3,
+		//		Left:  nil,
+		//		Right: nil,
+		//	},
+		//	Right: &question.TreeNode{
+		//		Val:   0,
+		//		Left:  nil,
+		//		Right: nil,
+		//	},
+		//}))
+		//fmt.Println(question.DistributeCoins(&question.TreeNode{
+		//	Val:   1,
+		//	Left:  &question.TreeNode{
+		//		Val:   0,
+		//		Left:  nil,
+		//		Right: nil,
+		//	},
+		//	Right: &question.TreeNode{
+		//		Val:   2,
+		//		Left:  nil,
+		//		Right: nil,
+		//	},
+		//}))
+		//fmt.Println(question.DistributeCoins(&question.TreeNode{
+		//	Val:   1,
+		//	Left:  &question.TreeNode{
+		//		Val:   0,
+		//		Left:  nil,
+		//		Right: nil,
+		//	},
+		//	Right: &question.TreeNode{
+		//		Val:   0,
+		//		Left:  nil,
+		//		Right: &question.TreeNode{
+		//			Val:   3,
+		//			Left:  nil,
+		//			Right: nil,
+		//		},
+		//	},
+		//}))
+		//fmt.Println(question.DistributeCoins(&question.TreeNode{
+		//	Val:   0,
+		//	Left:  &question.TreeNode{
+		//		Val:   5,
+		//		Left:  &question.TreeNode{
+		//			Val:   0,
+		//			Left:  nil,
+		//			Right: nil,
+		//		},
+		//		Right: &question.TreeNode{
+		//			Val:   1,
+		//			Left:  nil,
+		//			Right: nil,
+		//		},
+		//	},
+		//	Right: &question.TreeNode{
+		//		Val:   2,
+		//		Left:  &question.TreeNode{
+		//			Val:   0,
+		//			Left:  &question.TreeNode{
+		//				Val:   0,
+		//				Left:  nil,
+		//				Right: nil,
+		//			},
+		//			Right: nil,
+		//		},
+		//		Right: &question.TreeNode{
+		//			Val:   0,
+		//			Left:  nil,
+		//			Right: nil,
+		//		},
+		//	},
+		//}))
+		//fmt.Println(question.IsPowerOfFour(-1)) // F
+		//fmt.Println(question.IsPowerOfFour(0)) // F
+		//fmt.Println(question.IsPowerOfFour(1)) // T
+		//fmt.Println(question.IsPowerOfFour(2)) // F
+		//fmt.Println(question.IsPowerOfFour(3)) // F
+		//fmt.Println(question.IsPowerOfFour(4)) // T
+		//fmt.Println(question.IsPowerOfFour(5)) // F
+		//fmt.Println(question.IsPowerOfFour(8)) // F
+		//fmt.Println(question.IsPowerOfFour(12)) // F
+		//fmt.Println(question.IsPowerOfFour(16)) // T
+
+		//fmt.Println(question.CanEat([]int{7,4,5,3,8},[][]int{{0,2,2},{4,2,4},{2,13,10000}}))
+		//fmt.Println(question.CanEat([]int{5,2,6,4,1},[][]int{{3,1,2},{4,10,3},{3,10,100},{4,100,30},{1,3,1}}))
+
+		//fmt.Println(question.CheckSubarraySum([]int{23,2,4,6,7},6))
+		//fmt.Println(question.CheckSubarraySum([]int{23,2,6,4,7},6))
+		//fmt.Println(question.CheckSubarraySum([]int{23,2,6,4,7},13))
+
+		//fmt.Println(question.FindMaxLength([]int{0,1}))
+		//fmt.Println(question.FindMaxLength([]int{0,1,0}))
+		//fmt.Println(question.FindMaxLength([]int{0,1,0,1}))
+		//fmt.Println(question.FindMaxLength([]int{0,1,0,1,1}))
+		//fmt.Println(question.FindMaxLength([]int{0,1,0,1,1,0}))
+		//fmt.Println(question.FindMaxLength([]int{0,1,0,0,0,1,0,1}))
+		//fmt.Println(question.FindMaxLength([]int{0,0,0,1,1,1,0}))
+
+		//fmt.Println(question.FindMaxForm([]string{"10","0001","111001","1","0"},5,3))
+		//fmt.Println(question.FindMaxForm([]string{"10","0","1"},1,1))
+
+		//fmt.Println(question.FindTargetSumWays([]int{1,1,1,1,1},3))
+		//fmt.Println(question.FindTargetSumWays([]int{1},1))
+		//fmt.Println(question.FindTargetSumWays([]int{0,0,0,0,0,0,0,0,1},1))
+
+		//fmt.Println(question.LastStoneWeightII([]int{2,7,4,1,8,1}))
+		//fmt.Println(question.LastStoneWeightII([]int{31,26,33,21,40}))
+		//fmt.Println(question.LastStoneWeightII([]int{1,2}))
+		//fmt.Println(question.LastStoneWeightII([]int{1,1,4,2,2}))
+
+		//fmt.Println(question.ProfitableSchemes(5, 3, []int{2, 2}, []int{2, 3}))
+		//fmt.Println(question.ProfitableSchemes(10, 5, []int{2, 3, 5}, []int{6, 7, 8}))
+
+		//fmt.Println(question.LargestNumber1449([]int{4, 3, 2, 5, 6, 7, 2, 5, 5}, 9))
+		//fmt.Println(question.LargestNumber1449([]int{7, 6, 5, 5, 5, 6, 8, 7, 8}, 12))
+		//fmt.Println(question.LargestNumber1449([]int{2, 4, 6, 2, 4, 6, 4, 4, 4}, 5))
+		//fmt.Println(question.LargestNumber1449([]int{6, 10, 15, 40, 40, 40, 40, 40, 40}, 47))
+		//fmt.Println(question.LargestNumber1449([]int{1000,30,105,70,42,1000,1000,1000,1000},503))
+
+		//fmt.Println(question.Answer1833([]int{1,3,2,4,1},7))
+		//fmt.Println(question.Answer1833([]int{10,6,8,7,7,8},5))
+		//fmt.Println(question.Answer1833([]int{1,6,3,1,2,5},20))
+
+		//fmt.Println(question.Answer0645([]int{1,2,2,4}))
+		//fmt.Println(question.Answer0645([]int{1,1}))
+
+		//fmt.Println(question.Answer0646([][]int{
+		//	{1,2},{2,3},{3,4},
+		//}))
+		//fmt.Println(question.Answer0646([][]int{
+		//	{1,2},{7,8},{4,5},
+		//}))
+
+		//fmt.Println(question.Answer0726("H2O"))
+		//fmt.Println(question.Answer0726("H2O2"))
+		//fmt.Println(question.Answer0726("Be32"))
+
+		//fmt.Println(question.Answer1418(
+		//	[][]string{
+		//	{"David","3","Ceviche"},
+		//	{"Corina","10","Beef Burrito"},
+		//	{"David","3","Fried Chicken"},
+		//	{"Carla","5","Water"},
+		//	{"Carla","5","Ceviche"},
+		//	{"Rous","3","Ceviche"},
+		//	}))
+		//fmt.Println(question.Answer1418(
+		//	[][]string{
+		//	{"James","12","Fried Chicken"},
+		//	{"Ratesh","12","Fried Chicken"},
+		//	{"Amadeus","12","Fried Chicken"},
+		//	{"Adam","1","Canadian Waffles"},
+		//	{"Brianna","1","Canadian Waffles"},
+		//	}))
+
+		//fmt.Println(question.Answer0930([]int{1,0,1,0,1},2))
+		//fmt.Println(question.Answer0930([]int{0,0,0,0,0},0))
+		//fmt.Println(question.Answer0930([]int{0,0,1,0,0},1))
+
+		//fmt.Println(question.Answer0238([]int{1,2,3,4}))
+		//fmt.Println(question.Answer0238([]int{-1,1,0,-3,3}))
+
+		//fmt.Println(question.Answer0274([]int{3,0,6,1,5}))
+		//fmt.Println(question.Answer0274([]int{1,3,1}))
+
+		//fmt.Println(question.Answer1818([]int{1,7,5},[]int{2,3,5}))
+		//fmt.Println(question.Answer1818([]int{2,4,6,8,10},[]int{2,4,6,8,10}))
+		//fmt.Println(question.Answer1818([]int{1,10,4,4,2,7},[]int{9,3,5,1,7,4}))
+
+		//fmt.Println(question.Answer1846([]int{100,1,1000}))
+		//fmt.Println(question.Answer1846([]int{2,2,1,2,1}))
+		//fmt.Println(question.Answer1846([]int{1,2,3,4,5}))
+
+		//fmt.Println(question.Answer0736("(let x 2 (mult x (let x 3 y 4 (add x y))))"))
+		//fmt.Println(question.Answer0736("(let x 3 x 2 x)"))
+		//fmt.Println(question.Answer0736("(let x 1 y 2 x (add x y) (add x y))"))
+		//fmt.Println(question.Answer0736("(let x 2 (add (let x 3 (let x 4 x)) x))"))
+		//fmt.Println(question.Answer0736("(let a1 3 b2 (add a1 1) b2)"))
+		//fmt.Println(question.Answer0736("(let x -2 y x y)"))
+		//fmt.Println(question.Answer0736("(let x (add 12 -7) (mult x x))"))
+
+		//fmt.Println(question.AnswerMST1002([]string{"eat", "tea", "tan", "ate", "nat", "bat"}))
+		//fmt.Println(question.AnswerMST1002([]string{"hos","boo","nay","deb","wow","bop","bob","brr","hey","rye","eve","elf","pup","bum","iva","lyx","yap","ugh","hem","rod","aha","nam","gap","yea","doc","pen","job","dis","max","oho","jed","lye","ram","pup","qua","ugh","mir","nap","deb","hog","let","gym","bye","lon","aft","eel","sol","jab"}))
+
+		//fmt.Println(question.Answer1838([]int{1,2,4},5))
+		//fmt.Println(question.Answer1838([]int{1,4,8,13},5))
+		//fmt.Println(question.Answer1838([]int{3,9,6},2))
+
+		//fmt.Println(question.Answer1540("input","ouput",9))
+		//fmt.Println(question.Answer1540("abc","bcd",10))
+		//fmt.Println(question.Answer1540("aab","bbb",27))
+		//fmt.Println(question.Answer1540("iqssxdlb","dyuqrwyr",40))
+
+		//fmt.Println(question.Answer1736("2?:?0"))
+		//fmt.Println(question.Answer1736("0?:3?"))
+		//fmt.Println(question.Answer1736("1?:22"))
+
+		//fmt.Println(question.Answer1743([][]int{{2,1},{3,4},{3,2}}))
+		//fmt.Println(question.Answer1743([][]int{{4,-2},{1,4},{-3,1}}))
+		//fmt.Println(question.Answer1743([][]int{{100000,-100000}}))
+		//fmt.Println(question.Answer1743([][]int{{-3,-9},{-5,3},{2,-9},{6,-3},{6,1},{5,3},{8,5},{-5,1},{7,2}}))
+
+		//fmt.Println(question.Answer1104(14))
+		//fmt.Println(question.Answer1104(26))
+		//fmt.Println(question.Answer1104(16))
+		//fmt.Println(question.Answer1104(15))
+
+		//fmt.Println(question.Answer0802([][]int{{1,2},{2,3},{5},{0},{5},{},{}}))
+		//fmt.Println(question.Answer0802([][]int{{1,2,3,4},{1,2},{3,4},{0,4},{}}))
+		//fmt.Println(question.Answer0802([][]int{{},{0,2,3,4},{3},{4},{}}))
+
+		//fmt.Println(question.Answer1137(4))
+		//fmt.Println(question.Answer1137(25))
+
+		//fmt.Println(question.Answer0413([]int{1,2,3,4}))
+		//fmt.Println(question.Answer0413([]int{1,2,3,4,5}))
+		//fmt.Println(question.Answer0413([]int{1,2,3,4,6}))
+		//fmt.Println(question.Answer0413([]int{1,3,5,7,9}))
+
+		//fmt.Println(question.Answer0446([]int{2,4,6,8,10}))
+	}
+	h := &ListNode{
+		Val: 1,
+		Next: &ListNode{
+			Val: 2,
+			Next: &ListNode{
+				Val: 3,
+				Next: &ListNode{
+					Val:  4,
+					Next: nil,
+				},
+			},
+		},
+	}
+	reorderList(h)
+}
+
+type ListNode struct {
+	Val  int
+	Next *ListNode
+}
+
+func reorderList(head *ListNode) {
+	// write code here
+	h1 := &ListNode{
+		Val:  -1,
+		Next: nil,
+	}
+	h2 := &ListNode{
+		Val:  -1,
+		Next: nil,
+	}
+	var n *ListNode
+	n=head
+	length:=0
+	for n!=nil{
+		n=n.Next
+		length++
+	}
+	n=head
+	for i:=0;i<length/2;i++{
+		n=n.Next
+	}
+	p:=n.Next
+	n.Next=nil
+
+	for p != nil {
+		n=p.Next
+		p.Next=h2.Next
+		h2.Next = p
+		p=n
+		if n!=nil{
+			n=n.Next
+		}
+	}
+	t := h1
+	for t != nil {
+		fmt.Printf("%d->", t.Val)
+		t = t.Next
+	}
+	fmt.Println()
+	t = h2
+	for t != nil {
+		fmt.Printf("%d->", t.Val)
+		t = t.Next
+	}
+	fmt.Println()
+	p = head
+	for h2.Next != nil {
+		n = h2.Next
+		h2.Next = n.Next
+		n.Next = p.Next
+		p.Next = n
+		p = n.Next
+	}
+	t = head
+	for t != nil {
+		fmt.Printf("%d->", t.Val)
+		t = t.Next
+	}
+	fmt.Println()
 }
 
 //[["eel"],["aft"],["lon"],["bye"],["gym"],["let"],["hog"],["mir"],["iva"],["brr"],["eve"],["nay"],["sol"],["pup","pup"],["max"],["bum"],["lye"],["gap"],["hey"],["boo"],["aha"],["elf"],["bob"],["hem"],["doc"],["oho"],["wow"],["deb","deb"],["hos"],["rye"],["bop"],["yap"],["ugh","ugh"],["ram"],["rod"],["nam"],["yea"],["nap"],["pen"],["job"],["lyx"],["dis"],["jed"],["jab"],["qua"]]
