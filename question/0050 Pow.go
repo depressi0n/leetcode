@@ -1,13 +1,17 @@
 package question
 
+//实现 pow(x, n) ，即计算 x 的 n 次幂函数（即，x^n）。
+// -100.0 < x < 100.0
+//-2^31 <= n <= 2^31-1
+//-10^4 <= x^n <= 10^4
 func myPow(x float64, n int) float64 {
 	if n > 0 {
-		return pow(x, n)
+		return myPowCore(x, n)
 	}
-	return 1.0 / pow(x, -n)
+	return 1.0 / myPowCore(x, -n)
 
 }
-func pow(x float64, n int) float64 {
+func myPowCore(x float64, n int) float64 {
 	// 指数幂算法
 	res := 1.0
 	t := x
