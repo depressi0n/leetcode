@@ -1,6 +1,9 @@
 package question
 
 func plusOne(digits []int) []int {
+	return plusOneCore(digits)
+}
+func plusOneCore(digits []int) []int {
 	carry := 0
 	digits[len(digits)-1]++
 	if digits[len(digits)-1] >= 10 {
