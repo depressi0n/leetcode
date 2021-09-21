@@ -1,6 +1,15 @@
 package question
 
+import "strconv"
+
+//给你两个二进制字符串，返回它们的和（用二进制表示）。
+//输入为 非空 字符串且只包含数字 1 和 0。
+
 func addBinary(a string, b string) string {
+	return addBinaryCore2(a, b)
+}
+func addBinaryCore1(a string, b string) string {
+
 	var c, d []byte
 	//看哪一个长
 	if len(a) < len(b) {
@@ -49,4 +58,25 @@ func addBinary(a string, b string) string {
 		c = append([]byte{'1'}, c...)
 	}
 	return string(c)
+}
+
+func addBinaryCore2(a string, b string) string {
+	ans := ""
+	carry := 0
+	lengthA, lengthB := len(a), len(b)
+	length := max(lengthA, lengthB)
+	for i:=0;i<length;i++{
+		if i<lengthA{
+			carry+=int(a[lengthA-i-1]-'0')
+		}
+		if i<lengthB{
+			carry+=int(b[lengthB-i-1]-'0')
+		}
+		ans=strconv.Itoa(carry%2)+ans
+		carry/=2
+	}
+	if carry>0{
+		ans="1"+ans
+	}
+	return ans
 }
