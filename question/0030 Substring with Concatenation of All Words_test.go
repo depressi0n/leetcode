@@ -53,7 +53,7 @@ func Test_findSubstring(t *testing.T) {
 				s:     "a",
 				words: []string{"a","a"},
 			},
-			want: []int{8},
+			want: []int{},
 		},
 	}
 	for _, tt := range tests {
