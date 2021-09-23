@@ -1,6 +1,15 @@
 package question
 
+// 给定一个m x n 二维字符网格board 和一个字符串单词word 。如果word 存在于网格中，返回 true ；否则，返回 false 。
+//单词必须按照字母顺序，通过相邻的单元格内的字母构成，其中“相邻”单元格是那些水平相邻或垂直相邻的单元格。同一个单元格内的字母不允许被重复使用。
+
 func exist(board [][]byte, word string) bool {
+	return existCore(board,word)
+}
+
+// 找到起始位置，然后使用深度优先遍历，如果完成则直接返回，失败则找下一个位置
+// 剪枝策略是：如果四周都没有合适的则直接返回而不是往下走
+func existCore(board [][]byte, word string) bool {
 	if word == "" {
 		return true
 	}

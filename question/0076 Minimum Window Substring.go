@@ -1,12 +1,20 @@
 package question
 
-import "math"
+import (
+	"fmt"
+	"math"
+)
 
-//这个方法只适用于t串是无重复的情况
+// 给你一个字符串 s 、一个字符串 t 。返回 s 中涵盖 t 所有字符的最小子串。如果 s 中不存在涵盖 t 所有字符的子串，则返回空字符串 "" 。
+func minWindow(s string, t string) string {
+	return minWindowCore3(s, t)
+}
+
+// 这个方法只适用于t串是无重复的情况
 // 如果要修改和这个方法，以适用于有重复的情况
 // 需要对重复字符进行特殊处理：以后的每次出现都是之前一次出现的indexs去掉最前的一个
 // 这样的话复杂度就上去了
-func minWindow(s string, t string) string {
+func minWindowCore(s string, t string) string {
 	indexs := make([][]int, len(t))
 	for i := 0; i < len(s); i++ {
 		for j := 0; j < len(t); j++ {
@@ -83,7 +91,7 @@ func minWindow(s string, t string) string {
 
 // 上面这个方法本质上就是滑动窗口的思想
 // 用双指针法替代上面的过程
-func minWindow1(s string, t string) string {
+func minWindowCore2(s string, t string) string {
 	left, right, minLen := 0, 0, math.MaxInt32
 	needSet := make(map[byte]int)
 	for i := 0; i < len(t); i++ {
@@ -119,4 +127,64 @@ func minWindow1(s string, t string) string {
 		return ""
 	}
 	return s[start : start+minLen]
+}
+
+// 考虑以下情况：
+// （1）t中字符可能重复
+// （2）复杂度尽可能底，双指针实现
+func minWindowCore3(s string, t string) string {
+	if len(s)<len(t){
+		return ""
+	}
+	start, end := 0, len(t)
+	currentSet := make(map[byte]int)
+	needSet := make(map[byte]int)
+	// 初始化
+	for i := 0; i < len(t); i++ {
+		needSet[t[i]]++
+	}
+	cnt := 0
+	for i := start; i < len(t); i++ {
+		if _, ok := needSet[s[i]]; ok {
+			currentSet[s[i]]++
+			if currentSet[s[i]] == needSet[s[i]] {
+				cnt++
+			}
+		}
+	}
+	minStart, minLen := len(s)+1, len(s)+1
+	if cnt == len(needSet){
+		return s[start:end]
+	}
+	for end < len(s) {
+		if n, ok := needSet[s[end]]; ok {
+			currentSet[s[end]]++
+			if currentSet[s[end]] == n {
+				cnt++
+			}
+		}
+		end++
+		for cnt == len(needSet) {
+			if minLen < len(s) {
+				fmt.Println(s[minStart : minStart+minLen])
+			}
+			if minLen > end-start {
+				minStart, minLen = start, end-start
+			}
+			fmt.Println(s[minStart : minStart+minLen])
+			// 去掉第一个在needSet中元素
+			_, ok := needSet[s[start]]
+			if ok {
+				currentSet[s[start]]--
+				if currentSet[s[start]] == needSet[s[start]]-1 {
+					cnt--
+				}
+			}
+			start++
+		}
+	}
+	if minLen == len(s)+1 {
+		return ""
+	}
+	return s[minStart : minStart+minLen]
 }
