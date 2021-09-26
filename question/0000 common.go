@@ -59,31 +59,31 @@ func nextPermutationUnique(nums []int) []int {
 	return nums
 }
 
-func checkListEqual(l1 *ListNode,l2 *ListNode)bool{
-	if l1==nil && l2==nil{
+func checkListEqual(l1 *ListNode, l2 *ListNode) bool {
+	if l1 == nil && l2 == nil {
 		return true
 	}
-	if l1==nil || l2==nil{
+	if l1 == nil || l2 == nil {
 		return false
 	}
-	p,q:=l1,l2
-	for p!=nil && q!=nil{
-		if p.Val != q.Val{
+	p, q := l1, l2
+	for p != nil && q != nil {
+		if p.Val != q.Val {
 			log.Printf("p=%d,", p.Val)
 			log.Printf("q=%d", q.Val)
 			log.Printf("\n")
 			return false
 		}
-		p=p.Next
-		q=q.Next
+		p = p.Next
+		q = q.Next
 	}
-	if p!=nil ||q!=nil{
+	if p != nil || q != nil {
 		return false
 	}
 	return true
 }
 
-func makeList(arr []int) *ListNode{
+func makeList(arr []int) *ListNode {
 	if len(arr) == 0 {
 		return nil
 	}
@@ -92,4 +92,44 @@ func makeList(arr []int) *ListNode{
 		Next: makeList(arr[1:]),
 	}
 	return head
+}
+
+func makeTree(arr []int, null int) *TreeNode {
+	if len(arr) == 0 {
+		return nil
+	}
+	root := &TreeNode{
+		Val:   arr[0],
+		Left:  nil,
+		Right: nil,
+	}
+	q := make([]*TreeNode, 0, len(arr))
+	q = append(q, root)
+	cur := 0
+	for i := 1; i < len(arr); i += 2 {
+		if arr[i] == null {
+			q[cur].Left = nil
+		} else {
+			q[cur].Left = &TreeNode{
+				Val:   arr[i],
+				Left:  nil,
+				Right: nil,
+			}
+			q = append(q, q[cur].Left)
+		}
+		if i+1 < len(arr) {
+			if arr[i+1] == null {
+				q[cur].Right = nil
+			} else {
+				q[cur].Right = &TreeNode{
+					Val:   arr[i+1],
+					Left:  nil,
+					Right: nil,
+				}
+				q = append(q, q[cur].Right)
+			}
+		}
+		cur++
+	}
+	return root
 }
