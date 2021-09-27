@@ -1,13 +1,11 @@
 package question
 
-import "fmt"
-
 // 给定一个 m x n 的矩阵，如果一个元素为 0 ，则将其所在行和列的所有元素都设为 0 。请使用 原地 算法。
 
 func setZeroes(matrix [][]int) {
-	fmt.Println(matrix)
+	//fmt.Println(matrix)
 	setZeroesCore2(matrix)
-	fmt.Println(matrix)
+	//fmt.Println(matrix)
 }
 
 //第一种方案：利用一个标记矩阵，标记原始矩阵中0的位置，然后遍历修改

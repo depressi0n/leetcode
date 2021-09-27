@@ -1,7 +1,6 @@
 package question
 
 import (
-	"fmt"
 	"math"
 )
 
@@ -165,13 +164,13 @@ func minWindowCore3(s string, t string) string {
 		}
 		end++
 		for cnt == len(needSet) {
-			if minLen < len(s) {
-				fmt.Println(s[minStart : minStart+minLen])
-			}
+			//if minLen < len(s) {
+			//	fmt.Println(s[minStart : minStart+minLen])
+			//}
 			if minLen > end-start {
 				minStart, minLen = start, end-start
 			}
-			fmt.Println(s[minStart : minStart+minLen])
+			//fmt.Println(s[minStart : minStart+minLen])
 			// 去掉第一个在needSet中元素
 			_, ok := needSet[s[start]]
 			if ok {

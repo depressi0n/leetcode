@@ -1,7 +1,6 @@
 package question
 
 import (
-	"fmt"
 	"math/bits"
 )
 
@@ -13,13 +12,13 @@ import (
 
 func solveSudoku(board [][]byte) {
 	solveSudokuCore(board)
-	for t1 := 0; t1 < 9; t1++ {
-		for t2 := 0; t2 < 9; t2++ {
-			fmt.Printf("%c ", board[t1][t2])
-		}
-		fmt.Println()
-	}
-	fmt.Println()
+	//for t1 := 0; t1 < 9; t1++ {
+	//	for t2 := 0; t2 < 9; t2++ {
+	//		fmt.Printf("%c ", board[t1][t2])
+	//	}
+	//	fmt.Println()
+	//}
+	//fmt.Println()
 }
 
 func solveSudokuCore(board [][]byte) {
@@ -39,13 +38,13 @@ func solveSudokuCore(board [][]byte) {
 	var dfs func() bool
 	dfs = func() bool {
 		// 打印进来的情况
-		for t1 := 0; t1 < 9; t1++ {
-			for t2 := 0; t2 < 9; t2++ {
-				fmt.Printf("%c ", board[t1][t2])
-			}
-			fmt.Println()
-		}
-		fmt.Println()
+		//for t1 := 0; t1 < 9; t1++ {
+		//	for t2 := 0; t2 < 9; t2++ {
+		//		fmt.Printf("%c ", board[t1][t2])
+		//	}
+		//	fmt.Println()
+		//}
+		//fmt.Println()
 		// 寻找一个位置，尝试填入
 		x, y := 0, 0
 		for ; x < 9; x++ {
@@ -63,13 +62,13 @@ func solveSudokuCore(board [][]byte) {
 		}
 		if x == 9 && y == 9 {
 			//if check() {
-			for t1 := 0; t1 < 9; t1++ {
-				for t2 := 0; t2 < 9; t2++ {
-					fmt.Printf("%c ", board[t1][t2])
-				}
-				fmt.Println()
-			}
-			fmt.Println()
+			//for t1 := 0; t1 < 9; t1++ {
+			//	for t2 := 0; t2 < 9; t2++ {
+			//		fmt.Printf("%c ", board[t1][t2])
+			//	}
+			//	fmt.Println()
+			//}
+			//fmt.Println()
 			return true
 			//}
 			//return false
