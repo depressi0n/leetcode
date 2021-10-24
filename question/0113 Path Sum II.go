@@ -1,6 +1,10 @@
 package question
 
+// 给你二叉树的根节点 root 和一个整数目标和 targetSum ，找出所有 从根节点到叶子节点 路径总和等于给定目标和的路径。
 func pathSum(root *TreeNode, sum int) [][]int {
+	return pathSumCore(root, sum)
+}
+func pathSumCore(root *TreeNode, sum int) [][]int {
 	if root == nil {
 		return nil
 	}

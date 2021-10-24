@@ -1,11 +1,16 @@
 package question
 
+// 给定一个二叉树，返回其节点值自底向上的层序遍历。
+// 即按从叶子节点所在层到根节点所在的层，逐层从左向右遍历
 func levelOrderBottom(root *TreeNode) [][]int {
+	return levelOrderBottomCore(root)
+}
+func levelOrderBottomCore(root *TreeNode) [][]int {
 	if root == nil {
 		return nil
 	}
-	res := make([][]int, 0)
-	queue := make([]*TreeNode, 1)
+	res := make([][]int, 0, 100)
+	queue := make([]*TreeNode, 1, 100)
 	queue[0] = root
 	cur := 0
 	start, end := 0, 1

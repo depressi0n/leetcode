@@ -12,6 +12,11 @@ type TreeNode struct {
 	Right *TreeNode
 }
 
+type ListNode struct {
+	Val  int
+	Next *ListNode
+}
+
 func max(x, y int) int {
 	if x > y {
 		return x
@@ -477,7 +482,7 @@ func (rt *rangeTree) RangeQueryNonRec(L, R int) int {
 type UnionSet struct {
 	parent []int
 	// 此时rank[i]定义为包含在节点i下的所有元素个数（包括本身）即树的节点数目，初始化时定义为1
-	rank   []int
+	rank []int
 }
 
 func (u *UnionSet) Init(n int) {

@@ -1,27 +1,13 @@
 package question
 
-/**
- * Definition for singly-linked list.
- * type ListNode struct {
- *     Val int
- *     Next *ListNode
- * }
- */
-type ListNode struct {
-	Val  int
-	Next *ListNode
-}
-
-/**
- * Definition for a binary tree node.
- * type TreeNode struct {
- *     Val int
- *     Left *TreeNode
- *     Right *TreeNode
- * }
- */
+// 给定一个单链表，其中的元素按升序排序，将其转换为高度平衡的二叉搜索树。
+//本题中，一个高度平衡二叉树是指一个二叉树每个节点的左右两个子树的高度差的绝对值不超过 1。
 
 func sortedListToBST(head *ListNode) *TreeNode {
+	return sortedListToBSTCore(head)
+}
+// 使用递归的方式去构造
+func sortedListToBSTCore(head *ListNode) *TreeNode {
 	length := 0
 	p := &ListNode{Next: head}
 	for p.Next != nil { //如果head不是nil，长度肯定能正确算出来
@@ -32,24 +18,6 @@ func sortedListToBST(head *ListNode) *TreeNode {
 	generateTreeFromList = func(head *ListNode, length int) *TreeNode {
 		if length == 0 {
 			return nil
-		}
-		if length == 1 {
-			return &TreeNode{
-				Val:   head.Val,
-				Left:  nil,
-				Right: nil,
-			}
-		}
-		if length == 2 {
-			return &TreeNode{
-				Val: head.Next.Val,
-				Left: &TreeNode{
-					Val:   head.Val,
-					Left:  nil,
-					Right: nil,
-				},
-				Right: nil,
-			}
 		}
 		q := head
 		for i := 0; i < length/2; i++ {
