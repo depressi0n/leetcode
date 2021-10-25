@@ -1,26 +1,23 @@
 package question
 
-func getRow(rowIndex int) []int {
-	switch {
-	case rowIndex < 0:
-		return nil
-	case rowIndex == 0:
-		return []int{1}
-	default:
-		res := make([]int, rowIndex+1)
-		//dp[i][j]=dp[i-1][j-1]+dp[i-1][j] 滚动数组
-		res[0] = 1
-		res[1] = 1
-		res[rowIndex] = 1
-		var tmp int
-		for length := 3; length <= rowIndex+1; length++ {
-			tmp = 1
-			for i := 1; i < length-1; i++ {
-				tmp, res[i] = res[i], tmp+res[i]
-			}
-			res[length-1] = 1
-		}
+// 给定一个非负索引 rowIndex，返回「杨辉三角」的第 rowIndex 行。
+//在「杨辉三角」中，每个数是它左上方和右上方的数的和。
 
-		return res
+func getRow(rowIndex int) []int {
+	return getRowCore(rowIndex)
+}
+func getRowCore(rowIndex int) []int {
+	if rowIndex < 0 {
+		return nil
 	}
+	res := make([]int, rowIndex+1)
+	res[0] = 1
+	tmp:=1
+	for i := 1; i <= rowIndex; i++ {
+		for j := 1; j < i; j++ {
+			tmp, res[j] = res[j], res[j]+tmp
+		}
+		res[i] = 1
+	}
+	return res
 }
