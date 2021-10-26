@@ -4,7 +4,7 @@ package question
 //
 //每行中的整数从左到右按升序排列。
 //每行的第一个整数大于前一行的最后一个整数。
-func searchMatrix(matrix [][]int, target int) bool {
+func searchMatrix0074(matrix [][]int, target int) bool {
 	return searchMatrixCore(matrix, target)
 }
 
