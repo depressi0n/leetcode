@@ -2,7 +2,15 @@ package question
 
 import "math"
 
+// 按字典wordList 完成从单词 beginWord 到单词 endWord 转化，一个表示此过程的 转换序列 是形式上像 beginWord -> s1 -> s2 -> ... -> sk 这样的单词序列，并满足：
+//每对相邻的单词之间仅有单个字母不同。
+//转换过程中的每个单词 si（1 <= i <= k）必须是字典wordList 中的单词。注意，beginWord 不必是字典 wordList 中的单词。
+//sk == endWord
+//给你两个单词 beginWord 和 endWord ，以及一个字典 wordList 。请你找出并返回所有从 beginWord 到 endWord 的 最短转换序列 ，如果不存在这样的转换序列，返回一个空列表。每个序列都应该以单词列表 [beginWord, s1, s2, ..., sk] 的形式返回。
 func findLadders(beginWord string, endWord string, wordList []string) [][]string {
+	return findLaddersCore2(beginWord, endWord, wordList)
+}
+func findLaddersCore(beginWord string, endWord string, wordList []string) [][]string {
 	// 肯定是动态规划
 	// 检查
 	end := 0
@@ -107,7 +115,7 @@ func findLadders(beginWord string, endWord string, wordList []string) [][]string
 	}
 }
 
-func findLadders1(beginWord string, endWord string, wordList []string) [][]string {
+func findLaddersCore1(beginWord string, endWord string, wordList []string) [][]string {
 	n := len(wordList)           // n就是wordList里面单词的个数
 	ids := map[string]int{}      // ids就是建立从给定word到它所在wordList slice中的索引的map映射
 	for i, s := range wordList { // 来吧，把ids给建立一起来吧，此处用了O(n)的迭代
@@ -182,4 +190,77 @@ func findLadders1(beginWord string, endWord string, wordList []string) [][]strin
 		}
 	}
 	return ret // 让我们返回结果
+}
+
+// 这么做太麻烦了 -｜｜ -！
+func findLaddersCore2(beginWord string, endWord string, wordList []string) [][]string {
+	// 预处理
+	similar := make(map[string][]int)
+	for i := 0; i < len(wordList); i++ {
+		for j := 0; j < len(wordList[i]); j++ {
+			t := wordList[i][:j] + "*" + wordList[i][j+1:]
+			if _, ok := similar[t]; !ok {
+				similar[t] = []int{}
+			}
+			similar[t] = append(similar[t], i)
+		}
+	}
+	used := make([]bool, len(wordList))
+	wordList = append(wordList, beginWord)
+	// 从beginWord开始
+	q := [][]int{{len(wordList) - 1}}
+	cur, level := 0, 0
+	res := make([][]string, 0, 100)
+	flag := false
+	nextQ := make([]int, 0, len(q[level]))
+	var endIdx int
+	for cur < len(q[level]) {
+		// 遍历下一轮可能的值
+		for j := 0; j < len(wordList[q[level][cur]]); j++ {
+			t := wordList[q[level][cur]][:j] + "*" + wordList[q[level][cur]][j+1:]
+			for _, index := range similar[t] {
+				// 以前使用过的都不能再后面轮次中用到
+				if !used[index] {
+					used[index] = true
+					nextQ = append(nextQ, index)
+					if wordList[index] == endWord {
+						endIdx=index
+						flag = true
+					}
+				}
+			}
+		}
+		cur++
+		if cur == len(q[level]) {
+			if flag {
+				// 说明可以nextQ中出现了EndWord成功，不再继续查看
+				dp := make([]map[int][][]string, level+2)
+				dp[level+1] = map[int][][]string{endIdx: {{endWord}}}
+				for ii := level; ii >= 0; ii-- {
+					dp[ii] = make(map[int][][]string)
+					for jj := 0; jj < len(q[ii]); jj++ {
+						for kk := 0; kk < len(wordList[q[ii][jj]]); kk++ {
+							t := wordList[q[ii][jj]][:kk] + "*" + wordList[q[ii][jj]][kk+1:]
+							for _, id := range similar[t] {
+								if _, ok := dp[ii+1][id]; ok {
+									for pp := 0; pp < len(dp[ii+1][id]); pp++ {
+										dp[ii][q[ii][jj]] = append(dp[ii][q[ii][jj]],append([]string{wordList[q[ii][jj]]}, dp[ii+1][id][pp]...))
+									}
+								}
+							}
+						}
+					}
+				}
+				for _, strings := range dp[0] {
+					res = append(res, strings...)
+				}
+				return res
+			}
+			q = append(q, nextQ)
+			nextQ = make([]int, 0, len(q[level]))
+			level++
+			cur = 0
+		}
+	}
+	return res
 }

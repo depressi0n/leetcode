@@ -12,29 +12,29 @@ func Test_isPalindrome(t *testing.T) {
 		want bool
 	}{
 		{
-			name:"Test1",
+			name: "Test1",
 			args: args{x: 121},
-			want:true,
+			want: true,
 		},
 		{
-			name:"Test2",
+			name: "Test2",
 			args: args{x: -121},
-			want:false,
+			want: false,
 		},
 		{
-			name:"Test3",
+			name: "Test3",
 			args: args{x: 10},
-			want:false,
+			want: false,
 		},
 		{
-			name:"Test4",
+			name: "Test4",
 			args: args{x: -101},
-			want:false,
+			want: false,
 		},
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			if got := isPalindrome(tt.args.x); got != tt.want {
+			if got := isPalindrome0009(tt.args.x); got != tt.want {
 				t.Errorf("isPalindrome() = %v, want %v", got, tt.want)
 			}
 		})

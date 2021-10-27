@@ -3,7 +3,7 @@ package question
 // 题目描述：给你一个整数 x ，如果 x 是一个回文整数，返回 true ；否则，返回 false 。
 //回文数是指正序（从左向右）和倒序（从右向左）读都是一样的整数。例如，121 是回文，而 123 不是。
 
-func isPalindrome(x int) bool {
+func isPalindrome0009(x int) bool {
 	return isPalindromeCore1(x)
 }
 // 反转一半的数字，首先负数和尾数为0的可以直接排除
