@@ -88,7 +88,6 @@ func Test_removeInvalidParentheses(t *testing.T) {
 			for i := 0; i < len(got); i++ {
 				if _,ok:=m[got[i]];!ok{
 					t.Errorf("removeInvalidParentheses() = %v, want %v", got, tt.want)
-
 				}
 			}
 		})

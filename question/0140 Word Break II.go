@@ -7,7 +7,7 @@ import "strings"
 // 分隔时可以重复使用字典中的单词。
 // 你可以假设字典中没有重复的单词。
 func wordBreak0140(s string, wordDict []string) []string {
-	return wordBreak0140Core1(s, wordDict)
+	return wordBreak0140Core3(s, wordDict)
 }
 
 // 核心思想：使用字典树来记录单词，主要处理单词的划分
@@ -47,7 +47,8 @@ func wordBreak0140Core1(s string, wordDict []string) []string {
 	}
 	return res[0]
 }
-func wordBreak140_1(s string, wordDict []string) []string {
+//
+func wordBreak0140Core2(s string, wordDict []string) []string {
 	m := make(map[string]int)
 	for index, word := range wordDict {
 		m[word] = index
@@ -86,8 +87,8 @@ func wordBreak140_1(s string, wordDict []string) []string {
 	return res
 }
 
-// 必须用记忆化搜索，不然对于最坏情况会空间受限而移除
-func wordBreak140_2(s string, wordDict []string) (sentences []string) {
+// 必须用记忆化搜索，不然对于最坏情况会空间受限而溢出
+func wordBreak0140Core3(s string, wordDict []string) (sentences []string) {
 	wordSet := map[string]struct{}{}
 	for _, w := range wordDict {
 		wordSet[w] = struct{}{}

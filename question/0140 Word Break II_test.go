@@ -1,7 +1,6 @@
 package question
 
 import (
-	"reflect"
 	"testing"
 )
 
@@ -49,8 +48,18 @@ func Test_wordBreak0140(t *testing.T) {
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			if got := wordBreak0140(tt.args.s, tt.args.wordDict); !reflect.DeepEqual(got, tt.want) {
+			got := wordBreak0140(tt.args.s, tt.args.wordDict)
+			if len(got)!=len(tt.want){
 				t.Errorf("wordBreak0140() = %v, want %v", got, tt.want)
+			}
+			m:=make(map[string]struct{})
+			for _, s := range tt.want {
+				m[s]= struct{}{}
+			}
+			for _, s := range got {
+				if _,ok:=m[s];!ok{
+					t.Errorf("wordBreak0140() = %v, want %v", got, tt.want)
+				}
 			}
 		})
 	}
