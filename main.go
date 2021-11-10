@@ -1,6 +1,7 @@
 package main
 
 import (
+	"container/heap"
 	"fmt"
 )
 
@@ -1897,7 +1898,7 @@ import (
 //	}
 //	return res
 //}
-func main() {
+func main_test() {
 	{
 		//var b map[byte]interface{}
 		//fmt.Print(findMedianSortedArrays([]int{1,2, 3}, []int{5}))
@@ -3167,26 +3168,26 @@ func reorderList(head *ListNode) {
 		Next: nil,
 	}
 	var n *ListNode
-	n=head
-	length:=0
-	for n!=nil{
-		n=n.Next
+	n = head
+	length := 0
+	for n != nil {
+		n = n.Next
 		length++
 	}
-	n=head
-	for i:=0;i<length/2;i++{
-		n=n.Next
+	n = head
+	for i := 0; i < length/2; i++ {
+		n = n.Next
 	}
-	p:=n.Next
-	n.Next=nil
+	p := n.Next
+	n.Next = nil
 
 	for p != nil {
-		n=p.Next
-		p.Next=h2.Next
+		n = p.Next
+		p.Next = h2.Next
 		h2.Next = p
-		p=n
-		if n!=nil{
-			n=n.Next
+		p = n
+		if n != nil {
+			n = n.Next
 		}
 	}
 	t := h1
@@ -3329,3 +3330,111 @@ func classify(strs []string) [][]string {
 //		curRes = curRes[:len(curRes)-1] //截掉一个
 //	}
 //}
+
+type testNode struct {
+	num int
+	cnt int
+}
+type testList []testNode
+
+func (t testList) Len() int {
+	return len(t)
+}
+
+func (t testList) Less(i, j int) bool {
+	return t[i].cnt > t[j].cnt || (t[i].cnt == t[j].cnt && t[i].num > t[j].num)
+}
+func (t testList) Swap(i, j int) {
+	t[i], t[j] = t[j], t[i]
+}
+
+func (t *testList) Push(x interface{}) {
+	*t = append(*t, x.(testNode))
+}
+
+func (t *testList) Pop() interface{} {
+	old := *t
+	n := len(old)
+	x := old[n-1]
+	*t = old[:n-1]
+	return x
+}
+
+// 给一组数,然后任意取两个不一样值的删除，反复重复以上操作，返回数组元素最小
+func solve_test(arr []int) int {
+	m := make(map[int]int)
+	for i := 0; i < len(arr); i++ {
+		m[arr[i]]++
+	}
+	t := new(testList)
+	for num, cnt := range m {
+		*t = append(*t, testNode{
+			num: num,
+			cnt: cnt,
+		})
+	}
+	heap.Init(t)
+	for len(*t) > 1 {
+		x := heap.Pop(t).(testNode)
+		x.cnt--
+		if x.cnt > 0 {
+			heap.Push(t, x)
+		}
+		y := heap.Pop(t).(testNode)
+		y.cnt--
+		if y.cnt > 0 {
+			heap.Push(t, y)
+		}
+	}
+	if len(*t) == 0 {
+		return 0
+	}
+	return (*t)[0].cnt
+}
+
+// 给定两个数 m,n；m和n的大小最大为120；m表示从1-m中任取数做加法(不可重复取值)；n为target
+func solve_test2(n int, target int) int {
+	min := func(a, b int) int {
+		if a < b {
+			return a
+		}
+		return b
+	}
+	// 目标值检测
+	if target == 0 || target*2 == n*(n+1) {
+		return 1
+	}
+	if target*2 > n*(n+1) {
+		return 0
+	}
+	// dp[i][j] 定义为 从1~i 能组成的和j的个数
+	dp := make([][]int, n+1)
+	// 初始化，咩有dp[0]
+	for i := 1; i < n+1; i++ {
+		dp[i] = make([]int, min(target, i*(i+1)/2)+1)
+		dp[i][0] = 1
+		dp[i][1] = 1
+	}
+	// 转移方程
+	// dp[i][j]=dp[i-1][j] + dp[i-1][j-i]
+	for i := 2; i < n+1; i++ {
+		for j := 2; j < min(target, (i+1)*i/2)+1; j++ {
+			// 选了i dp[i][j] += dp[i-1][j-i]
+			if j >= i {
+				dp[i][j] += dp[i-1][j-i]
+			}
+			// 没选i dp[i][j] += dp[i-1][j]
+			if j <= i*(i-1)/2 {
+				dp[i][j] += dp[i-1][j]
+			}
+		}
+	}
+	return dp[n][target]
+}
+func main() {
+	//fmt.Println(solve_test([]int{1, 2, 3, 1, 2, 3}))
+	//fmt.Println(solve_test([]int{1, 1, 2, 2, 3, 3}))
+	//fmt.Println(solve_test2(6, 8))
+	fmt.Println(solve_test2(10, 3))
+	fmt.Println(solve_test2(3, 3))
+}
