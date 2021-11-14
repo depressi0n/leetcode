@@ -1,12 +1,18 @@
 package question
 
-// 求最大值和最小值
-// 这里是通过滚动数组的思想做了优化
-// 以当前值结尾的最大积需要判断当前值的符号和之前的符号
-// 如果和之前同号，那么最大值和最小值都会保持
-// 而如果出现异号，则最大值和最小值会反转
-// 还有一种就是出现0的时候需要重置最大值和最小值
+// 给你一个整数数组 nums ，请你找出数组中乘积最大的连续子数组（该子数组中至少包含一个数字），并返回该子数组所对应的乘积。
 func maxProduct(nums []int) int {
+	return maxProductCore1(nums)
+}
+
+// 主要思想：动态规划的思想
+// maxF[i]表示以nums[i]结尾的最大乘积，minF[i]表示以nums[i]结尾的最小乘积
+// maxF[i]=max(maxF[i-1]*nums[i],minF[i-1]*nums[i],nums[i])
+// minF[i]=max(maxF[i-1]*nums[i],minF[i-1]*nums[i],nums[i])
+// 最后的结果就是max(maxF[0],...,maxF[len(nums)-1])
+// 根据转移方程，考虑空间优化：通过滚动数组的优化思想，可以使用两个值来代替两个数组
+// 还有一种就是出现0的时候需要重置最大值和最小值
+func maxProductCore1(nums []int) int {
 	maxF, minF, ans := nums[0], nums[0], nums[0]
 	for i := 1; i < len(nums); i++ {
 		mx, mn := maxF, minF
@@ -17,76 +23,63 @@ func maxProduct(nums []int) int {
 	return ans
 }
 
-//TODO：另一条有意思的思路是
+// TODO：另一条有意思的思路是
 // 对出现的0进行分段处理
 // 每段如果出现了偶数个负数，那么肯定不会有影响，全部乘
 // 每段如果出现了奇数个负数，那么最大值肯定出现在偶数个负数之间的结果
-
-// TODO:窗口扩展的思路应该是成立的,但是应该怎么写？下面的写法是错误的
-func maxProduct1(nums []int) int {
-	flag := false
-	res := 0
-	// 跳过前置0
-	start := 0
-	for start < len(nums) {
-		if nums[start] == 0 { //跳过0
-			flag = true
-			start++
-			continue
+// 操作步骤
+// 首先找到所有的0，完成分段
+// 对于每一段，查找负数有多少个，如果负数为偶数个，整段的乘积就是最大的，如果为奇数个，则要去掉第一个奇数以及之前的数或去掉最后一个奇数及之后的数
+func maxProductCore2(nums []int) int {
+	// 假定左右两端均有0的哨兵
+	zeros := make([]int, 0, len(nums))
+	zeros=append(zeros,-1)
+	for i := 0; i < len(nums); i++ {
+		if nums[i] == 0 {
+			zeros = append(zeros, i)
 		}
-		// 保证当前的区间积是正的
-		end := start + 1
-		if end == len(nums) { //说明只有一个值
-			if nums[start] < 0 {
-				if res == 0 && !flag {
-					res = nums[start]
-				}
-			} else {
-				if res < nums[start] {
-					res = nums[start]
-				}
-			}
-			break
-		}
-		for end < len(nums) && nums[end]*nums[start] < 0 {
-			end++
-		}
-		if end == len(nums) { //nums[start:]就nums[start]一个负数
-			tmp := 1
-			for i := start; i < end; i++ {
-				tmp *= nums[i]
-			}
-			if tmp > res {
-				res = tmp
-			}
-			return res
-		}
-		// 扩展
-		// 右侧扩展
-		for end+1 < len(nums) && nums[end+1] > 0 {
-			end++
-		}
-		// 右侧不能扩展的时候，尝试往两侧扩展
-		if start >= 1 && end+1 < len(nums) && nums[start-1]*nums[end+1] > 0 {
-			start--
-			end++
-			for start >= 1 && nums[start-1] > 0 {
-				start--
-			}
-			continue //继续往右边扩展
-		}
-		// 说明无法扩展
-		tmp := 1
-		for i := start; i <= end; i++ {
-			tmp *= nums[i]
-		}
-		if tmp > res {
-			res = tmp
-		}
-		start = end + 1
 	}
-	if flag && res < 0 {
-		return 0
+	zeros=append(zeros,len(nums))
+	res := 0
+	for i := 0; i < len(zeros)-1; i++ {
+		left, right := zeros[i], zeros[i+1]
+		// 统计奇数的个数，并记录第一个奇数和最后一个奇数
+		cnt := 0
+		first, last := -1, -1
+		for j := left + 1; j < right; j++ {
+			if nums[j] < 0 {
+				if first == -1 {
+					first = j
+				}
+				if last == -1 || last < j {
+					last = j
+				}
+				cnt++
+			}
+		}
+		if cnt&1 == 0 {
+			t := 1
+			for j := left + 1; j < right; j++ {
+				t *= nums[j]
+			}
+			res = max(res, t)
+		} else {
+			if left+1<last{
+				t := 1
+				for j := left + 1; j < last; j++ {
+					t *= nums[j]
+				}
+				res = max(res, t)
+			}
+			if first+1<right{
+				t := 1
+				for j := first + 1; j < right; j++ {
+					t *= nums[j]
+				}
+				res = max(res, t)
+			}
+		}
 	}
 	return res
 }
+// TODO:滑动窗口的思想是否能用到这里？

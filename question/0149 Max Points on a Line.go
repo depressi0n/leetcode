@@ -1,101 +1,61 @@
 package question
 
-func maxPoints149_1(points [][]int) int {
-	if len(points) == 0 {
-		return 0
+// 给你一个数组 points ，其中 points[i] = [xi, yi] 表示 X-Y 平面上的一个点。求最多有多少个点在同一条直线上。
+
+func maxPoints0149(points [][]int) int {
+	return maxPoints0149Core(points)
+}
+
+// 主要思想：求出所有的斜率和纵截距，但这里的斜率可能会出现误差，不一定准确！！！
+// 这里对斜率(my/mx)进行处理，首先进行一次约分，然后根据题目给的范围，使用单个32整型变量来表示表示两个整数
+// val=my+(2*10^4+1)*mx
+func maxPoints0149Core(points [][]int) (ans int) {
+	n := len(points)
+	if n <= 2 {
+		return n
 	}
-	// 最简单的方式求出所有的斜率，这样的话时间复杂度是n^2，空间复杂度是也是n^2
-	// 因为这里的点都是整数点，所以可以根据这个特性进行分类处理（斜率作为key，可能会出现平行的情况）
-	// 第一种简单的方法的剪枝策略是，后面的遍历根据当前的最大值来剪枝
-	var max int
-	m := make(map[int]map[float64][]int) //第一层map存放index，第二层map存放slope->index
-	for i := 0; i < len(points); i++ {
-		for j := i + 1; j < len(points); j++ {
-			tmp := float64(points[j][1]-points[i][1]) / float64(points[j][0]-points[i][0])
-			if _, ok := m[i]; !ok {
-				m[i] = make(map[float64][]int)
-			}
-			if _, ok := m[i][tmp]; !ok {
-				m[i][tmp] = make([]int, 0)
-			}
-			m[i][tmp] = append(m[i][tmp], j)
+	for i, p := range points {
+		// （1）当我们枚举到点i时，往后寻找至多能找到n-i个点共线，如果在此之前已经找到的最大值为k
+		// 且k≥n−i，那么此时我们即可停止枚举，因为不可能再找到更大的答案了。
+		// （2）当我们找到一条直线经过了图中超过半数的点时，我们即可以确定该直线即为经过最多点的直线；
+		if ans >= n-i || ans > n/2 {
+			break
 		}
-		if _, ok := m[i][0]; ok { //重复
-			for k, _ := range m[i] {
-				if k != 0 {
-					m[i][k] = append(m[i][k], i)
+		cnt := map[int]int{}
+		for _, q := range points[i+1:] {
+			x, y := p[0]-q[0], p[1]-q[1]
+			if x == 0 {
+				y = 1
+			} else if y == 0 {
+				x = 1
+			} else {
+				if y < 0 {
+					x, y = -x, -y
 				}
+				g := gcd1(abs(x), abs(y))
+				x /= g
+				y /= g
 			}
+			cnt[y+x*20001]++
+		}
+		for _, c := range cnt {
+			ans = max(ans, c+1)
 		}
 	}
-	for _, c := range m {
-		for _, v := range c {
-			if len(v) > max {
-				max = len(v)
-			}
-		}
-	}
-	return max + 1
+	return
 }
 
-//斜率，用最简约分子分母表示，为防止溢出，类型为int64
-type K struct {
-	m int64 //分子
-	n int64 //分母
-}
-
-//对每个点，检查其他点与该点的斜率
-func maxPoints149_2(points [][]int) int {
-	if len(points) < 3 {
-		return len(points)
+func gcd1(a, b int) int {
+	for a != 0 {
+		a, b = b%a, a
 	}
-	res := 0
-	same := K{0, 0}
-
-	for i := 0; i < len(points)-1; i++ {
-		hmap := map[K]int{}
-		temp := 0
-		for j := i + 1; j < len(points); j++ {
-			k := getK(points[i], points[j])
-			hmap[k]++
-			if k != same {
-				temp = max(temp, hmap[k])
-			}
-		}
-		//此时，从i点出发，处于同一直线上的点最多有temp+1个
-		//再加上与i点相同的点的个数hmap[same]即可
-		//更新全局答案res
-		res = max(res, temp+1+hmap[same])
-	}
-	return res
-}
-
-// TODO：用最大公约数解决精度问题！！！
-//根据两点求斜率
-func getK(p1, p2 []int) K {
-	dx := int64(p1[0] - p2[0])
-	dy := int64(p1[1] - p2[1])
-	if dx == 0 && dy == 0 {
-		return K{int64(0), int64(0)}
-	} //p1,p2是同一点
-	if dx == 0 {
-		return K{int64(1), int64(0)}
-	} //p1,p2斜率为无穷
-	if dy == 0 {
-		return K{int64(0), int64(1)}
-	} //p1,p2斜率为0
-	if dx < 0 { //统一设置dx为正
-		dx = -dx
-		dy = -dy
-	}
-	d := gcd(dx, dy)
-	return K{dx / d, dy / d} //返回最简约之比
+	return b
 }
 
 //最大公约数
-func gcd(a, b int64) int64 {
+func gcd2(a, b int64) int64 {
 	if a == 0 {
 		return b
 	}
-	return gcd(b%a, a)
+	return gcd2(b%a, a)
 }

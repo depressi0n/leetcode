@@ -1,7 +1,15 @@
 package question
 
+// 根据 逆波兰表示法，求表达式的值。
+//有效的算符包括 +、-、*、/ 。每个运算对象可以是整数，也可以是另一个逆波兰表达式。
 //逆波兰式求值
 func evalRPN(tokens []string) int {
+	return evalRPNCore(tokens)
+}
+
+// 使用一个栈记录数字，遇到运算符则取出栈顶两个数字，做完运算后，将结果重新入栈
+// 最后返回栈顶元素即可
+func evalRPNCore(tokens []string) int {
 	// 遇到数字直接入栈
 	// 遇到运算符则取出两个数字计算后再入栈即可
 	s := make([]int, 0)
