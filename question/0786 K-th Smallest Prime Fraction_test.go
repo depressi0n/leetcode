@@ -15,7 +15,22 @@ func Test_kthSmallestPrimeFraction(t *testing.T) {
 		args args
 		want []int
 	}{
-		// TODO: Add test cases.
+		{
+			name: "Test1",
+			args: args{
+				arr: []int{1, 2, 3, 5},
+				k:   3,
+			},
+			want:[]int{2,5},
+		},
+		{
+			name: "Test2",
+			args: args{
+				arr: []int{1, 7},
+				k:   1,
+			},
+			want:[]int{1,7},
+		},
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {

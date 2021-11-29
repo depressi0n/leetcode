@@ -15,7 +15,30 @@ func Test_findAnagrams(t *testing.T) {
 		args args
 		want []int
 	}{
-		// TODO: Add test cases.
+		{
+			name: "Test1",
+			args: args{
+				s: "cbaebabacd",
+				p: "abc",
+			},
+			want: []int{0, 6},
+		},
+		{
+			name: "Test2",
+			args: args{
+				s: "abab",
+				p: "ab",
+			},
+			want: []int{0, 1, 2},
+		},
+		{
+			name: "Test2",
+			args: args{
+				s: "abab",
+				p: "aba",
+			},
+			want: []int{0},
+		},
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {

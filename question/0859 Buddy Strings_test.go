@@ -12,9 +12,48 @@ func Test_buddyStrings(t *testing.T) {
 		args args
 		want bool
 	}{
-		// TODO: Add test cases.
+		{
+			name:"Test1",
+			args: args{
+				s:    "ab",
+				goal: "ba",
+			},
+			want:true,
+		},
+		{
+			name:"Test2",
+			args: args{
+				s:    "ab",
+				goal: "ab",
+			},
+			want:false,
+		},
+		{
+			name:"Test3",
+			args: args{
+				s:    "aa",
+				goal: "aa",
+			},
+			want:true,
+		},
+		{
+			name:"Test4",
+			args: args{
+				s:    "aaaaaaabc",
+				goal: "aaaaaaacb",
+			},
+			want:true,
+		},
+		{
+			name:"Test5",
+			args: args{
+				s:    "abac",
+				goal: "abad",
+			},
+			want:false,
+		},
 	}
-	for _, tt := range tests {
+		for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
 			if got := buddyStrings(tt.args.s, tt.args.goal); got != tt.want {
 				t.Errorf("buddyStrings() = %v, want %v", got, tt.want)
